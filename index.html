@@ -2860,7 +2860,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER, EXPANDED_660_QUESTION_LADDER, EXPANDED_720_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_780_QUESTION_LADDER = [
+      [
+        { question: 'Womit isst man gewöhnlich Suppe?', options: ['Löffel', 'Kamm', 'Lineal', 'Schlüssel'], answer: 'Löffel', emoji: '🥄', fact: 'Ein Löffel eignet sich zum Essen flüssiger Speisen wie Suppe.' },
+        { question: 'Was trägt man gewöhnlich an den Füßen?', options: ['Schuhe', 'Handschuhe', 'Mützen', 'Schals'], answer: 'Schuhe', emoji: '👟', fact: 'Schuhe schützen die Füße beim Gehen.' },
+        { question: 'Welche Form hat ein Hühnerei meistens?', options: ['Oval', 'Quadratisch', 'Sternförmig', 'Dreieckig'], answer: 'Oval', emoji: '🥚', fact: 'Ein Hühnerei besitzt gewöhnlich eine ovale Form mit einem breiteren und einem schmaleren Ende.' },
+        { question: 'Was spendet uns tagsüber natürliches Licht?', options: ['Sonne', 'Mond', 'Kerze', 'Taschenlampe'], answer: 'Sonne', emoji: '☀️', fact: 'Das Tageslicht stammt hauptsächlich von der Sonne.' }
+      ],
+      [
+        { question: 'Welches Fahrzeug fährt auf Schienen?', options: ['Zug', 'Fahrrad', 'Segelboot', 'Hubschrauber'], answer: 'Zug', emoji: '🚆', fact: 'Züge rollen mit ihren Rädern auf Schienen.' },
+        { question: 'Wie nennt man die Mahlzeit am Morgen?', options: ['Frühstück', 'Mittagessen', 'Abendessen', 'Nachtisch'], answer: 'Frühstück', emoji: '🍞', fact: 'Das Frühstück ist üblicherweise die erste Mahlzeit des Tages.' },
+        { question: 'Von welchem Tier ist ein Lamm das Jungtier?', options: ['Schaf', 'Pferd', 'Rind', 'Schwein'], answer: 'Schaf', emoji: '🐑', fact: 'Ein junges Schaf wird Lamm genannt.' },
+        { question: 'Wie nennt man gefrorene Niederschlagskörner aus Gewitterwolken?', options: ['Hagel', 'Tau', 'Nebel', 'Reif'], answer: 'Hagel', emoji: '🌨️', fact: 'Hagelkörner entstehen in kräftigen Gewitterwolken aus gefrierendem Wasser.' }
+      ],
+      [
+        { question: 'Wie viel ist sechs mal neun?', options: ['48', '54', '56', '63'], answer: '54', emoji: '✖️', fact: 'Sechs mal neun ergibt 54.' },
+        { question: 'Wie nennt man ein Vieleck mit acht Seiten?', options: ['Achteck', 'Sechseck', 'Siebeneck', 'Neuneck'], answer: 'Achteck', emoji: '🛑', fact: 'Ein Achteck oder Oktagon besitzt acht Seiten.' },
+        { question: 'Welcher Wochentag folgt direkt auf Freitag?', options: ['Samstag', 'Donnerstag', 'Sonntag', 'Montag'], answer: 'Samstag', emoji: '📆', fact: 'In der üblichen Reihenfolge der Wochentage folgt Samstag auf Freitag.' },
+        { question: 'In welcher Himmelsrichtung geht die Sonne ungefähr auf?', options: ['Osten', 'Westen', 'Norden', 'Süden'], answer: 'Osten', emoji: '🌅', fact: 'Durch die Erdrotation erscheint die Sonne morgens am östlichen Horizont.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Maltas?', options: ['Valletta', 'Mdina', 'Sliema', 'Victoria'], answer: 'Valletta', emoji: '🇲🇹', fact: 'Valletta ist die Hauptstadt des Inselstaats Malta.' },
+        { question: 'Für welches Element steht das Symbol „Ti“?', options: ['Titan', 'Thallium', 'Tellur', 'Thorium'], answer: 'Titan', emoji: '🧪', fact: 'Ti ist das chemische Symbol des Elements Titan.' },
+        { question: 'Welche ist die kleinste Primzahl, die größer als 20 ist?', options: ['21', '22', '23', '25'], answer: '23', emoji: '🔢', fact: '23 ist nur durch eins und sich selbst teilbar.' },
+        { question: 'Wie viele Minuten sind zweieinhalb Stunden?', options: ['120', '135', '150', '180'], answer: '150', emoji: '⏱️', fact: 'Zweieinhalb mal 60 Minuten ergeben 150 Minuten.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Tunesiens?', options: ['Tunis', 'Sfax', 'Sousse', 'Kairouan'], answer: 'Tunis', emoji: '🇹🇳', fact: 'Tunis ist die Hauptstadt und größte Stadt Tunesiens.' },
+        { question: 'Für welches Element steht das Symbol „Cr“?', options: ['Chrom', 'Cer', 'Curium', 'Kobalt'], answer: 'Chrom', emoji: '🧪', fact: 'Cr ist das chemische Symbol für Chrom.' },
+        { question: 'Wer schrieb den Roman „Unten am Fluss“?', options: ['Richard Adams', 'Kenneth Grahame', 'T. H. White', 'Roald Dahl'], answer: 'Richard Adams', emoji: '🐇', fact: 'Richard Adams veröffentlichte „Watership Down“, deutsch „Unten am Fluss“, 1972.' },
+        { question: 'Welche positive Zahl löst die Gleichung x² = 144?', options: ['10', '11', '12', '14'], answer: '12', emoji: '🧮', fact: 'Zwölf zum Quadrat ergibt 144.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Botswanas?', options: ['Gaborone', 'Francistown', 'Maun', 'Kasane'], answer: 'Gaborone', emoji: '🇧🇼', fact: 'Gaborone ist die Hauptstadt Botswanas.' },
+        { question: 'Für welches Element steht das Symbol „Sb“?', options: ['Antimon', 'Samarium', 'Selen', 'Silizium'], answer: 'Antimon', emoji: '🧪', fact: 'Das Symbol Sb für Antimon leitet sich vom lateinischen „stibium“ ab.' },
+        { question: 'Wie lang ist die Hypotenuse eines rechtwinkligen Dreiecks mit Kathetenlängen 6 und 8?', options: ['9', '10', '12', '14'], answer: '10', emoji: '📐', fact: 'Nach dem Satz des Pythagoras ist die Hypotenuse die Wurzel aus 6² plus 8², also 10.' },
+        { question: 'Wer schrieb den Fantasyroman „Tintenherz“?', options: ['Cornelia Funke', 'Kerstin Gier', 'Michael Ende', 'Otfried Preußler'], answer: 'Cornelia Funke', emoji: '📚', fact: 'Cornelia Funke veröffentlichte „Tintenherz“ 2003.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Sambias?', options: ['Lusaka', 'Kitwe', 'Ndola', 'Livingstone'], answer: 'Lusaka', emoji: '🇿🇲', fact: 'Lusaka ist die Hauptstadt Sambias.' },
+        { question: 'Welche Ordnungszahl besitzt Selen?', options: ['32', '33', '34', '35'], answer: '34', emoji: '🧪', fact: 'Selen trägt das Elementsymbol Se und die Ordnungszahl 34.' },
+        { question: 'Wer schrieb den Roman „Die Farbe Lila“?', options: ['Alice Walker', 'Toni Morrison', 'Maya Angelou', 'Zora Neale Hurston'], answer: 'Alice Walker', emoji: '📚', fact: 'Alice Walker veröffentlichte „The Color Purple“ 1982.' },
+        { question: 'Wie groß ist die Quadratwurzel von 625?', options: ['15', '20', '25', '35'], answer: '25', emoji: '√', fact: '25 mal 25 ergibt 625.' }
+      ],
+      [
+        { question: 'Wie heißt die Verwaltungshauptstadt Eswatinis?', options: ['Mbabane', 'Lobamba', 'Manzini', 'Matsapha'], answer: 'Mbabane', emoji: '🇸🇿', fact: 'Mbabane ist die Verwaltungshauptstadt; Lobamba ist königlicher und legislativer Sitz.' },
+        { question: 'Wer komponierte die Oper „Einstein on the Beach“?', options: ['Philip Glass', 'Steve Reich', 'John Adams', 'Terry Riley'], answer: 'Philip Glass', emoji: '🎼', fact: 'Philip Glass schuf „Einstein on the Beach“ gemeinsam mit dem Regisseur Robert Wilson.' },
+        { question: 'Welche Größen verknüpft das Hubble-Gesetz?', options: ['Rezessionsgeschwindigkeit einer Galaxie und ihre Entfernung', 'Masse eines Sterns und seine Temperatur', 'Planetenradius und Umlaufzeit', 'Lichtstärke und Wellenlänge'], answer: 'Rezessionsgeschwindigkeit einer Galaxie und ihre Entfernung', emoji: '🔭', fact: 'Das Hubble-Lemaître-Gesetz beschreibt näherungsweise eine proportionale Beziehung zwischen Entfernung und kosmologischer Rezessionsgeschwindigkeit.' },
+        { question: 'Wer schrieb den Roman „Pedro Páramo“?', options: ['Juan Rulfo', 'Carlos Fuentes', 'Octavio Paz', 'Jorge Ibargüengoitia'], answer: 'Juan Rulfo', emoji: '📚', fact: 'Juan Rulfos Roman „Pedro Páramo“ erschien 1955.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Surinames?', options: ['Paramaribo', 'Nieuw Nickerie', 'Cayenne', 'Georgetown'], answer: 'Paramaribo', emoji: '🇸🇷', fact: 'Paramaribo ist die Hauptstadt Surinames.' },
+        { question: 'Welche Funktion wird besonders mit dem Broca-Areal verbunden?', options: ['Sprachproduktion', 'Farbsehen', 'Gleichgewicht', 'Geruchswahrnehmung'], answer: 'Sprachproduktion', emoji: '🧠', fact: 'Das Broca-Areal der dominanten Hirnhälfte ist wesentlich an der Sprachproduktion beteiligt.' },
+        { question: 'Welches Enzym wandelt Angiotensin I in Angiotensin II um?', options: ['ACE', 'Renin', 'Pepsin', 'Thrombin'], answer: 'ACE', emoji: '🧬', fact: 'Das Angiotensin-konvertierende Enzym, kurz ACE, bildet aus Angiotensin I das wirksame Angiotensin II.' },
+        { question: 'Welchen Grenzwert besitzt sin(x) / x für x gegen null?', options: ['0', '1', 'π', 'Unendlich'], answer: '1', emoji: '📈', fact: 'Der fundamentale trigonometrische Grenzwert von sin(x) durch x ist für x gegen null gleich eins.' }
+      ],
+      [
+        { question: 'Welcher Friedensvertrag beendete 1814 den Britisch-Amerikanischen Krieg?', options: ['Friede von Gent', 'Vertrag von Paris', 'Friede von Amiens', 'Vertrag von Oregon'], answer: 'Friede von Gent', emoji: '📜', fact: 'Der Friede von Gent beendete den auch „Krieg von 1812“ genannten Konflikt.' },
+        { question: 'Wer schrieb den Roman „Die Erfindung des Morel“?', options: ['Adolfo Bioy Casares', 'Jorge Luis Borges', 'Ernesto Sabato', 'Julio Cortázar'], answer: 'Adolfo Bioy Casares', emoji: '📚', fact: 'Adolfo Bioy Casares veröffentlichte den phantastischen Roman 1940.' },
+        { question: 'Welche Proteine entstehen vor allem an Ribosomen des rauen endoplasmatischen Retikulums?', options: ['Sekret- und Membranproteine', 'Nur Histone', 'Nur Verdauungsenzyme des Darms', 'Ausschließlich Zytoskelettproteine'], answer: 'Sekret- und Membranproteine', emoji: '🔬', fact: 'Ribosomen am rauen ER synthetisieren insbesondere Proteine für Sekretion, Membranen und das Endomembransystem.' },
+        { question: 'Welche Größen verknüpft das dritte Keplersche Gesetz?', options: ['Umlaufzeit und große Halbachse', 'Masse und Temperatur', 'Dichte und Leuchtkraft', 'Radius und Rotationsachse'], answer: 'Umlaufzeit und große Halbachse', emoji: '🪐', fact: 'Für Bahnen um denselben Zentralkörper ist das Quadrat der Umlaufzeit proportional zur dritten Potenz der großen Halbachse.' }
+      ],
+      [
+        { question: 'Was verbindet der Greensche Satz in der Ebene?', options: ['Ein Kurvenintegral mit einem Doppelintegral', 'Eine Fourierreihe mit einer Primzahl', 'Eine Matrix mit ihrem Eigenwert', 'Eine Ableitung mit einer Laplace-Transformation'], answer: 'Ein Kurvenintegral mit einem Doppelintegral', emoji: '∫', fact: 'Der Greensche Satz setzt die Zirkulation entlang einer geschlossenen Kurve mit einem Flächenintegral über ihr Inneres in Beziehung.' },
+        { question: 'Wer schrieb das staatsphilosophische Werk „Leviathan“?', options: ['Thomas Hobbes', 'John Locke', 'Jean Bodin', 'David Hume'], answer: 'Thomas Hobbes', emoji: '📚', fact: 'Thomas Hobbes veröffentlichte „Leviathan“ 1651.' },
+        { question: 'Welches Zellorganell dient besonders in Muskelzellen als Kalziumspeicher?', options: ['Glattes endoplasmatisches Retikulum', 'Nukleolus', 'Peroxisom', 'Golgi-Apparat'], answer: 'Glattes endoplasmatisches Retikulum', emoji: '🧬', fact: 'Das in Muskelzellen spezialisierte sarkoplasmatische Retikulum speichert Kalziumionen.' },
+        { question: 'Welcher Frieden von 1559 beendete die Italienischen Kriege?', options: ['Friede von Cateau-Cambrésis', 'Friede von Crépy', 'Friede von Cambrai', 'Friede von Vervins'], answer: 'Friede von Cateau-Cambrésis', emoji: '📜', fact: 'Die Verträge von Cateau-Cambrésis beendeten 1559 den jahrzehntelangen Konflikt um Italien.' }
+      ],
+      [
+        { question: 'Wann garantiert der Banachsche Fixpunktsatz einen eindeutigen Fixpunkt?', options: ['Bei einer Kontraktion auf einem vollständigen metrischen Raum', 'Bei jeder Funktion auf einer offenen Menge', 'Nur bei linearen Abbildungen endlicher Ordnung', 'Bei jeder unstetigen Selbstabbildung'], answer: 'Bei einer Kontraktion auf einem vollständigen metrischen Raum', emoji: '♾️', fact: 'Eine Kontraktion eines nichtleeren vollständigen metrischen Raums in sich besitzt genau einen Fixpunkt.' },
+        { question: 'Wer schrieb den Roman „Ferdydurke“?', options: ['Witold Gombrowicz', 'Bruno Schulz', 'Stanisław Lem', 'Czesław Miłosz'], answer: 'Witold Gombrowicz', emoji: '📚', fact: 'Witold Gombrowicz veröffentlichte „Ferdydurke“ 1937.' },
+        { question: 'Welcher Frieden beendete 1763 den Krieg zwischen Preußen, Österreich und Sachsen?', options: ['Friede von Hubertusburg', 'Friede von Paris', 'Friede von Breslau', 'Friede von Teschen'], answer: 'Friede von Hubertusburg', emoji: '📜', fact: 'Der Friede von Hubertusburg beendete 1763 den Dritten Schlesischen Krieg in Mitteleuropa.' },
+        { question: 'Welches Enzym beendet die Signalwirkung von Acetylcholin im synaptischen Spalt?', options: ['Acetylcholinesterase', 'Tyrosinhydroxylase', 'Adenylatcyclase', 'Phospholipase C'], answer: 'Acetylcholinesterase', emoji: '🧬', fact: 'Acetylcholinesterase spaltet Acetylcholin rasch in Cholin und Acetat.' }
+      ],
+      [
+        { question: 'Was besagt der Spektralsatz für selbstadjungierte Operatoren in endlichdimensionalen unitären Räumen?', options: ['Sie besitzen eine Orthonormalbasis aus Eigenvektoren', 'Sie besitzen keine reellen Eigenwerte', 'Sie sind stets nilpotent', 'Sie haben immer Rang eins'], answer: 'Sie besitzen eine Orthonormalbasis aus Eigenvektoren', emoji: '♾️', fact: 'Selbstadjungierte Operatoren lassen sich bezüglich einer Orthonormalbasis diagonal darstellen.' },
+        { question: 'Wer schrieb den Roman „Die Passion nach G.H.“?', options: ['Clarice Lispector', 'Lygia Fagundes Telles', 'Jorge Amado', 'Nélida Piñon'], answer: 'Clarice Lispector', emoji: '📚', fact: 'Clarice Lispectors Roman erschien 1964.' },
+        { question: 'Welcher Vorfrieden beendete 1878 den Russisch-Osmanischen Krieg?', options: ['Friede von San Stefano', 'Berliner Vertrag', 'Friede von Adrianopel', 'Friede von Jassy'], answer: 'Friede von San Stefano', emoji: '📜', fact: 'Der Vorfrieden von San Stefano wurde im März 1878 geschlossen und später durch den Berliner Vertrag revidiert.' },
+        { question: 'Was beschreibt der Casimir-Effekt?', options: ['Eine Kraft durch quantisierte Vakuumfluktuationen zwischen Begrenzungen', 'Den Zerfall eines freien Neutrons', 'Die Ablenkung von Licht an Masse', 'Die Aufspaltung von Spektrallinien im Magnetfeld'], answer: 'Eine Kraft durch quantisierte Vakuumfluktuationen zwischen Begrenzungen', emoji: '⚛️', fact: 'Der Casimir-Effekt zeigt sich klassisch als Kraft zwischen dicht benachbarten ungeladenen leitenden Platten.' }
+      ],
+      [
+        { question: 'Welche Größen verbindet der Satz von Gauß-Bonnet für eine geschlossene Fläche?', options: ['Krümmungsintegral und Eulercharakteristik', 'Volumen und Wärmekapazität', 'Spin und elektrische Ladung', 'Primzahlen und Nullstellen'], answer: 'Krümmungsintegral und Eulercharakteristik', emoji: '♾️', fact: 'Der Satz von Gauß-Bonnet verknüpft die integrierte gaußsche Krümmung mit der Eulercharakteristik der Fläche.' },
+        { question: 'Wer schrieb den monumentalen Roman „Zettels Traum“?', options: ['Arno Schmidt', 'Uwe Johnson', 'Hans Henny Jahnn', 'Wolfgang Koeppen'], answer: 'Arno Schmidt', emoji: '📚', fact: 'Arno Schmidts „Zettels Traum“ erschien 1970.' },
+        { question: 'Welcher Komplex entfernt Introns aus eukaryotischer Prä-mRNA?', options: ['Spliceosom', 'Proteasom', 'Replisom', 'Exosom'], answer: 'Spliceosom', emoji: '🧬', fact: 'Das Spliceosom besteht aus kleinen nukleären Ribonukleoproteinen und weiteren Faktoren.' },
+        { question: 'Welche Großmächte trafen 751 in der Schlacht am Talas aufeinander?', options: ['Abbasidenkalifat und Tang-China', 'Byzanz und Sassanidenreich', 'Römisches Reich und Partherreich', 'Osmanisches Reich und Timuriden'], answer: 'Abbasidenkalifat und Tang-China', emoji: '⚔️', fact: 'Am Talas kämpften 751 Truppen des Abbasidenkalifats und der chinesischen Tang-Dynastie.' }
+      ],
+      [
+        { question: 'Was identifiziert das Yoneda-Lemma vereinfacht?', options: ['Natürliche Transformationen von einem Hom-Funktor mit Elementen eines Funktorwerts', 'Jede Gruppe mit einem topologischen Raum', 'Primideale mit geschlossenen Kurven', 'Tensorprodukte mit Fourierkoeffizienten'], answer: 'Natürliche Transformationen von einem Hom-Funktor mit Elementen eines Funktorwerts', emoji: '♾️', fact: 'Das Yoneda-Lemma besagt insbesondere, dass ein Objekt durch seine Morphismen zu anderen Objekten charakterisiert wird.' },
+        { question: 'Wer schrieb den Roman „Terra Nostra“?', options: ['Carlos Fuentes', 'Alejo Carpentier', 'Augusto Roa Bastos', 'Mario Vargas Llosa'], answer: 'Carlos Fuentes', emoji: '📚', fact: 'Carlos Fuentes veröffentlichte „Terra Nostra“ 1975.' },
+        { question: 'Was ist ein Instanton in der Yang-Mills-Theorie?', options: ['Eine lokalisierte euklidische Lösung mit endlicher Wirkung', 'Ein masseloses Fermion ohne Spin', 'Eine klassische ebene Schallwelle', 'Ein thermisches Gleichgewicht ohne Entropie'], answer: 'Eine lokalisierte euklidische Lösung mit endlicher Wirkung', emoji: '⚛️', fact: 'Instantonen sind nichtperturbative Lösungen euklidischer Feldgleichungen und beschreiben Tunneleffekte zwischen Vakuumsektoren.' },
+        { question: 'Welcher achämenidische König ließ die Behistun-Inschrift anbringen?', options: ['Dareios I.', 'Kyros II.', 'Xerxes I.', 'Artaxerxes III.'], answer: 'Dareios I.', emoji: '📜', fact: 'Dareios I. ließ die mehrsprachige Behistun-Inschrift zur Darstellung und Legitimation seiner Herrschaft anbringen.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER, EXPANDED_660_QUESTION_LADDER, EXPANDED_720_QUESTION_LADDER, EXPANDED_780_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
