@@ -2767,7 +2767,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER, EXPANDED_660_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_720_QUESTION_LADDER = [
+      [
+        { question: 'Was legen Hühner?', options: ['Eier', 'Äpfel', 'Steine', 'Nüsse'], answer: 'Eier', emoji: '🥚', fact: 'Hennen legen Eier, aus denen nach Befruchtung Küken schlüpfen können.' },
+        { question: 'Wo trägt man einen Hut?', options: ['Auf dem Kopf', 'Am Fuß', 'Am Knie', 'Am Ellenbogen'], answer: 'Auf dem Kopf', emoji: '🎩', fact: 'Ein Hut ist eine Kopfbedeckung.' },
+        { question: 'Wie viele Hände hat ein Mensch normalerweise?', options: ['Eine', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '👐', fact: 'Ein Mensch besitzt normalerweise zwei Hände.' },
+        { question: 'Welche Farbe hat eine reife Zitrone meistens?', options: ['Gelb', 'Blau', 'Rosa', 'Schwarz'], answer: 'Gelb', emoji: '🍋', fact: 'Die Schale vieler reifer Zitronen ist gelb.' }
+      ],
+      [
+        { question: 'Wie viele Tage hat der Februar normalerweise?', options: ['27', '28', '29', '30'], answer: '28', emoji: '📅', fact: 'In einem gewöhnlichen Jahr hat der Februar 28 Tage.' },
+        { question: 'Welches Tier besitzt schwarze und weiße Streifen?', options: ['Zebra', 'Giraffe', 'Elefant', 'Nashorn'], answer: 'Zebra', emoji: '🦓', fact: 'Zebras besitzen ein charakteristisches individuelles Streifenmuster.' },
+        { question: 'Womit fegt man gewöhnlich einen Boden?', options: ['Besen', 'Kissen', 'Teller', 'Hammer'], answer: 'Besen', emoji: '🧹', fact: 'Mit einem Besen lassen sich Staub und Schmutz zusammenkehren.' },
+        { question: 'Wie viel ist sieben minus drei?', options: ['Drei', 'Vier', 'Fünf', 'Sechs'], answer: 'Vier', emoji: '➖', fact: 'Sieben minus drei ergibt vier.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Schottlands?', options: ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee'], answer: 'Edinburgh', emoji: '🏴', fact: 'Edinburgh ist die Hauptstadt Schottlands.' },
+        { question: 'Wie viele Stück umfasst ein Dutzend?', options: ['Zehn', 'Zwölf', 'Vierzehn', 'Zwanzig'], answer: 'Zwölf', emoji: '🔢', fact: 'Ein Dutzend bezeichnet eine Menge von zwölf Stück.' },
+        { question: 'Wie nennt man die Larve eines Frosches?', options: ['Kaulquappe', 'Raupe', 'Made', 'Nymphe'], answer: 'Kaulquappe', emoji: '🐸', fact: 'Kaulquappen entwickeln sich durch Metamorphose zu Fröschen.' },
+        { question: 'Welches Tier besitzt typischerweise einen oder zwei Höcker?', options: ['Kamel', 'Zebra', 'Büffel', 'Tapir'], answer: 'Kamel', emoji: '🐫', fact: 'Dromedare besitzen einen, Trampeltiere zwei Höcker.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Ägyptens?', options: ['Kairo', 'Alexandria', 'Luxor', 'Assuan'], answer: 'Kairo', emoji: '🇪🇬', fact: 'Kairo ist die Hauptstadt Ägyptens.' },
+        { question: 'Wer schrieb „Alice im Wunderland“?', options: ['Lewis Carroll', 'J. M. Barrie', 'Kenneth Grahame', 'L. Frank Baum'], answer: 'Lewis Carroll', emoji: '🐇', fact: 'Lewis Carroll veröffentlichte „Alice im Wunderland“ 1865.' },
+        { question: 'Wie viel sind 20 Prozent von 150?', options: ['20', '25', '30', '35'], answer: '30', emoji: '🧮', fact: 'Ein Fünftel von 150 ist 30.' },
+        { question: 'Wie heißt die äußerste feste Schicht der Erde?', options: ['Erdkruste', 'Äußerer Erdkern', 'Innerer Erdkern', 'Unterer Erdmantel'], answer: 'Erdkruste', emoji: '🌍', fact: 'Die Erdkruste bildet die äußerste feste Gesteinsschicht unseres Planeten.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt der Philippinen?', options: ['Manila', 'Cebu', 'Davao', 'Quezon City'], answer: 'Manila', emoji: '🇵🇭', fact: 'Manila ist die Hauptstadt der Philippinen.' },
+        { question: 'Wer malte das Gemälde „Der Kuss“?', options: ['Gustav Klimt', 'Egon Schiele', 'Oskar Kokoschka', 'Alfons Mucha'], answer: 'Gustav Klimt', emoji: '🎨', fact: 'Gustav Klimt malte „Der Kuss“ in seiner goldenen Phase.' },
+        { question: 'Welcher Teil des Auges bündelt Licht auf der Netzhaut?', options: ['Augenlinse', 'Iris', 'Sehnerv', 'Aderhaut'], answer: 'Augenlinse', emoji: '👁️', fact: 'Die verformbare Augenlinse fokussiert Licht auf die Netzhaut.' },
+        { question: 'Wie lautet die Formel für den Umfang eines Kreises mit Radius r?', options: ['2 · π · r', 'π · r²', 'π · r', '4 · r²'], answer: '2 · π · r', emoji: '⭕', fact: 'Der Kreisumfang ist zweimal Pi mal Radius.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Nepals?', options: ['Kathmandu', 'Pokhara', 'Lalitpur', 'Thimphu'], answer: 'Kathmandu', emoji: '🇳🇵', fact: 'Kathmandu ist die Hauptstadt Nepals.' },
+        { question: 'Für welches Element steht das Symbol „Ni“?', options: ['Nickel', 'Stickstoff', 'Niob', 'Neon'], answer: 'Nickel', emoji: '🧪', fact: 'Ni ist das chemische Symbol für Nickel.' },
+        { question: 'Wer komponierte das Ballett „Der Nussknacker“?', options: ['Pjotr Tschaikowski', 'Sergei Prokofjew', 'Igor Strawinsky', 'Aram Chatschaturjan'], answer: 'Pjotr Tschaikowski', emoji: '🩰', fact: 'Tschaikowskis „Nussknacker“ wurde 1892 uraufgeführt.' },
+        { question: 'Wer schrieb „Der Wind in den Weiden“?', options: ['Kenneth Grahame', 'A. A. Milne', 'Beatrix Potter', 'E. Nesbit'], answer: 'Kenneth Grahame', emoji: '📚', fact: 'Kenneth Grahame veröffentlichte das Kinderbuch 1908.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt von Honduras?', options: ['Tegucigalpa', 'San Pedro Sula', 'Managua', 'San Salvador'], answer: 'Tegucigalpa', emoji: '🇭🇳', fact: 'Tegucigalpa ist die Hauptstadt von Honduras.' },
+        { question: 'Wer schrieb den Roman „Ruf der Wildnis“?', options: ['Jack London', 'Mark Twain', 'James Fenimore Cooper', 'Herman Melville'], answer: 'Jack London', emoji: '🐕', fact: 'Jack London veröffentlichte „Ruf der Wildnis“ 1903.' },
+        { question: 'Welches Vitamin ist für die Bildung mehrerer Gerinnungsfaktoren wichtig?', options: ['Vitamin K', 'Vitamin C', 'Vitamin B₁₂', 'Vitamin E'], answer: 'Vitamin K', emoji: '🩸', fact: 'Vitamin K wird für die Aktivierung mehrerer Blutgerinnungsfaktoren benötigt.' },
+        { question: 'Wie groß ist die Quadratwurzel von 4096?', options: ['32', '48', '64', '128'], answer: '64', emoji: '√', fact: '64 mal 64 ergibt 4096.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt der Dominikanischen Republik?', options: ['Santo Domingo', 'Santiago de los Caballeros', 'San Juan', 'Havanna'], answer: 'Santo Domingo', emoji: '🇩🇴', fact: 'Santo Domingo ist die Hauptstadt der Dominikanischen Republik.' },
+        { question: 'Wer komponierte die „Rhapsody in Blue“?', options: ['George Gershwin', 'Leonard Bernstein', 'Aaron Copland', 'Duke Ellington'], answer: 'George Gershwin', emoji: '🎹', fact: 'George Gershwin komponierte „Rhapsody in Blue“ 1924.' },
+        { question: 'Welches Gesetz verknüpft Spannung, Stromstärke und Widerstand?', options: ['Ohmsches Gesetz', 'Hookesches Gesetz', 'Boyle-Mariotte-Gesetz', 'Snelliussches Gesetz'], answer: 'Ohmsches Gesetz', emoji: '⚡', fact: 'Nach dem Ohmschen Gesetz gilt Spannung gleich Widerstand mal Stromstärke.' },
+        { question: 'Wer schrieb den Roman „Rebecca“?', options: ['Daphne du Maurier', 'Agatha Christie', 'Dorothy L. Sayers', 'Patricia Highsmith'], answer: 'Daphne du Maurier', emoji: '📚', fact: 'Daphne du Maurier veröffentlichte „Rebecca“ 1938.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Senegals?', options: ['Dakar', 'Saint-Louis', 'Bamako', 'Banjul'], answer: 'Dakar', emoji: '🇸🇳', fact: 'Dakar ist die Hauptstadt Senegals.' },
+        { question: 'Welche Ordnungszahl besitzt Iod?', options: ['51', '52', '53', '54'], answer: '53', emoji: '🧪', fact: 'Iod trägt das Elementsymbol I und die Ordnungszahl 53.' },
+        { question: 'Wer malte „Christina’s World“?', options: ['Andrew Wyeth', 'Grant Wood', 'Edward Hopper', 'Georgia O’Keeffe'], answer: 'Andrew Wyeth', emoji: '🎨', fact: 'Andrew Wyeth malte „Christina’s World“ 1948.' },
+        { question: 'Welche Struktur im Nierenkörperchen filtriert das Blut?', options: ['Glomerulus', 'Henle-Schleife', 'Sammelrohr', 'Harnleiter'], answer: 'Glomerulus', emoji: '🔬', fact: 'Im Kapillarknäuel des Glomerulus entsteht der Primärharn.' }
+      ],
+      [
+        { question: 'Welcher Vertrag beendete 1848 den Mexikanisch-Amerikanischen Krieg?', options: ['Vertrag von Guadalupe Hidalgo', 'Gadsden-Kauf', 'Vertrag von Adams-Onís', 'Vertrag von Paris'], answer: 'Vertrag von Guadalupe Hidalgo', emoji: '📜', fact: 'Der Vertrag von Guadalupe Hidalgo beendete 1848 den Krieg.' },
+        { question: 'Wer schrieb den Roman „Unter dem Vulkan“?', options: ['Malcolm Lowry', 'Graham Greene', 'Evelyn Waugh', 'Anthony Burgess'], answer: 'Malcolm Lowry', emoji: '📚', fact: 'Malcolm Lowrys Roman erschien 1947.' },
+        { question: 'Welches Molekül gilt als unmittelbarer Energieträger vieler Zellprozesse?', options: ['ATP', 'DNA', 'Cholesterin', 'Harnstoff'], answer: 'ATP', emoji: '🔋', fact: 'Adenosintriphosphat überträgt chemische Energie zwischen Zellprozessen.' },
+        { question: 'Welche Stammfunktion besitzt 1/x für x ungleich null?', options: ['ln|x| + C', 'x² / 2 + C', '1 / x² + C', 'eˣ + C'], answer: 'ln|x| + C', emoji: '∫', fact: 'Die Ableitung von ln|x| ist 1/x.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Omans?', options: ['Maskat', 'Salala', 'Sanaa', 'Doha'], answer: 'Maskat', emoji: '🇴🇲', fact: 'Maskat ist die Hauptstadt Omans.' },
+        { question: 'Wer schrieb das philosophische Werk „Das Sein und das Nichts“?', options: ['Jean-Paul Sartre', 'Albert Camus', 'Maurice Merleau-Ponty', 'Simone de Beauvoir'], answer: 'Jean-Paul Sartre', emoji: '🧠', fact: 'Jean-Paul Sartres Werk erschien 1943.' },
+        { question: 'Welches Zellorganell baut unter anderem sehr langkettige Fettsäuren und Wasserstoffperoxid ab?', options: ['Peroxisom', 'Ribosom', 'Nukleolus', 'Zentriol'], answer: 'Peroxisom', emoji: '🔬', fact: 'Peroxisomen enthalten Oxidasen und Katalase für spezielle Abbauprozesse.' },
+        { question: 'Wie groß ist die Fluchtgeschwindigkeit an der Erdoberfläche ungefähr?', options: ['11,2 km/s', '1,1 km/s', '29,8 km/s', '300 km/s'], answer: '11,2 km/s', emoji: '🚀', fact: 'Ohne Luftwiderstand beträgt die Fluchtgeschwindigkeit der Erde rund 11,2 Kilometer pro Sekunde.' }
+      ],
+      [
+        { question: 'Welche Gleichung beschreibt die zeitliche Entwicklung eines nichtrelativistischen Quantenzustands?', options: ['Schrödingergleichung', 'Diracgleichung', 'Maxwellgleichungen', 'Boltzmann-Gleichung'], answer: 'Schrödingergleichung', emoji: '⚛️', fact: 'Die zeitabhängige Schrödingergleichung bestimmt die Entwicklung der quantenmechanischen Wellenfunktion.' },
+        { question: 'Wer schrieb den Roman „Die Tatarenwüste“?', options: ['Dino Buzzati', 'Italo Calvino', 'Alberto Moravia', 'Cesare Pavese'], answer: 'Dino Buzzati', emoji: '📚', fact: 'Dino Buzzatis Roman „Die Tatarenwüste“ erschien 1940.' },
+        { question: 'Welcher Frieden beendete 1679 den Schonischen Krieg zwischen Dänemark-Norwegen und Schweden?', options: ['Friede von Lund', 'Friede von Roskilde', 'Friede von Brömsebro', 'Friede von Nystad'], answer: 'Friede von Lund', emoji: '📜', fact: 'Der Friede von Lund stellte 1679 weitgehend die Vorkriegsverhältnisse wieder her.' },
+        { question: 'Welches Protein speichert und transportiert Sauerstoff vor allem im Muskelgewebe?', options: ['Myoglobin', 'Keratin', 'Fibrin', 'Albumin'], answer: 'Myoglobin', emoji: '🧬', fact: 'Myoglobin bindet Sauerstoff in Herz- und Skelettmuskelzellen.' }
+      ],
+      [
+        { question: 'Welche Teilmengen des euklidischen Raums sind nach dem Satz von Heine-Borel kompakt?', options: ['Die abgeschlossenen und beschränkten', 'Alle offenen', 'Alle zusammenhängenden', 'Nur die endlichen'], answer: 'Die abgeschlossenen und beschränkten', emoji: '♾️', fact: 'In endlichdimensionalen euklidischen Räumen ist Kompaktheit gleichbedeutend mit Abgeschlossenheit und Beschränktheit.' },
+        { question: 'Wer schrieb den Roman „Der dritte Polizist“?', options: ['Flann O’Brien', 'Samuel Beckett', 'James Joyce', 'Brendan Behan'], answer: 'Flann O’Brien', emoji: '📚', fact: 'Flann O’Briens surrealer Roman wurde 1967 postum veröffentlicht.' },
+        { question: 'Welcher Vertrag beendete 1797 den Ersten Koalitionskrieg zwischen Frankreich und Österreich?', options: ['Friede von Campo Formio', 'Friede von Lunéville', 'Friede von Amiens', 'Friede von Pressburg'], answer: 'Friede von Campo Formio', emoji: '📜', fact: 'Der Friede von Campo Formio wurde im Oktober 1797 geschlossen.' },
+        { question: 'Welche Symmetrie wird im Standardmodell durch den Higgs-Mechanismus spontan gebrochen?', options: ['SU(2)L × U(1)Y', 'SU(3)C', 'Lorentz-Symmetrie', 'Baryonenzahl'], answer: 'SU(2)L × U(1)Y', emoji: '⚛️', fact: 'Der Higgs-Mechanismus bricht die elektroschwache Symmetrie auf die elektromagnetische U(1)-Symmetrie.' }
+      ],
+      [
+        { question: 'Was besagt der Satz von Mordell-Weil über die rationalen Punkte einer abelschen Varietät?', options: ['Sie bilden eine endlich erzeugte abelsche Gruppe', 'Sie sind immer endlich', 'Sie bilden einen kompakten Körper', 'Sie sind stets algebraisch unabhängig'], answer: 'Sie bilden eine endlich erzeugte abelsche Gruppe', emoji: '♾️', fact: 'Der Satz von Mordell-Weil ist ein grundlegendes Endlichkeitsergebnis der arithmetischen Geometrie.' },
+        { question: 'Wer schrieb den Roman „Der Mann, der Donnerstag war“?', options: ['G. K. Chesterton', 'Joseph Conrad', 'H. G. Wells', 'E. M. Forster'], answer: 'G. K. Chesterton', emoji: '📚', fact: 'G. K. Chesterton veröffentlichte den phantastischen Roman 1908.' },
+        { question: 'Welcher Enzymtyp überträgt Ubiquitin unmittelbar auf ausgewählte Zielproteine?', options: ['E3-Ubiquitin-Ligase', 'DNA-Helikase', 'RNA-Primase', 'Telomerase'], answer: 'E3-Ubiquitin-Ligase', emoji: '🧬', fact: 'E3-Ligasen erkennen Zielproteine und vermitteln deren spezifische Ubiquitinierung.' },
+        { question: 'Welche Schlacht von 1704 war ein entscheidender Sieg der Großen Allianz im Spanischen Erbfolgekrieg?', options: ['Schlacht bei Höchstädt', 'Schlacht bei Malplaquet', 'Schlacht bei Ramillies', 'Schlacht bei Denain'], answer: 'Schlacht bei Höchstädt', emoji: '⚔️', fact: 'Der Sieg bei Höchstädt, international Blenheim genannt, beendete die unmittelbare Bedrohung Wiens.' }
+      ],
+      [
+        { question: 'Was verbindet Serres GAGA-Satz im projektiven komplexen Fall?', options: ['Algebraische und analytische Geometrie', 'Topologie und Thermodynamik', 'Kombinatorik und Linguistik', 'Stochastik und Astronomie'], answer: 'Algebraische und analytische Geometrie', emoji: '♾️', fact: 'GAGA stellt für projektive komplexe Varietäten weitreichende Entsprechungen zwischen algebraischen und analytischen Objekten her.' },
+        { question: 'Wer schrieb den Romanzyklus „Die Ästhetik des Widerstands“?', options: ['Peter Weiss', 'Uwe Johnson', 'Wolfgang Koeppen', 'Arno Schmidt'], answer: 'Peter Weiss', emoji: '📚', fact: 'Peter Weiss veröffentlichte den dreibändigen Romanzyklus zwischen 1975 und 1981.' },
+        { question: 'Welche Quantenanomalie erklärt den Zerfall eines neutralen Pions in zwei Photonen?', options: ['Axiale Anomalie', 'Gravitationsanomalie', 'Konforme Anomalie', 'Globale SU(2)-Anomalie'], answer: 'Axiale Anomalie', emoji: '⚛️', fact: 'Die chirale oder axiale Anomalie liefert die beobachtete Zerfallsamplitude von π⁰ zu zwei Photonen.' },
+        { question: 'Welcher oströmische Feldherr eroberte unter Justinian I. große Teile Nordafrikas und Italiens zurück?', options: ['Belisar', 'Narses', 'Aëtius', 'Stilicho'], answer: 'Belisar', emoji: '⚔️', fact: 'Belisar führte Justinians Feldzüge gegen Vandalen und Ostgoten.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER, EXPANDED_660_QUESTION_LADDER, EXPANDED_720_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
