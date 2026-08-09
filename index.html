@@ -1990,8 +1990,103 @@
       ]
     ];
 
-    EXTRA_QUESTION_LADDER.forEach(function (questions, level) {
-      QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
+    const MORE_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Finger hat eine Hand normalerweise?', options: ['Vier', 'Fünf', 'Sechs', 'Zehn'], answer: 'Fünf', emoji: '✋', fact: 'Eine menschliche Hand besitzt normalerweise fünf Finger.' },
+        { question: 'Welche Farbe hat ein klarer Himmel tagsüber meistens?', options: ['Blau', 'Rot', 'Schwarz', 'Orange'], answer: 'Blau', emoji: '🌤️', fact: 'Die Erdatmosphäre streut blaues Licht besonders stark.' },
+        { question: 'Wie nennt man ein junges Haustier der Art Hund?', options: ['Kalb', 'Fohlen', 'Welpe', 'Küken'], answer: 'Welpe', emoji: '🐶', fact: 'Ein junger Hund wird Welpe genannt.' },
+        { question: 'Wie viel ist zwei plus drei?', options: ['Vier', 'Fünf', 'Sechs', 'Sieben'], answer: 'Fünf', emoji: '➕', fact: 'Zwei plus drei ergibt fünf.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt des Vereinigten Königreichs?', options: ['Manchester', 'London', 'Edinburgh', 'Liverpool'], answer: 'London', emoji: '🇬🇧', fact: 'London ist die Hauptstadt des Vereinigten Königreichs.' },
+        { question: 'Wie viele Jahreszeiten unterscheidet man üblicherweise?', options: ['Drei', 'Vier', 'Fünf', 'Sechs'], answer: 'Vier', emoji: '🍂', fact: 'Frühling, Sommer, Herbst und Winter bilden die vier Jahreszeiten.' },
+        { question: 'Welches Getränk liefert eine Kuh?', options: ['Saft', 'Milch', 'Tee', 'Kakao'], answer: 'Milch', emoji: '🐄', fact: 'Kühe sind Säugetiere und geben Milch.' },
+        { question: 'Was ist das Gegenteil von heiß?', options: ['Laut', 'Kalt', 'Hell', 'Trocken'], answer: 'Kalt', emoji: '🥶', fact: 'Kalt bezeichnet eine niedrige Temperatur und ist das Gegenteil von heiß.' }
+      ],
+      [
+        { question: 'Wie nennt man gefrorenes Wasser?', options: ['Dampf', 'Eis', 'Nebel', 'Tau'], answer: 'Eis', emoji: '🧊', fact: 'Wasser wird im festen Aggregatzustand als Eis bezeichnet.' },
+        { question: 'Welches europäische Land erinnert auf der Karte an einen Stiefel?', options: ['Portugal', 'Italien', 'Irland', 'Polen'], answer: 'Italien', emoji: '👢', fact: 'Die italienische Halbinsel besitzt die charakteristische Form eines Stiefels.' },
+        { question: 'Welcher Kontinent ist flächenmäßig der größte?', options: ['Afrika', 'Asien', 'Europa', 'Nordamerika'], answer: 'Asien', emoji: '🌏', fact: 'Asien ist der flächenmäßig größte Kontinent der Erde.' },
+        { question: 'Wer schuf die Bildergeschichte „Max und Moritz“?', options: ['Wilhelm Busch', 'Erich Kästner', 'Heinrich Hoffmann', 'Walter Moers'], answer: 'Wilhelm Busch', emoji: '📖', fact: 'Wilhelm Busch veröffentlichte „Max und Moritz“ 1865.' }
+      ],
+      [
+        { question: 'Welches Gas benötigt der Mensch zum Atmen?', options: ['Sauerstoff', 'Helium', 'Wasserstoff', 'Neon'], answer: 'Sauerstoff', emoji: '🫁', fact: 'Die Zellen des Menschen nutzen Sauerstoff für die Energiegewinnung.' },
+        { question: 'Wie heißt die Hauptstadt Griechenlands?', options: ['Thessaloniki', 'Athen', 'Patras', 'Sparta'], answer: 'Athen', emoji: '🏛️', fact: 'Athen ist die Hauptstadt Griechenlands.' },
+        { question: 'Wie viele Spieler hat eine Fußballmannschaft regulär auf dem Feld?', options: ['Neun', 'Zehn', 'Elf', 'Zwölf'], answer: 'Elf', emoji: '⚽', fact: 'Eine Fußballmannschaft beginnt ein Spiel regulär mit elf Spielern auf dem Feld.' },
+        { question: 'Wie viele Saiten besitzt eine klassische Gitarre?', options: ['Vier', 'Fünf', 'Sechs', 'Acht'], answer: 'Sechs', emoji: '🎸', fact: 'Eine klassische Gitarre ist üblicherweise mit sechs Saiten bespannt.' }
+      ],
+      [
+        { question: 'Wie viel ist sieben mal acht?', options: ['48', '54', '56', '64'], answer: '56', emoji: '✖️', fact: 'Sieben mal acht ergibt 56.' },
+        { question: 'Wer schrieb den Roman „Robinson Crusoe“?', options: ['Daniel Defoe', 'Jonathan Swift', 'Robert Louis Stevenson', 'Herman Melville'], answer: 'Daniel Defoe', emoji: '🏝️', fact: 'Daniel Defoe veröffentlichte „Robinson Crusoe“ 1719.' },
+        { question: 'Auf welchem Kontinent liegt Japan?', options: ['Europa', 'Asien', 'Afrika', 'Australien'], answer: 'Asien', emoji: '🗾', fact: 'Japan ist ein Inselstaat in Ostasien.' },
+        { question: 'Für welches Element steht das Symbol „H“?', options: ['Helium', 'Wasserstoff', 'Hafnium', 'Holmium'], answer: 'Wasserstoff', emoji: '🧪', fact: 'H ist das chemische Symbol für Wasserstoff.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Portugals?', options: ['Porto', 'Lissabon', 'Faro', 'Coimbra'], answer: 'Lissabon', emoji: '🇵🇹', fact: 'Lissabon ist die Hauptstadt Portugals.' },
+        { question: 'Wie viele Kammern besitzt das menschliche Herz?', options: ['Zwei', 'Drei', 'Vier', 'Fünf'], answer: 'Vier', emoji: '❤️', fact: 'Das Herz besitzt zwei Vorhöfe und zwei Herzkammern.' },
+        { question: 'Auf welchem Planeten befindet sich der Große Rote Fleck?', options: ['Mars', 'Jupiter', 'Saturn', 'Neptun'], answer: 'Jupiter', emoji: '🪐', fact: 'Der Große Rote Fleck ist ein gewaltiger Wirbelsturm in Jupiters Atmosphäre.' },
+        { question: 'In welcher Basiseinheit wird eine Länge im SI-System gemessen?', options: ['Meter', 'Liter', 'Gramm', 'Sekunde'], answer: 'Meter', emoji: '📏', fact: 'Der Meter ist die SI-Basiseinheit der Länge.' }
+      ],
+      [
+        { question: 'Wer schrieb den Roman „1984“?', options: ['George Orwell', 'Aldous Huxley', 'Ray Bradbury', 'H. G. Wells'], answer: 'George Orwell', emoji: '📚', fact: 'George Orwells dystopischer Roman erschien 1949.' },
+        { question: 'Welches Land ist flächenmäßig das größte der Erde?', options: ['Kanada', 'China', 'Russland', 'USA'], answer: 'Russland', emoji: '🗺️', fact: 'Russland ist mit Abstand der flächenmäßig größte Staat der Erde.' },
+        { question: 'Welches Element steht an erster Stelle des Periodensystems?', options: ['Helium', 'Wasserstoff', 'Lithium', 'Sauerstoff'], answer: 'Wasserstoff', emoji: '⚛️', fact: 'Wasserstoff besitzt die Ordnungszahl 1.' },
+        { question: 'Wie heißt der direkte Übergang vom festen in den gasförmigen Zustand?', options: ['Kondensation', 'Sublimation', 'Resublimation', 'Verdunstung'], answer: 'Sublimation', emoji: '💨', fact: 'Bei der Sublimation wird die flüssige Phase übersprungen.' }
+      ],
+      [
+        { question: 'Welcher Ozean liegt zwischen Afrika und Australien?', options: ['Atlantischer Ozean', 'Indischer Ozean', 'Pazifischer Ozean', 'Arktischer Ozean'], answer: 'Indischer Ozean', emoji: '🌊', fact: 'Der Indische Ozean erstreckt sich zwischen Afrika, Asien und Australien.' },
+        { question: 'Wer komponierte die sogenannte Mondscheinsonate?', options: ['Ludwig van Beethoven', 'Frédéric Chopin', 'Franz Liszt', 'Robert Schumann'], answer: 'Ludwig van Beethoven', emoji: '🎹', fact: 'Beethovens Klaviersonate Nr. 14 wird häufig Mondscheinsonate genannt.' },
+        { question: 'Wie heißt der griechische Gott des Meeres?', options: ['Ares', 'Poseidon', 'Hermes', 'Apollon'], answer: 'Poseidon', emoji: '🔱', fact: 'Poseidon ist in der griechischen Mythologie der Gott des Meeres.' },
+        { question: 'Wer stiftete die nach ihm benannten Nobelpreise?', options: ['Alfred Nobel', 'Niels Bohr', 'Robert Nobel', 'Anders Celsius'], answer: 'Alfred Nobel', emoji: '🏅', fact: 'Alfred Nobel legte in seinem Testament die Stiftung der Preise fest.' }
+      ],
+      [
+        { question: 'Welche Ordnungszahl besitzt Sauerstoff?', options: ['6', '7', '8', '16'], answer: '8', emoji: '🧪', fact: 'Sauerstoff besitzt acht Protonen und damit die Ordnungszahl 8.' },
+        { question: 'In welchem Jahr wurden die Römischen Verträge unterzeichnet?', options: ['1949', '1951', '1957', '1963'], answer: '1957', emoji: '🇪🇺', fact: 'Die Römischen Verträge wurden am 25. März 1957 unterzeichnet.' },
+        { question: 'Wie heißt die Hauptstadt Argentiniens?', options: ['Córdoba', 'Buenos Aires', 'Rosario', 'Mendoza'], answer: 'Buenos Aires', emoji: '🇦🇷', fact: 'Buenos Aires ist die Hauptstadt Argentiniens.' },
+        { question: 'Wer schrieb den Roman „Der Process“?', options: ['Franz Kafka', 'Robert Musil', 'Alfred Döblin', 'Hermann Broch'], answer: 'Franz Kafka', emoji: '⚖️', fact: 'Kafkas unvollendeter Roman wurde 1925 postum veröffentlicht.' }
+      ],
+      [
+        { question: 'Welches Organ produziert die Gallenflüssigkeit?', options: ['Gallenblase', 'Leber', 'Bauchspeicheldrüse', 'Milz'], answer: 'Leber', emoji: '🩺', fact: 'Die Leber produziert Galle; die Gallenblase speichert und konzentriert sie.' },
+        { question: 'In welchem Jahr erreichte Kolumbus erstmals die Karibik?', options: ['1453', '1492', '1517', '1522'], answer: '1492', emoji: '⛵', fact: 'Christoph Kolumbus erreichte im Oktober 1492 Inseln der Karibik.' },
+        { question: 'Für welches Element steht das Symbol „Na“?', options: ['Natrium', 'Neon', 'Nickel', 'Stickstoff'], answer: 'Natrium', emoji: '🧪', fact: 'Na leitet sich vom lateinischen Namen „natrium“ ab.' },
+        { question: 'Wer malte das Gemälde „Guernica“?', options: ['Pablo Picasso', 'Joan Miró', 'Salvador Dalí', 'Juan Gris'], answer: 'Pablo Picasso', emoji: '🖼️', fact: 'Pablo Picasso malte „Guernica“ 1937 als Reaktion auf die Bombardierung der Stadt.' }
+      ],
+      [
+        { question: 'Wer formulierte die Gesetze der Planetenbewegung?', options: ['Johannes Kepler', 'Tycho Brahe', 'Galileo Galilei', 'Nikolaus Kopernikus'], answer: 'Johannes Kepler', emoji: '🔭', fact: 'Johannes Kepler leitete drei Gesetze der Planetenbewegung aus Beobachtungsdaten ab.' },
+        { question: 'Welches ist das längste Gebirge an Land?', options: ['Himalaya', 'Rocky Mountains', 'Anden', 'Alpen'], answer: 'Anden', emoji: '🏔️', fact: 'Die Anden ziehen sich über etwa 7.000 Kilometer entlang Südamerikas.' },
+        { question: 'In welcher Einheit wird elektrische Ladung gemessen?', options: ['Coulomb', 'Ampere', 'Ohm', 'Farad'], answer: 'Coulomb', emoji: '⚡', fact: 'Das Coulomb ist die SI-Einheit der elektrischen Ladung.' },
+        { question: 'Welcher Grundsatz wurde mit dem Augsburger Religionsfrieden verbunden?', options: ['Cuius regio, eius religio', 'Pacta sunt servanda', 'Habeas corpus', 'Divide et impera'], answer: 'Cuius regio, eius religio', emoji: '📜', fact: 'Der Landesherr bestimmte im Grundsatz die Konfession seines Territoriums.' }
+      ],
+      [
+        { question: 'Wer entdeckte 1932 das Neutron?', options: ['James Chadwick', 'Ernest Rutherford', 'J. J. Thomson', 'Enrico Fermi'], answer: 'James Chadwick', emoji: '⚛️', fact: 'James Chadwick wies 1932 das elektrisch neutrale Neutron nach.' },
+        { question: 'Wer schrieb „Die Brüder Karamasow“?', options: ['Fjodor Dostojewski', 'Leo Tolstoi', 'Iwan Turgenew', 'Nikolai Gogol'], answer: 'Fjodor Dostojewski', emoji: '📚', fact: 'Dostojewskis letzter Roman erschien 1880.' },
+        { question: 'Wie heißt die Hauptstadt Äthiopiens?', options: ['Addis Abeba', 'Asmara', 'Khartum', 'Nairobi'], answer: 'Addis Abeba', emoji: '🏙️', fact: 'Addis Abeba ist die Hauptstadt Äthiopiens und Sitz der Afrikanischen Union.' },
+        { question: 'Welche Säure ist ein Hauptbestandteil der Magensäure?', options: ['Salzsäure', 'Schwefelsäure', 'Essigsäure', 'Salpetersäure'], answer: 'Salzsäure', emoji: '🧪', fact: 'Magensäure enthält vor allem verdünnte Salzsäure.' }
+      ],
+      [
+        { question: 'Welches Symbol wird für das Plancksche Wirkungsquantum verwendet?', options: ['h', 'G', 'c', 'k'], answer: 'h', emoji: '⚛️', fact: 'Das Plancksche Wirkungsquantum wird üblicherweise mit h bezeichnet.' },
+        { question: 'Welche drei Schriftsysteme enthält der Stein von Rosette?', options: ['Hieroglyphen, Demotisch und Griechisch', 'Latein, Griechisch und Hebräisch', 'Keilschrift, Persisch und Griechisch', 'Hieratisch, Arabisch und Latein'], answer: 'Hieroglyphen, Demotisch und Griechisch', emoji: '🗿', fact: 'Der Stein trägt denselben Text in Hieroglyphen, demotischer Schrift und Altgriechisch.' },
+        { question: 'Wer war der erste Mensch im Weltraum?', options: ['Juri Gagarin', 'Alan Shepard', 'John Glenn', 'Alexei Leonow'], answer: 'Juri Gagarin', emoji: '🚀', fact: 'Juri Gagarin umkreiste am 12. April 1961 die Erde.' },
+        { question: 'Wer gründete 1919 das Bauhaus in Weimar?', options: ['Walter Gropius', 'Ludwig Mies van der Rohe', 'Paul Klee', 'Wassily Kandinsky'], answer: 'Walter Gropius', emoji: '🏗️', fact: 'Walter Gropius gründete das Staatliche Bauhaus 1919.' }
+      ],
+      [
+        { question: 'Welcher Enzymkomplex bildet ATP mithilfe eines Protonengradienten?', options: ['ATP-Synthase', 'DNA-Polymerase', 'Rubisco', 'Peptidase'], answer: 'ATP-Synthase', emoji: '🧬', fact: 'Die ATP-Synthase koppelt einen Protonenfluss an die Bildung von ATP.' },
+        { question: 'Welcher Kaiser erließ 1713 die Pragmatische Sanktion?', options: ['Karl VI.', 'Leopold I.', 'Joseph II.', 'Franz I.'], answer: 'Karl VI.', emoji: '👑', fact: 'Karl VI. regelte damit die unteilbare Erbfolge in den habsburgischen Ländern.' },
+        { question: 'Wie heißt die SI-Einheit der katalytischen Aktivität?', options: ['Katal', 'Becquerel', 'Siemens', 'Henry'], answer: 'Katal', emoji: '🧪', fact: 'Ein Katal entspricht der Umsetzung eines Mols pro Sekunde.' },
+        { question: 'Welchen Planeten umkreist der vulkanisch aktive Mond Io?', options: ['Jupiter', 'Saturn', 'Uranus', 'Neptun'], answer: 'Jupiter', emoji: '🌋', fact: 'Io ist einer der vier großen Galileischen Monde des Jupiter.' }
+      ],
+      [
+        { question: 'Wer gilt als Begründer der modernen Mengenlehre?', options: ['Georg Cantor', 'David Hilbert', 'Bernhard Riemann', 'Henri Poincaré'], answer: 'Georg Cantor', emoji: '∞️', fact: 'Georg Cantor entwickelte im 19. Jahrhundert die Grundlagen der Mengenlehre.' },
+        { question: 'Wofür steht die Chandrasekhar-Grenze?', options: ['Maximalmasse eines stabilen Weißen Zwergs', 'Mindestmasse eines Neutronensterns', 'Radius eines Schwarzen Lochs', 'Leuchtkraft einer Supernova'], answer: 'Maximalmasse eines stabilen Weißen Zwergs', emoji: '⭐', fact: 'Oberhalb von ungefähr 1,4 Sonnenmassen kann ein Weißer Zwerg nicht stabil bleiben.' },
+        { question: 'Welcher Frieden von 1714 ergänzte den Frieden von Utrecht?', options: ['Friede von Rastatt', 'Friede von Hubertusburg', 'Friede von Aachen', 'Friede von Pressburg'], answer: 'Friede von Rastatt', emoji: '📜', fact: 'Der Friede von Rastatt beendete 1714 den Krieg zwischen Frankreich und dem Kaiser.' },
+        { question: 'Welche Gleichungen folgen aus dem Prinzip der stationären Wirkung?', options: ['Euler-Lagrange-Gleichungen', 'Maxwell-Gleichungen', 'Navier-Stokes-Gleichungen', 'Cauchy-Riemann-Gleichungen'], answer: 'Euler-Lagrange-Gleichungen', emoji: '📐', fact: 'Die Variation der Wirkung führt auf die Euler-Lagrange-Gleichungen.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER].forEach(function (ladder) {
+      ladder.forEach(function (questions, level) {
+        QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
+      });
     });
 
     const MONEY = [
@@ -2730,21 +2825,25 @@
       document.body.classList.remove('timeDanger');
     }
 
+    function shuffleArray(items) {
+      const shuffled = items.slice();
+
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const current = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = current;
+      }
+
+      return shuffled;
+    }
+
     function buildQuestionPool(difficultyKey) {
       const config = DIFFICULTIES[difficultyKey];
       const tierCount = config.lastTier - config.firstTier + 1;
       const tierUse = {};
       const shuffledTiers = QUESTION_LADDER.map(function (tier) {
-        return tier
-          .map(function (question) {
-            return { question: question, sort: Math.random() };
-          })
-          .sort(function (a, b) {
-            return a.sort - b.sort;
-          })
-          .map(function (item) {
-            return item.question;
-          });
+        return shuffleArray(tier);
       });
 
       return MONEY.map(function (_, questionIndex) {
@@ -2790,16 +2889,7 @@
 
     function generateQuestion(level) {
       const source = run.questionPool[level];
-      const options = source.options
-        .map(function (text) {
-          return { text: text, sort: Math.random() };
-        })
-        .sort(function (a, b) {
-          return a.sort - b.sort;
-        })
-        .map(function (item) {
-          return item.text;
-        });
+      const options = shuffleArray(source.options);
 
       return {
         clue: source.question,
