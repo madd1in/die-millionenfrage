@@ -2083,7 +2083,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER].forEach(function (ladder) {
+    const EVEN_MORE_QUESTION_LADDER = [
+      [
+        { question: 'Wie viel ist eins plus eins?', options: ['Eins', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '➕', fact: 'Eins plus eins ergibt zwei.' },
+        { question: 'Welche Form hat ein Rad?', options: ['Dreieckig', 'Rund', 'Quadratisch', 'Sternförmig'], answer: 'Rund', emoji: '🛞', fact: 'Ein Rad ist rund, damit es gleichmäßig rollen kann.' },
+        { question: 'Welches Haustier bellt?', options: ['Katze', 'Hund', 'Kaninchen', 'Hamster'], answer: 'Hund', emoji: '🐕', fact: 'Bellen ist ein typischer Laut von Hunden.' },
+        { question: 'Wie viele Tage umfasst ein übliches Wochenende?', options: ['Einen', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '🗓️', fact: 'Ein übliches Wochenende besteht aus Samstag und Sonntag.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Bayerns?', options: ['Nürnberg', 'München', 'Augsburg', 'Regensburg'], answer: 'München', emoji: '🏙️', fact: 'München ist die Landeshauptstadt Bayerns.' },
+        { question: 'Was ist das Gegenteil von links?', options: ['Oben', 'Rechts', 'Vorne', 'Geradeaus'], answer: 'Rechts', emoji: '↔️', fact: 'Rechts ist die entgegengesetzte Richtung zu links.' },
+        { question: 'Wie viele Finger haben zwei Hände normalerweise zusammen?', options: ['Acht', 'Neun', 'Zehn', 'Zwölf'], answer: 'Zehn', emoji: '🙌', fact: 'Zwei Hände besitzen normalerweise zehn Finger.' },
+        { question: 'Welche Farbe haben reife Süßkirschen häufig?', options: ['Rot', 'Blau', 'Türkis', 'Weiß'], answer: 'Rot', emoji: '🍒', fact: 'Viele reife Süßkirschen haben eine rote bis dunkelrote Schale.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Polens?', options: ['Krakau', 'Warschau', 'Danzig', 'Breslau'], answer: 'Warschau', emoji: '🇵🇱', fact: 'Warschau ist die Hauptstadt Polens.' },
+        { question: 'Welcher dieser Vögel kann nicht fliegen?', options: ['Adler', 'Schwalbe', 'Pinguin', 'Falke'], answer: 'Pinguin', emoji: '🐧', fact: 'Pinguine nutzen ihre Flossen zum Schwimmen statt zum Fliegen.' },
+        { question: 'Welcher Stern steht im Zentrum unseres Sonnensystems?', options: ['Sirius', 'Polarstern', 'Sonne', 'Proxima Centauri'], answer: 'Sonne', emoji: '☀️', fact: 'Die Planeten unseres Sonnensystems umkreisen die Sonne.' },
+        { question: 'Wer schrieb das Kinderbuch „Die Biene Maja“?', options: ['Waldemar Bonsels', 'James Krüss', 'Erich Kästner', 'Michael Ende'], answer: 'Waldemar Bonsels', emoji: '🐝', fact: 'Waldemar Bonsels veröffentlichte das Buch 1912.' }
+      ],
+      [
+        { question: 'Wie viele Farben zählt man traditionell im Regenbogen?', options: ['Fünf', 'Sechs', 'Sieben', 'Acht'], answer: 'Sieben', emoji: '🌈', fact: 'Traditionell unterscheidet man sieben Regenbogenfarben.' },
+        { question: 'Wie heißt die Hauptstadt Dänemarks?', options: ['Aarhus', 'Kopenhagen', 'Odense', 'Aalborg'], answer: 'Kopenhagen', emoji: '🇩🇰', fact: 'Kopenhagen ist die Hauptstadt Dänemarks.' },
+        { question: 'Welches ist die größte heute lebende Katzenart?', options: ['Löwe', 'Tiger', 'Jaguar', 'Leopard'], answer: 'Tiger', emoji: '🐅', fact: 'Der Tiger ist die größte lebende Katzenart.' },
+        { question: 'In welche Richtung dreht sich die Erde um ihre Achse?', options: ['Von Westen nach Osten', 'Von Osten nach Westen', 'Von Norden nach Süden', 'Sie dreht sich nicht'], answer: 'Von Westen nach Osten', emoji: '🌍', fact: 'Die Erdrotation verläuft von Westen nach Osten.' }
+      ],
+      [
+        { question: 'Wie viel ist neun mal neun?', options: ['72', '79', '81', '99'], answer: '81', emoji: '✖️', fact: 'Neun mal neun ergibt 81.' },
+        { question: 'Wer schrieb den Roman „Die Schatzinsel“?', options: ['Robert Louis Stevenson', 'Daniel Defoe', 'Jules Verne', 'Mark Twain'], answer: 'Robert Louis Stevenson', emoji: '🏴‍☠️', fact: 'Robert Louis Stevenson veröffentlichte den Roman 1883.' },
+        { question: 'In welchem Land stehen die Pyramiden von Gizeh?', options: ['Mexiko', 'Ägypten', 'Peru', 'Irak'], answer: 'Ägypten', emoji: '🔺', fact: 'Die Pyramiden von Gizeh stehen in Ägypten.' },
+        { question: 'Für welches Element steht das Symbol „C“?', options: ['Calcium', 'Kohlenstoff', 'Chlor', 'Kupfer'], answer: 'Kohlenstoff', emoji: '🧪', fact: 'C ist das chemische Symbol für Kohlenstoff.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Finnlands?', options: ['Turku', 'Helsinki', 'Tampere', 'Oulu'], answer: 'Helsinki', emoji: '🇫🇮', fact: 'Helsinki ist die Hauptstadt Finnlands.' },
+        { question: 'Welches Organ pumpt Blut durch den Körper?', options: ['Lunge', 'Herz', 'Leber', 'Niere'], answer: 'Herz', emoji: '❤️', fact: 'Das Herz treibt den Blutkreislauf an.' },
+        { question: 'Welcher Planet ist der Sonne am nächsten?', options: ['Venus', 'Merkur', 'Erde', 'Mars'], answer: 'Merkur', emoji: '☿️', fact: 'Merkur ist der innerste Planet unseres Sonnensystems.' },
+        { question: 'Wer malte die berühmte Serie der „Seerosen“?', options: ['Claude Monet', 'Paul Gauguin', 'Pierre-Auguste Renoir', 'Edgar Degas'], answer: 'Claude Monet', emoji: '🪷', fact: 'Claude Monet malte zahlreiche Seerosenbilder in Giverny.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Tschechiens?', options: ['Brünn', 'Prag', 'Ostrau', 'Pilsen'], answer: 'Prag', emoji: '🇨🇿', fact: 'Prag ist die Hauptstadt Tschechiens.' },
+        { question: 'Wer schrieb den Roman „Der Hobbit“?', options: ['J. R. R. Tolkien', 'C. S. Lewis', 'Terry Pratchett', 'Philip Pullman'], answer: 'J. R. R. Tolkien', emoji: '🧙', fact: 'J. R. R. Tolkien veröffentlichte „Der Hobbit“ 1937.' },
+        { question: 'In welcher Einheit wird Leistung gemessen?', options: ['Watt', 'Joule', 'Volt', 'Newton'], answer: 'Watt', emoji: '⚡', fact: 'Das Watt ist die SI-Einheit der Leistung.' },
+        { question: 'An welchem Datum feiert Frankreich seinen Nationalfeiertag?', options: ['1. Mai', '14. Juli', '3. Oktober', '11. November'], answer: '14. Juli', emoji: '🇫🇷', fact: 'Frankreich feiert seinen Nationalfeiertag am 14. Juli.' }
+      ],
+      [
+        { question: 'Welcher Fluss fließt durch Paris?', options: ['Loire', 'Seine', 'Rhône', 'Garonne'], answer: 'Seine', emoji: '🏞️', fact: 'Die Seine durchquert Paris.' },
+        { question: 'Wer schrieb das Theaterstück „Die Physiker“?', options: ['Friedrich Dürrenmatt', 'Max Frisch', 'Bertolt Brecht', 'Peter Handke'], answer: 'Friedrich Dürrenmatt', emoji: '🎭', fact: 'Friedrich Dürrenmatt veröffentlichte „Die Physiker“ 1962.' },
+        { question: 'Welche Einheit ist die SI-Basiseinheit der Temperatur?', options: ['Celsius', 'Kelvin', 'Fahrenheit', 'Rankine'], answer: 'Kelvin', emoji: '🌡️', fact: 'Das Kelvin ist die SI-Basiseinheit der Temperatur.' },
+        { question: 'In welchem Land fanden die antiken Olympischen Spiele statt?', options: ['Italien', 'Griechenland', 'Ägypten', 'Türkei'], answer: 'Griechenland', emoji: '🏅', fact: 'Die antiken Spiele wurden im griechischen Olympia ausgetragen.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Chiles?', options: ['Valparaíso', 'Santiago de Chile', 'Concepción', 'La Serena'], answer: 'Santiago de Chile', emoji: '🇨🇱', fact: 'Santiago de Chile ist die Hauptstadt Chiles.' },
+        { question: 'Wie viele Knochen besitzt ein erwachsener Mensch normalerweise?', options: ['186', '206', '226', '246'], answer: '206', emoji: '🦴', fact: 'Das Skelett eines Erwachsenen umfasst normalerweise 206 Knochen.' },
+        { question: 'Wer komponierte das Orchesterstück „Boléro“?', options: ['Maurice Ravel', 'Claude Debussy', 'Erik Satie', 'Camille Saint-Saëns'], answer: 'Maurice Ravel', emoji: '🎼', fact: 'Maurice Ravel komponierte den „Boléro“ 1928.' },
+        { question: 'Welchen Breitengrad hat der Äquator?', options: ['0 Grad', '23,5 Grad', '45 Grad', '90 Grad'], answer: '0 Grad', emoji: '🌍', fact: 'Der Äquator bildet den Breitengrad 0.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Islands?', options: ['Akureyri', 'Reykjavík', 'Keflavík', 'Húsavík'], answer: 'Reykjavík', emoji: '🇮🇸', fact: 'Reykjavík ist die Hauptstadt Islands.' },
+        { question: 'Wer entdeckte 1895 die Röntgenstrahlen?', options: ['Wilhelm Conrad Röntgen', 'Max von Laue', 'Philipp Lenard', 'Heinrich Hertz'], answer: 'Wilhelm Conrad Röntgen', emoji: '🩻', fact: 'Wilhelm Conrad Röntgen entdeckte die Strahlen 1895.' },
+        { question: 'Welches Enzym spaltet im Magen vor allem Proteine?', options: ['Pepsin', 'Amylase', 'Lipase', 'Laktase'], answer: 'Pepsin', emoji: '🧬', fact: 'Pepsin zerlegt im Magen Proteine.' },
+        { question: 'In welchem Jahr fiel die Berliner Mauer?', options: ['1961', '1972', '1989', '1991'], answer: '1989', emoji: '🧱', fact: 'Die Berliner Mauer wurde am 9. November 1989 geöffnet.' }
+      ],
+      [
+        { question: 'In welchen Städten wurde der Westfälische Frieden verhandelt?', options: ['Münster und Osnabrück', 'Köln und Mainz', 'Wien und Prag', 'Augsburg und Nürnberg'], answer: 'Münster und Osnabrück', emoji: '🕊️', fact: 'Die Verhandlungen fanden in Münster und Osnabrück statt.' },
+        { question: 'Welche Ordnungszahl besitzt Eisen?', options: ['24', '26', '28', '30'], answer: '26', emoji: '🧪', fact: 'Eisen besitzt die Ordnungszahl 26.' },
+        { question: 'Wer schrieb den Roman „Buddenbrooks“?', options: ['Thomas Mann', 'Heinrich Mann', 'Theodor Fontane', 'Hermann Hesse'], answer: 'Thomas Mann', emoji: '📚', fact: 'Thomas Mann veröffentlichte „Buddenbrooks“ 1901.' },
+        { question: 'Wer entdeckte die vier großen Monde des Jupiter?', options: ['Galileo Galilei', 'Johannes Kepler', 'Tycho Brahe', 'Christiaan Huygens'], answer: 'Galileo Galilei', emoji: '🔭', fact: 'Galileo Galilei beobachtete die vier Monde 1610.' }
+      ],
+      [
+        { question: 'Welche Theorie beschreiben die Maxwell-Gleichungen?', options: ['Elektromagnetismus', 'Thermodynamik', 'Quantenchromodynamik', 'Allgemeine Relativität'], answer: 'Elektromagnetismus', emoji: '⚡', fact: 'Die Maxwell-Gleichungen beschreiben elektrische und magnetische Felder.' },
+        { question: 'Wie heißt die Hauptstadt Bhutans?', options: ['Thimphu', 'Paro', 'Punakha', 'Kathmandu'], answer: 'Thimphu', emoji: '🏔️', fact: 'Thimphu ist die Hauptstadt Bhutans.' },
+        { question: 'Wer malte „Die Beständigkeit der Erinnerung“?', options: ['Salvador Dalí', 'René Magritte', 'Max Ernst', 'Joan Miró'], answer: 'Salvador Dalí', emoji: '⏳', fact: 'Salvador Dalí malte das Werk 1931.' },
+        { question: 'Welches Vitamin kann die Haut mithilfe von Sonnenlicht bilden?', options: ['Vitamin A', 'Vitamin C', 'Vitamin D', 'Vitamin K'], answer: 'Vitamin D', emoji: '☀️', fact: 'UV-B-Strahlung ermöglicht die Bildung von Vitamin D₃.' }
+      ],
+      [
+        { question: 'Wer war die erste Frau im Weltraum?', options: ['Walentina Tereschkowa', 'Sally Ride', 'Swetlana Sawizkaja', 'Mae Jemison'], answer: 'Walentina Tereschkowa', emoji: '🚀', fact: 'Walentina Tereschkowa flog 1963 ins All.' },
+        { question: 'Was geschieht nach dem Bernoulli-Prinzip mit dem statischen Druck bei höherer Strömungsgeschwindigkeit?', options: ['Er sinkt', 'Er steigt', 'Er bleibt immer gleich', 'Er wird null'], answer: 'Er sinkt', emoji: '🌬️', fact: 'Unter passenden Bedingungen sinkt der statische Druck bei höherer Strömungsgeschwindigkeit.' },
+        { question: 'Welcher Frieden beendete 1721 den Großen Nordischen Krieg?', options: ['Friede von Nystad', 'Friede von Oliva', 'Friede von Åbo', 'Friede von Roskilde'], answer: 'Friede von Nystad', emoji: '📜', fact: 'Der Friede von Nystad beendete 1721 den Großen Nordischen Krieg.' },
+        { question: 'Wer entwickelte eine frühe systematische Form des Periodensystems?', options: ['Dmitri Mendelejew', 'Antoine Lavoisier', 'John Dalton', 'Robert Boyle'], answer: 'Dmitri Mendelejew', emoji: '🧪', fact: 'Dmitri Mendelejew veröffentlichte 1869 seine Ordnung der Elemente.' }
+      ],
+      [
+        { question: 'Welcher Bestandteil des Ribosoms katalysiert die Peptidbindung?', options: ['Ribosomale RNA', 'Transfer-RNA', 'Messenger-RNA', 'DNA'], answer: 'Ribosomale RNA', emoji: '🧬', fact: 'Das katalytische Zentrum wird wesentlich von ribosomaler RNA gebildet.' },
+        { question: 'Welcher Frieden wurde 1699 zwischen dem Osmanischen Reich und der Heiligen Liga geschlossen?', options: ['Friede von Karlowitz', 'Friede von Passarowitz', 'Friede von Belgrad', 'Friede von Adrianopel'], answer: 'Friede von Karlowitz', emoji: '📜', fact: 'Der Friede von Karlowitz wurde 1699 geschlossen.' },
+        { question: 'Wer malte das „Arnolfini-Porträt“?', options: ['Jan van Eyck', 'Rogier van der Weyden', 'Hans Memling', 'Petrus Christus'], answer: 'Jan van Eyck', emoji: '🖼️', fact: 'Jan van Eyck datierte das Gemälde 1434.' },
+        { question: 'Wo befindet sich der Zwergplanet Ceres?', options: ['Im Asteroidengürtel', 'Im Kuipergürtel', 'In der Oortschen Wolke', 'Jenseits der Heliosphäre'], answer: 'Im Asteroidengürtel', emoji: '🪨', fact: 'Ceres umkreist die Sonne zwischen Mars und Jupiter.' }
+      ],
+      [
+        { question: 'Wer bewies die Poincaré-Vermutung?', options: ['Grigori Perelman', 'Alexander Grothendieck', 'Jean-Pierre Serre', 'Stephen Smale'], answer: 'Grigori Perelman', emoji: '🔢', fact: 'Grigori Perelman veröffentlichte 2002 und 2003 seinen Beweis.' },
+        { question: 'Wer entwickelte den Lambda-Kalkül?', options: ['Alonzo Church', 'Alan Turing', 'Kurt Gödel', 'John von Neumann'], answer: 'Alonzo Church', emoji: 'λ', fact: 'Alonzo Church entwickelte den Lambda-Kalkül in den 1930er-Jahren.' },
+        { question: 'Welcher Frieden beendete 1660 den Zweiten Nordischen Krieg?', options: ['Friede von Oliva', 'Friede von Nystad', 'Friede von Brömsebro', 'Friede von Kopenhagen'], answer: 'Friede von Oliva', emoji: '🕊️', fact: 'Der Friede von Oliva wurde 1660 geschlossen.' },
+        { question: 'Welches Enzym entspannt überdrehte DNA während der Replikation?', options: ['Topoisomerase', 'Telomerase', 'Primase', 'Exonuklease'], answer: 'Topoisomerase', emoji: '🧬', fact: 'Topoisomerasen bauen Torsionsspannung in DNA ab.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
