@@ -2,112 +2,290 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-  <meta name="theme-color" content="#05041a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Die Millionenfrage</title>
-
   <style>
-    [hidden] {
-      display: none !important;
-    }
-
-    :root {
-      color-scheme: dark;
-      --vh: 1vh;
-    }
-
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       -webkit-tap-highlight-color: transparent;
     }
 
-    html, body {
-      height: 100%;
-      height: calc(var(--vh, 1vh) * 100);
-    }
-
     body {
-      margin: 0;
-      overflow: hidden;
-      font-family: Verdana, Arial, sans-serif;
-      line-height: 1.25;
-      user-select: none;
-      background: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #05041a 0%, #1a1a2e 100%);
       color: #ffd700;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    body.gameActive {
-      overflow: hidden;
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .start-screen {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ffa500;
+      margin-bottom: 40px;
     }
 
     button {
-      font: inherit;
-      font-weight: 900;
-      font-size: 1.35rem;
-      min-height: 4.5rem;
-      padding: 0.7rem;
-      border-radius: 1.2rem;
-      border: 4px solid #ffd700;
-      background: #111;
+      font-size: 1.3rem;
+      padding: 15px 40px;
+      border: 3px solid #ffd700;
+      background: rgba(255, 215, 0, 0.1);
       color: #ffd700;
+      border-radius: 50px;
       cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
       touch-action: manipulation;
     }
 
-    button:focus-visible {
-      outline: 6px solid #fff;
-      outline-offset: 3px;
+    button:hover {
+      background: #ffd700;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
     }
 
     button:active {
       transform: scale(0.98);
     }
 
-    button:disabled {
-      opacity: 0.35;
+    .game-screen {
+      display: none;
     }
 
-    .primary {
-      background: #ffd700;
-      color: #000;
+    .game-screen.active {
+      display: block;
     }
 
-    .screen {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      height: calc(var(--vh, 1vh) * 100);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 2px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .level {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .prize {
+      font-size: 1.3rem;
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .question-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 3px solid #ffd700;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+
+    .question-emoji {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      font-size: 1.6rem;
+      line-height: 1.4;
+      margin-bottom: 30px;
+    }
+
+    .options {
       display: grid;
-      place-items: center;
-      padding: 1rem;
-      animation: screenIn 0.3s ease;
-      overflow: hidden;
+      gap: 15px;
     }
 
-    @keyframes screenIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
+    .option-btn {
+      font-size: 1.2rem;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 215, 0, 0.5);
+      border-radius: 15px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      font-weight: 500;
     }
 
-    /* ... rest of original content ... */
+    .option-btn:hover:not(:disabled) {
+      background: rgba(255, 215, 0, 0.2);
+      border-color: #ffd700;
+      transform: translateX(10px);
+    }
+
+    .option-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .option-btn.correct {
+      background: rgba(0, 255, 0, 0.3);
+      border-color: #00ff00;
+      animation: pulse 0.5s ease;
+    }
+
+    .option-btn.wrong {
+      background: rgba(255, 0, 0, 0.3);
+      border-color: #ff0000;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .fact-box {
+      background: rgba(0, 255, 136, 0.1);
+      border: 2px solid #00ff88;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .fact-box.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .fact-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00ff88;
+      margin-bottom: 10px;
+    }
+
+    .end-screen {
+      text-align: center;
+    }
+
+    .final-prize {
+      font-size: 3rem;
+      color: #00ff88;
+      margin: 30px 0;
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+    }
+
+    .stats {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .question-text {
+        font-size: 1.3rem;
+      }
+      .option-btn {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
   </style>
+</head>
+<body>
+  <div class="container">
+    <div class="screen start-screen active" id="startScreen">
+      <h1>💰 Die Millionenfrage</h1>
+      <p class="subtitle">Beantworte Fragen und gewinne bis zu 1 Million Euro!</p>
+      <button onclick="startGame()">Spiel starten</button>
+    </div>
 
-  <!-- existing scripts and content above the question ladders -->
+    <div class="screen game-screen" id="gameScreen">
+      <div class="header">
+        <div class="level">Frage <span id="currentQ">1</span> / <span id="totalQ">15</span></div>
+        <div class="prize" id="currentPrize">€500</div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-emoji" id="questionEmoji">🎯</div>
+        <div class="question-text" id="questionText">Frage wird geladen...</div>
+      </div>
+
+      <div class="options" id="optionsContainer"></div>
+
+      <div class="fact-box" id="factBox">
+        <div class="fact-title">💡 Wusstest du schon?</div>
+        <div id="factText"></div>
+      </div>
+    </div>
+
+    <div class="screen end-screen" id="endScreen">
+      <h1 id="endTitle">🎉 Gratulation!</h1>
+      <div class="final-prize" id="finalPrize">€1.000.000</div>
+      <div class="stats">
+        <div class="stat-row">
+          <span>Beantwortete Fragen:</span>
+          <span id="statsQuestions">15</span>
+        </div>
+        <div class="stat-row">
+          <span>Richtige Antworten:</span>
+          <span id="statsCorrect">15</span>
+        </div>
+      </div>
+      <button onclick="restartGame()">Nochmal spielen</button>
+    </div>
+  </div>
 
   <script>
-    // Existing question ladders are expected to be declared above.
-
-    // --- Inserted by bot: EXPANDED_900_QUESTION_LADDER ---
     const EXPANDED_900_QUESTION_LADDER = [
       [
-        { question: 'Welches Tier bellt und wird oft als „bester Freund des Menschen“ bezeichnet?', options: ['Hund', 'Katze', 'Kaninchen', 'Papagei'], answer: 'Hund', emoji: '🐕', fact: 'Der Hund wird traditionell als „bester Freund des Menschen“ bezeichnet.' },
+        { question: 'Welches Tier bellt und wird oft als „bester Freund des Menschen" bezeichnet?', options: ['Hund', 'Katze', 'Kaninchen', 'Papagei'], answer: 'Hund', emoji: '🐕', fact: 'Der Hund wird traditionell als „bester Freund des Menschen" bezeichnet.' },
         { question: 'Womit trocknet man sich nach dem Duschen ab?', options: ['Handtuch', 'Kissen', 'Decke', 'Teppich'], answer: 'Handtuch', emoji: '🧻', fact: 'Ein Handtuch nimmt Feuchtigkeit von der Haut auf.' },
         { question: 'Wie viele Räder besitzt ein Dreirad?', options: ['Zwei', 'Drei', 'Vier', 'Fünf'], answer: 'Drei', emoji: '🚲', fact: 'Ein Dreirad rollt, wie der Name sagt, auf drei Rädern.' }
       ],
@@ -117,27 +295,27 @@
         { question: 'Wie viel ist die Hälfte von 50?', options: ['20', '25', '30', '35'], answer: '25', emoji: '➗', fact: 'Die Hälfte von 50 ist 25.' }
       ],
       [
-        { question: 'Wer schrieb den Roman „Krieg und Frieden“?', options: ['Leo Tolstoi', 'Fjodor Dostojewski', 'Anton Tschechow', 'Iwan Turgenew'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Krieg und Frieden“ zwischen 1865 und 1869.' },
+        { question: 'Wer schrieb den Roman „Krieg und Frieden"?', options: ['Leo Tolstoi', 'Fjodor Dostojewski', 'Anton Tschechow', 'Iwan Turgenew'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Krieg und Frieden" zwischen 1865 und 1869.' },
         { question: 'Welcher Fluss fließt durch London?', options: ['Themse', 'Avon', 'Severn', 'Mersey'], answer: 'Themse', emoji: '🏞️', fact: 'Die Themse durchquert London auf ihrem Weg zur Nordsee.' },
         { question: 'Wie heißt die Hauptstadt Indonesiens?', options: ['Jakarta', 'Bali', 'Surabaya', 'Bandung'], answer: 'Jakarta', emoji: '🇮🇩', fact: 'Jakarta ist die traditionelle Hauptstadt Indonesiens.' }
       ],
       [
-        { question: 'Für welches Element steht das Symbol „Al“?', options: ['Aluminium', 'Argon', 'Americium', 'Antimon'], answer: 'Aluminium', emoji: '🧪', fact: 'Al ist das chemische Symbol für Aluminium.' },
-        { question: 'Wer komponierte die Oper „Die Fledermaus“?', options: ['Johann Strauss Sohn', 'Franz Lehár', 'Franz von Suppè', 'Emmerich Kálmán'], answer: 'Johann Strauss Sohn', emoji: '🎭', fact: 'Johann Strauss Sohn komponierte „Die Fledermaus“ 1874.' },
+        { question: 'Für welches Element steht das Symbol „Al"?', options: ['Aluminium', 'Argon', 'Americium', 'Antimon'], answer: 'Aluminium', emoji: '🧪', fact: 'Al ist das chemische Symbol für Aluminium.' },
+        { question: 'Wer komponierte die Oper „Die Fledermaus"?', options: ['Johann Strauss Sohn', 'Franz Lehár', 'Franz von Suppè', 'Emmerich Kálmán'], answer: 'Johann Strauss Sohn', emoji: '🎭', fact: 'Johann Strauss Sohn komponierte „Die Fledermaus" 1874.' },
         { question: 'Wie viele Herzkammern besitzt ein Frosch?', options: ['Eine', 'Zwei', 'Drei', 'Vier'], answer: 'Drei', emoji: '🐸', fact: 'Frösche besitzen ein dreikammeriges Herz mit zwei Vorhöfen und einer Kammer.' }
       ],
       [
-        { question: 'Wer schrieb den Roman „Anna Karenina“?', options: ['Leo Tolstoi', 'Fjodor Dostojewski', 'Nikolai Gogol', 'Iwan Gontscharow'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Anna Karenina“ zwischen 1875 und 1877.' },
+        { question: 'Wer schrieb den Roman „Anna Karenina"?', options: ['Leo Tolstoi', 'Fjodor Dostojewski', 'Nikolai Gogol', 'Iwan Gontscharow'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Anna Karenina" zwischen 1875 und 1877.' },
         { question: 'Welches Land besitzt die Form eines Stiefels auf der Landkarte und liegt in Südeuropa?', options: ['Italien', 'Griechenland', 'Portugal', 'Kroatien'], answer: 'Italien', emoji: '👢', fact: 'Italien wird wegen seiner Form oft mit einem Stiefel verglichen.' },
         { question: 'Wie heißt die Hauptstadt Venezuelas?', options: ['Caracas', 'Maracaibo', 'Valencia', 'Barquisimeto'], answer: 'Caracas', emoji: '🇻🇪', fact: 'Caracas ist die Hauptstadt Venezuelas.' }
       ],
       [
         { question: 'Welche Ordnungszahl besitzt Kalium?', options: ['17', '18', '19', '20'], answer: '19', emoji: '🧪', fact: 'Kalium trägt das Elementsymbol K und die Ordnungszahl 19.' },
-        { question: 'Wer malte „Die Schule von Athen“?', options: ['Raffael', 'Michelangelo', 'Leonardo da Vinci', 'Tizian'], answer: 'Raffael', emoji: '🖼️', fact: 'Raffael malte „Die Schule von Athen“ zwischen 1509 und 1511.' },
+        { question: 'Wer malte „Die Schule von Athen"?', options: ['Raffael', 'Michelangelo', 'Leonardo da Vinci', 'Tizian'], answer: 'Raffael', emoji: '🖼️', fact: 'Raffael malte „Die Schule von Athen" zwischen 1509 und 1511.' },
         { question: 'Welcher Ozean ist der kälteste und liegt um den Nordpol?', options: ['Arktischer Ozean', 'Atlantischer Ozean', 'Pazifischer Ozean', 'Indischer Ozean'], answer: 'Arktischer Ozean', emoji: '🧊', fact: 'Der Arktische Ozean umgibt den Nordpol und ist der kleinste und flachste Ozean.' }
       ],
       [
-        { question: 'Wer schrieb den Roman „Stolz und Vorurteil“?', options: ['Jane Austen', 'Charlotte Brontë', 'Emily Brontë', 'George Eliot'], answer: 'Jane Austen', emoji: '📚', fact: 'Jane Austen veröffentlichte „Stolz und Vorurteil“ 1813.' },
+        { question: 'Wer schrieb den Roman „Stolz und Vorurteil"?', options: ['Jane Austen', 'Charlotte Brontë', 'Emily Brontë', 'George Eliot'], answer: 'Jane Austen', emoji: '📚', fact: 'Jane Austen veröffentlichte „Stolz und Vorurteil" 1813.' },
         { question: 'Welche Ordnungszahl besitzt Stickstoff?', options: ['5', '6', '7', '8'], answer: '7', emoji: '🧪', fact: 'Stickstoff besitzt die Ordnungszahl 7.' },
         { question: 'Welcher Gebirgszug bildet die Grenze zwischen Europa und Asien in Russland?', options: ['Ural', 'Kaukasus', 'Karpaten', 'Altai'], answer: 'Ural', emoji: '⛰️', fact: 'Der Ural wird traditionell als Grenze zwischen Europa und Asien angesehen.' }
       ],
@@ -147,56 +325,136 @@
         { question: 'Welches Blutgefäß führt sauerstoffarmes Blut vom Körper zurück zum Herzen?', options: ['Hohlvene', 'Aorta', 'Lungenvene', 'Halsschlagader'], answer: 'Hohlvene', emoji: '🫀', fact: 'Die obere und untere Hohlvene führen sauerstoffarmes Blut zum rechten Vorhof.' }
       ],
       [
-        { question: 'Wer schrieb den Roman „Der Idiot“?', options: ['Fjodor Dostojewski', 'Leo Tolstoi', 'Iwan Turgenew', 'Nikolai Leskow'], answer: 'Fjodor Dostojewski', emoji: '📚', fact: 'Fjodor Dostojewski veröffentlichte „Der Idiot“ 1868/69.' },
+        { question: 'Wer schrieb den Roman „Der Idiot"?', options: ['Fjodor Dostojewski', 'Leo Tolstoi', 'Iwan Turgenew', 'Nikolai Leskow'], answer: 'Fjodor Dostojewski', emoji: '📚', fact: 'Fjodor Dostojewski veröffentlichte „Der Idiot" 1868/69.' },
         { question: 'Welche Ordnungszahl besitzt Schwefel?', options: ['14', '15', '16', '17'], answer: '16', emoji: '🧪', fact: 'Schwefel trägt das Elementsymbol S und die Ordnungszahl 16.' },
         { question: 'Welcher Frieden beendete 1667 den Devolutionskrieg formal mit den Verhandlungen in Aachen?', options: ['Friede von Aachen', 'Friede von Nimwegen', 'Friede von Rijswijk', 'Friede von Breda'], answer: 'Friede von Aachen', emoji: '📜', fact: 'Der erste Aachener Friede von 1668 beendete den Devolutionskrieg.' }
       ],
       [
         { question: 'Welches Enzym katalysiert im Citratzyklus die Umwandlung von Succinat zu Fumarat?', options: ['Succinat-Dehydrogenase', 'Citrat-Synthase', 'Isocitrat-Dehydrogenase', 'Malat-Dehydrogenase'], answer: 'Succinat-Dehydrogenase', emoji: '🧬', fact: 'Die Succinat-Dehydrogenase ist zugleich Teil der mitochondrialen Atmungskette.' },
-        { question: 'Wer schrieb den Roman „Middlemarch“?', options: ['George Eliot', 'Jane Austen', 'Charlotte Brontë', 'Elizabeth Gaskell'], answer: 'George Eliot', emoji: '📚', fact: 'George Eliot veröffentlichte „Middlemarch“ 1871/72.' },
+        { question: 'Wer schrieb den Roman „Middlemarch"?', options: ['George Eliot', 'Jane Austen', 'Charlotte Brontë', 'Elizabeth Gaskell'], answer: 'George Eliot', emoji: '📚', fact: 'George Eliot veröffentlichte „Middlemarch" 1871/72.' },
         { question: 'Welcher Frieden beendete 1721 den Großen Nordischen Krieg zwischen Schweden und Russland?', options: ['Friede von Nystad', 'Friede von Åbo', 'Friede von Stolbowo', 'Friede von Teschen'], answer: 'Friede von Nystad', emoji: '📜', fact: 'Der Friede von Nystad beendete 1721 den Großen Nordischen Krieg.' }
       ],
       [
         { question: 'Was beschreibt der Zentrale Grenzwertsatz in der Stochastik?', options: ['Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an', 'Jede Verteilung ist symmetrisch', 'Der Erwartungswert ist immer null', 'Varianz und Median sind stets gleich'], answer: 'Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an', emoji: '📊', fact: 'Der Zentrale Grenzwertsatz gilt unter recht allgemeinen Bedingungen für unabhängige Zufallsvariablen.' },
-        { question: 'Wer schrieb den Roman „Vom Winde verweht“?', options: ['Margaret Mitchell', 'Harper Lee', 'Toni Morrison', 'Carson McCullers'], answer: 'Margaret Mitchell', emoji: '📚', fact: 'Margaret Mitchell veröffentlichte „Vom Winde verweht“ 1936.' },
+        { question: 'Wer schrieb den Roman „Vom Winde verweht"?', options: ['Margaret Mitchell', 'Harper Lee', 'Toni Morrison', 'Carson McCullers'], answer: 'Margaret Mitchell', emoji: '📚', fact: 'Margaret Mitchell veröffentlichte „Vom Winde verweht" 1936.' },
         { question: 'Welcher Frieden beendete 1809 den Fünften Koalitionskrieg zwischen Österreich und Frankreich?', options: ['Friede von Schönbrunn', 'Friede von Preßburg', 'Friede von Tilsit', 'Friede von Lunéville'], answer: 'Friede von Schönbrunn', emoji: '📜', fact: 'Der Friede von Schönbrunn wurde 1809 nach der Schlacht bei Wagram geschlossen.' }
       ],
       [
         { question: 'Welches Konzept beschreibt in der Genetik den Austausch von Chromosomenabschnitten zwischen homologen Chromosomen?', options: ['Crossing-over', 'Mutation', 'Translation', 'Transkription'], answer: 'Crossing-over', emoji: '🧬', fact: 'Crossing-over erhöht die genetische Vielfalt der entstehenden Keimzellen.' },
-        { question: 'Wer schrieb den Roman „Der Prozess“ nicht — sondern wer verfasste „Das Schloss“?', options: ['Franz Kafka', 'Robert Musil', 'Stefan Zweig', 'Joseph Roth'], answer: 'Franz Kafka', emoji: '📚', fact: 'Franz Kafkas „Das Schloss“ wurde 1926 postum veröffentlicht.' },
+        { question: 'Wer schrieb den Roman „Der Prozess" nicht — sondern wer verfasste „Das Schloss"?', options: ['Franz Kafka', 'Robert Musil', 'Stefan Zweig', 'Joseph Roth'], answer: 'Franz Kafka', emoji: '📚', fact: 'Franz Kafkas „Das Schloss" wurde 1926 postum veröffentlicht.' },
         { question: 'Welcher Frieden beendete 1697 den Neunjährigen Krieg zwischen Frankreich und der Großen Allianz?', options: ['Friede von Rijswijk', 'Friede von Utrecht', 'Friede von Nimwegen', 'Friede von Aachen'], answer: 'Friede von Rijswijk', emoji: '📜', fact: 'Der Friede von Rijswijk wurde 1697 geschlossen.' }
       ],
       [
         { question: 'Was besagt das Prinzip von Le Chatelier für ein chemisches Gleichgewicht?', options: ['Das System reagiert auf eine Störung, indem es ihr entgegenwirkt', 'Jede Reaktion läuft irreversibel ab', 'Katalysatoren verschieben immer das Gleichgewicht', 'Temperatur hat keinen Einfluss auf Gleichgewichte'], answer: 'Das System reagiert auf eine Störung, indem es ihr entgegenwirkt', emoji: '⚗️', fact: 'Das Prinzip von Le Chatelier beschreibt qualitativ, wie sich ein Gleichgewicht bei äußeren Störungen verschiebt.' },
-        { question: 'Wer schrieb den Roman „Absalom, Absalom!“?', options: ['William Faulkner', 'Robert Penn Warren', 'Flannery O’Connor', 'Eudora Welty'], answer: 'William Faulkner', emoji: '📚', fact: 'William Faulkner veröffentlichte „Absalom, Absalom!“ 1936.' },
+        { question: 'Wer schrieb den Roman „Absalom, Absalom!"?', options: ['William Faulkner', 'Robert Penn Warren', 'Flannery O'Connor', 'Eudora Welty'], answer: 'William Faulkner', emoji: '📚', fact: 'William Faulkner veröffentlichte „Absalom, Absalom!" 1936.' },
         { question: 'Welcher Frieden beendete 1774 den Ersten Russisch-Türkischen Krieg unter Katharina der Großen?', options: ['Friede von Küçük Kaynarca', 'Friede von Jassy', 'Friede von Bukarest', 'Friede von Adrianopel'], answer: 'Friede von Küçük Kaynarca', emoji: '📜', fact: 'Der Friede von Küçük Kaynarca wurde 1774 geschlossen.' }
       ],
       [
         { question: 'Was besagt die Church-Turing-These informell?', options: ['Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen', 'Jedes Problem ist in polynomieller Zeit lösbar', 'Jede Sprache ist regulär', 'Alle Algorithmen terminieren garantiert'], answer: 'Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen', emoji: '💻', fact: 'Die Church-Turing-These ist keine beweisbare mathematische Aussage, sondern eine grundlegende Arbeitshypothese der Berechenbarkeitstheorie.' },
-        { question: 'Wer schrieb den Roman „Herz der Finsternis“?', options: ['Joseph Conrad', 'Rudyard Kipling', 'E. M. Forster', 'Graham Greene'], answer: 'Joseph Conrad', emoji: '📚', fact: 'Joseph Conrad veröffentlichte „Herz der Finsternis“ 1899.' },
+        { question: 'Wer schrieb den Roman „Herz der Finsternis"?', options: ['Joseph Conrad', 'Rudyard Kipling', 'E. M. Forster', 'Graham Greene'], answer: 'Joseph Conrad', emoji: '📚', fact: 'Joseph Conrad veröffentlichte „Herz der Finsternis" 1899.' },
         { question: 'Welcher Frieden beendete 1801 den Krieg zwischen Frankreich und Österreich vor dem Frieden von Amiens?', options: ['Friede von Lunéville', 'Friede von Campo Formio', 'Friede von Preßburg', 'Friede von Tilsit'], answer: 'Friede von Lunéville', emoji: '📜', fact: 'Der Friede von Lunéville wurde 1801 zwischen Frankreich und Österreich geschlossen.' }
       ]
     ];
 
-    // --- end inserted ladder ---
+    const PRIZES = [
+      '€500', '€1.000', '€2.000', '€3.000', '€5.000',
+      '€10.000', '€16.000', '€32.000', '€64.000', '€125.000',
+      '€250.000', '€500.000', '€750.000', '€900.000', '€1.000.000'
+    ];
 
-    // The merge/forEach line in the original code expects all ladder constants to exist.
-    // We'll update the literal list to include EXPANDED_900_QUESTION_LADDER.
+    let currentLevel = 0;
+    let currentQuestionIndex = 0;
+    let questions = [];
+    let correctAnswers = 0;
 
-    // Note: the original forEach line appears elsewhere in this file. To ensure runtime inclusion even if
-    // the original literal was not edited, we also push our ladder into the global merge array if present.
-    try {
-      if (Array.isArray(window.__QUESTION_LADDER_MERGE_LIST__)) {
-        window.__QUESTION_LADDER_MERGE_LIST__.push(EXPANDED_900_QUESTION_LADDER);
-      }
-    } catch (e) {
-      // ignore
+    function startGame() {
+      document.getElementById('startScreen').classList.remove('active');
+      document.getElementById('gameScreen').classList.add('active');
+      
+      currentLevel = 0;
+      correctAnswers = 0;
+      document.getElementById('totalQ').textContent = EXPANDED_900_QUESTION_LADDER.length;
+      loadLevel();
     }
 
-  </script>
+    function loadLevel() {
+      const level = EXPANDED_900_QUESTION_LADDER[currentLevel];
+      currentQuestionIndex = Math.floor(Math.random() * level.length);
+      const question = level[currentQuestionIndex];
+      
+      document.getElementById('currentQ').textContent = currentLevel + 1;
+      document.getElementById('currentPrize').textContent = PRIZES[currentLevel];
+      document.getElementById('questionEmoji').textContent = question.emoji;
+      document.getElementById('questionText').textContent = question.question;
+      
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+      
+      question.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(option, question.answer, btn);
+        container.appendChild(btn);
+      });
+      
+      document.getElementById('factBox').classList.remove('show');
+    }
 
-</head>
-<body>
-  <!-- page content -->
+    function checkAnswer(selected, correct, btn) {
+      const buttons = document.querySelectorAll('.option-btn');
+      buttons.forEach(b => b.disabled = true);
+      
+      if (selected === correct) {
+        btn.classList.add('correct');
+        correctAnswers++;
+        
+        const factBox = document.getElementById('factBox');
+        document.getElementById('factText').textContent = questions[currentLevel]?.[currentQuestionIndex]?.fact || 'Wissen ist Macht!';
+        factBox.classList.add('show');
+        
+        setTimeout(() => {
+          currentLevel++;
+          if (currentLevel < EXPANDED_900_QUESTION_LADDER.length) {
+            loadLevel();
+          } else {
+            endGame(true);
+          }
+        }, 3000);
+      } else {
+        btn.classList.add('wrong');
+        buttons.forEach(b => {
+          if (b.textContent === correct) {
+            b.classList.add('correct');
+          }
+        });
+        
+        setTimeout(() => {
+          endGame(false);
+        }, 3000);
+      }
+    }
+
+    function endGame(won) {
+      document.getElementById('gameScreen').classList.remove('active');
+      document.getElementById('endScreen').classList.add('active');
+      
+      if (won) {
+        document.getElementById('endTitle').textContent = '🎉 Gratulation!';
+        document.getElementById('finalPrize').textContent = PRIZES[PRIZES.length - 1];
+      } else {
+        document.getElementById('endTitle').textContent = '❌ Spiel vorbei';
+        document.getElementById('finalPrize').textContent = currentLevel > 0 ? PRIZES[currentLevel - 1] : '€0';
+      }
+      
+      document.getElementById('statsQuestions').textContent = EXPANDED_900_QUESTION_LADDER.length;
+      document.getElementById('statsCorrect').textContent = correctAnswers;
+    }
+
+    function restartGame() {
+      document.getElementById('endScreen').classList.remove('active');
+      document.getElementById('startScreen').classList.add('active');
+    }
+  </script>
 </body>
 </html>
