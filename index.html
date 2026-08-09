@@ -13,6 +13,7 @@
 
     :root {
       color-scheme: dark;
+      --vh: 1vh;
     }
 
     * {
@@ -20,16 +21,14 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    html {
-      font-size: 32px;
+    html, body {
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
     }
 
     body {
       margin: 0;
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
       font-family: Verdana, Arial, sans-serif;
       line-height: 1.25;
       user-select: none;
@@ -74,12 +73,16 @@
     }
 
     .screen {
-      min-height: 100vh;
-      min-height: 100dvh;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
       display: grid;
       place-items: center;
       padding: 1rem;
       animation: screenIn 0.3s ease;
+      overflow: hidden;
     }
 
     @keyframes screenIn {
@@ -122,6 +125,38 @@
       gap: 0.8rem;
     }
 
+    .difficultyPicker {
+      margin: 0;
+      padding: 0.65rem;
+      border: 3px solid #ffd700;
+      border-radius: 1rem;
+    }
+
+    .difficultyPicker legend {
+      padding: 0 0.45rem;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .difficultyButtons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .difficultyBtn {
+      min-height: 3.25rem;
+      padding: 0.45rem 0.3rem;
+      font-size: 1rem;
+      border-width: 3px;
+    }
+
+    .difficultyBtn[aria-pressed="true"] {
+      background: #ffd700;
+      color: #000;
+      box-shadow: 0 0 0 3px #fff;
+    }
+
     @media (min-width: 700px) {
       .startOptions {
         grid-template-columns: 1fr 1fr;
@@ -129,19 +164,16 @@
     }
 
     #gameScreen {
-      height: 100vh;
-      height: 100dvh;
-      width: min(100%, 980px);
-      margin: 0 auto;
-      padding:
-        0.7rem
-        0.7rem
-        calc(5.5rem + env(safe-area-inset-bottom))
-        0.7rem;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      padding: 0.7rem;
       display: grid;
       grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
       gap: 0.7rem;
-      overflow: auto;
+      overflow: hidden;
       overscroll-behavior: contain;
     }
 
@@ -435,11 +467,6 @@
       }
     }
 
-    /* =====================================================
-       QUIZSHOW-STUDIO — eigenständiger Look, inspiriert von
-       großen Prime-Time-Wissensshows
-    ===================================================== */
-
     :root {
       --night: #05041a;
       --navy: #09083a;
@@ -524,7 +551,10 @@
     }
 
     .screen {
-      position: relative;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: calc(var(--vh, 1vh) * 100);
       isolation: isolate;
     }
 
@@ -611,8 +641,12 @@
     }
 
     #gameScreen {
-      width: min(100%, 1050px);
-      padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: calc(var(--vh, 1vh) * 100);
+      padding: 0.7rem;
+      overflow: hidden;
     }
 
     .topbar {
@@ -769,6 +803,204 @@
       box-shadow: 0 0 28px rgba(89, 101, 255, 0.35);
     }
 
+    /* =====================================================
+       DESKTOP — OPTIMIERTES STUDIO-LAYOUT
+       Topbar kompakt, Status zentriert, Frage prominent,
+       Antworten im 2x2 Grid, Jokers als schmale Leiste
+    ===================================================== */
+
+    @media (min-width: 900px) {
+      html {
+        font-size: 22px;
+      }
+
+      #gameScreen {
+        display: grid;
+        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+        grid-template-columns: 1fr;
+        width: 100vw;
+        height: calc(var(--vh, 1vh) * 100);
+        padding:
+          calc(0.6rem + env(safe-area-inset-top))
+          calc(0.8rem + env(safe-area-inset-right))
+          calc(0.6rem + env(safe-area-inset-bottom))
+          calc(0.8rem + env(safe-area-inset-left));
+        gap: 0.55rem;
+        overflow: hidden;
+      }
+
+      #gameScreen > * {
+        width: min(100%, 68rem);
+        max-width: 100%;
+        margin-inline: auto;
+      }
+
+      /* TOPBAR — kompakt, alle Controls in einer Reihe */
+      .topbar {
+        grid-row: 1;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.6rem;
+        border-width: 1px;
+        border-radius: 0.9rem;
+      }
+
+      .topButtons {
+        display: flex;
+        gap: 0.35rem;
+        align-items: center;
+      }
+
+      .iconBtn {
+        min-width: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        height: 2.5rem;
+        flex: 0 0 2.5rem;
+        padding: 0;
+        border-width: 1px;
+        font-size: 1.1rem;
+      }
+
+      .statusRow {
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 0.7rem;
+        align-items: center;
+        font-size: 1rem;
+        line-height: 1.1;
+        padding: 0.25rem 0.4rem;
+      }
+
+      #questionNumber,
+      #score {
+        white-space: nowrap;
+        font-weight: 900;
+        font-size: 1.05rem;
+      }
+
+      .timerBox {
+        gap: 0.4rem;
+      }
+
+      #timerWrap {
+        height: 1rem;
+        border-width: 1px;
+      }
+
+      #timerText {
+        min-width: 2.6rem;
+        font-size: 1.1rem;
+        font-weight: 900;
+      }
+
+      #notice {
+        grid-row: 3;
+        padding: 0.4rem 0.7rem;
+        border-width: 1px;
+        border-radius: 0.7rem;
+        font-size: 0.95rem;
+      }
+
+      /* QUESTION — prominent, zentriert */
+      #questionCard {
+        grid-row: 4;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: center;
+        justify-items: center;
+        text-align: center;
+        padding: 0.9rem 1.4rem;
+        border-width: 2px;
+        gap: 0.4rem;
+      }
+
+      #qEmoji {
+        display: none;
+      }
+
+      .questionTextWrap {
+        width: 100%;
+        display: grid;
+        gap: 0.35rem;
+        justify-items: center;
+      }
+
+      #bossBadge {
+        margin-inline: auto;
+        font-size: 0.78rem;
+        padding: 0.25rem 0.65rem;
+        border-width: 1px;
+      }
+
+      #qText {
+        font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+        line-height: 1.18;
+        max-width: 100%;
+      }
+
+      /* ANSWERS — sauberes 2x2 Grid */
+      #answers {
+        grid-row: 5;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .answer {
+        min-height: 0;
+        height: 100%;
+        padding: 0.45rem 0.9rem;
+        gap: 0.6rem;
+        border-width: 2px;
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        line-height: 1.15;
+      }
+
+      .answer .letter {
+        width: 2.4rem;
+        height: 2.4rem;
+        flex: 0 0 2.4rem;
+        font-size: 1.15rem;
+      }
+
+      /* JOKERS — kompakte Leiste */
+      #jokers {
+        grid-row: 6;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+        padding-top: 0;
+      }
+
+      .joker {
+        min-height: 2.8rem;
+        padding: 0.35rem 0.6rem;
+        border-width: 1px;
+        font-size: 0.95rem;
+        line-height: 1.1;
+      }
+
+      #toast {
+        bottom: 0.8rem;
+        padding: 0.45rem 0.85rem;
+        border-width: 2px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* =====================================================
+       DESKTOP START SCREEN
+    ===================================================== */
+
     @media (min-width: 900px) {
       #startScreen {
         padding: 0.55rem;
@@ -776,267 +1008,129 @@
 
       .hero {
         width: min(100%, 880px);
-        padding: 0.65rem 1rem;
-        gap: 0.45rem;
+        max-height: calc(var(--vh, 1vh) * 100 - 2rem);
+        padding: 1.2rem 1.6rem;
+        gap: 0.8rem;
       }
 
       .hero .brandMark {
-        width: 4rem;
+        width: 6rem;
       }
 
       .hero h1 {
-        font-size: clamp(1.65rem, 4.2vw, 2.15rem);
+        font-size: clamp(2.4rem, 5.5vw, 3.4rem);
         line-height: 1;
       }
 
       .hero .subtitle {
-        margin: 0.15rem 0;
-        font-size: 0.9rem;
+        margin: 0.1rem 0;
+        font-size: 1.15rem;
         line-height: 1.15;
       }
 
       .hero #btnStart {
-        min-height: 2.35rem;
-        padding: 0.35rem 0.7rem;
-        font-size: 1rem;
+        min-height: 3.5rem;
+        padding: 0.6rem 2rem;
+        font-size: 1.35rem;
       }
 
       .hero .startOptions {
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.4rem;
+        gap: 0.55rem;
       }
 
       .hero .startOptions button {
-        min-height: 2.15rem;
-        padding: 0.3rem 0.4rem;
-        font-size: 0.72rem;
+        min-height: 3rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.95rem;
         line-height: 1.1;
       }
 
-      #gameScreen {
-        grid-template-rows: repeat(6, auto);
-        align-content: start;
-        gap: 0.38rem;
-        padding-top: 0.4rem;
-        padding-bottom: calc(0.4rem + env(safe-area-inset-bottom));
-      }
-
-      .topbar {
-        min-height: 0;
-        padding: 0.25rem 0.45rem;
-      }
-
-      .iconBtn {
-        min-width: 2.25rem;
-        min-height: 2.25rem;
-        font-size: 1rem;
-      }
-
-      .statusRow {
-        min-height: 0;
-        font-size: 0.88rem;
-      }
-
-      #timerWrap {
-        height: 0.85rem;
-      }
-
-      #timerText {
-        min-width: 2.4rem;
-        font-size: 1rem;
-      }
-
-      #questionCard {
-        min-height: 0;
-        padding: 0.5rem 0.9rem;
-      }
-
-      #qEmoji {
-        font-size: 2rem;
-      }
-
-      #answers {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: auto;
-        min-height: auto;
-        gap: 0.38rem;
-      }
-
-      #qText {
-        font-size: clamp(1.05rem, 2.25vw, 1.42rem);
-      }
-
-      .answer {
-        min-height: 2.75rem;
-        padding: 0.32rem 0.65rem;
-        gap: 0.45rem;
-        font-size: clamp(0.88rem, 1.75vw, 1.08rem);
-      }
-
-      .answer .letter {
-        width: 2rem;
-        height: 2rem;
-        font-size: 1rem;
-      }
-
-      #jokers {
-        min-height: 2.55rem;
-        gap: 0.4rem;
-      }
-
-      .joker {
-        min-height: 2.55rem;
-        padding: 0.28rem 0.5rem;
-        font-size: 0.88rem;
-      }
-
-      #toast {
-        bottom: 0.5rem;
-        padding: 0.35rem 0.65rem;
-        border-width: 2px;
-        font-size: 0.78rem;
-      }
-    }
-
-    @media (min-width: 1180px) {
-      #gameScreen {
-        width: min(calc(100% - 2rem), 1320px);
-        grid-template-columns: minmax(0, 1fr) 9rem;
-        grid-template-rows: repeat(6, auto);
-        column-gap: 0.65rem;
-        transform: none;
-      }
-
-      #gameScreen > :not(#moneyLadder) {
-        grid-column: 1;
-      }
-
-      #moneyLadder {
-        position: static;
-        grid-column: 2;
-        grid-row: 1 / -1;
-        align-self: center;
-        z-index: 1;
-        width: 100%;
-        max-height: calc(100dvh - 2rem);
-        display: grid;
-        gap: 0.1rem;
-        padding: 0.5rem;
-        overflow: auto;
-        border: 1px solid rgba(126, 148, 255, 0.65);
-        border-radius: 1rem;
-        background: rgba(5, 6, 39, 0.93);
-        box-shadow: 0 0 42px rgba(54, 72, 234, 0.28), 0 18px 50px rgba(0,0,0,.5);
-        transform: none;
-        backdrop-filter: blur(12px);
-      }
-
-      .moneyStep {
-        display: grid;
-        grid-template-columns: 1.45rem 1fr;
-        gap: .2rem;
-        align-items: center;
-        padding: .1rem .25rem;
-        border-radius: 999px;
-        color: #aeb8f8;
-        font-size: .56rem;
-        font-weight: 900;
-        text-align: right;
-        white-space: nowrap;
-      }
-
-      .moneyStep span:first-child {
-        color: #6f7cce;
-      }
-
-      .moneyStep.safe {
-        color: var(--gold-light);
-      }
-
-      .moneyStep.current {
-        color: #1a1000;
-        background: linear-gradient(90deg, #d88912, #ffe07b);
-        box-shadow: 0 0 15px rgba(244, 185, 66, .45);
-      }
-
-      .moneyStep.current span:first-child {
-        color: #492800;
-      }
-
-      .moneyStep.passed {
-        color: #d7dcff;
-      }
-    }
-
-    @media (min-width: 1180px) and (max-height: 760px) {
-      #gameScreen {
-        padding-top: 0.4rem;
-        padding-bottom: 0.4rem;
-        gap: 0.4rem;
-      }
-
-      #moneyLadder {
-        padding-block: 0.3rem;
-      }
-
-      .moneyStep {
-        padding-block: 0.03rem;
-        font-size: 0.5rem;
-      }
-
-      .topbar {
-        padding: 0.35rem 0.5rem;
-      }
-
-      .iconBtn {
-        min-width: 2.05rem;
-        min-height: 2.05rem;
-        font-size: 0.9rem;
-      }
-
-      #questionCard {
-        padding-block: 0.4rem;
-      }
-
-      .answer {
-        min-height: 2.45rem;
-      }
-
-      .joker {
-        min-height: 2.3rem;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .hero,
       .endBox {
-        padding: 1rem .75rem;
+        max-height: calc(var(--vh, 1vh) * 100 - 2rem);
+        overflow-y: auto;
       }
 
-      .brandMark {
-        width: 5.6rem;
+      .endBox h2 {
+        font-size: clamp(2.2rem, 5vw, 3rem);
       }
 
-      #questionCard {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-inline: 1.3rem;
+      .endBox #endAmount {
+        font-size: 3.5rem;
       }
 
-      #qEmoji {
-        display: none;
-      }
-
-      .answer {
-        padding-inline: 1.1rem;
+      .endBox button {
+        min-height: 3.3rem;
+        padding: 0.5rem 1rem;
+        font-size: 1.15rem;
       }
     }
 
     /* =====================================================
-       MOBILE — eigenständiges, touchoptimiertes Layout
+       DESKTOP XL — GROSSE BILDSCHIRME
     ===================================================== */
 
-    @media (max-width: 899px) {
+    @media (min-width: 1400px) {
+      html {
+        font-size: 24px;
+      }
+
+      #gameScreen {
+        padding: 1rem 1.5rem;
+        gap: 0.65rem;
+      }
+
+      #gameScreen > * {
+        width: min(100%, 76rem);
+      }
+
+      .iconBtn {
+        min-width: 2.8rem;
+        width: 2.8rem;
+        min-height: 2.8rem;
+        height: 2.8rem;
+        flex: 0 0 2.8rem;
+        font-size: 1.25rem;
+      }
+
+      .statusRow {
+        font-size: 1.1rem;
+      }
+
+      #questionCard {
+        padding: 1.1rem 2rem;
+      }
+
+      #qText {
+        font-size: 2rem;
+      }
+
+      .answer {
+        font-size: 1.45rem;
+      }
+
+      .answer .letter {
+        width: 2.7rem;
+        height: 2.7rem;
+        flex: 0 0 2.7rem;
+        font-size: 1.3rem;
+      }
+
+      .joker {
+        min-height: 3.1rem;
+        font-size: 1.05rem;
+      }
+    }
+
+    /* =====================================================
+       MOBILE PORTRAIT — UNVERÄNDERT GUT
+    ===================================================== */
+
+    @media (max-width: 899px) and (orientation: portrait) {
+      html {
+        font-size: 20px;
+      }
+
       body {
         min-width: 0;
         background-attachment: scroll;
@@ -1048,36 +1142,36 @@
       }
 
       .screen {
-        width: 100%;
+        width: 100vw;
         min-width: 0;
-        padding:
-          max(0.6rem, env(safe-area-inset-top))
-          max(0.6rem, env(safe-area-inset-right))
-          max(0.6rem, env(safe-area-inset-bottom))
-          max(0.6rem, env(safe-area-inset-left));
+        padding: 0;
       }
 
       #startScreen,
       #endScreen {
-        height: 100vh;
-        height: 100dvh;
-        min-height: 100vh;
-        min-height: 100dvh;
-        overflow: hidden;
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: calc(var(--vh, 1vh) * 100);
       }
 
       .hero,
       .endBox {
         width: 100%;
         min-width: 0;
-        height: calc(100dvh - 1.2rem);
-        min-height: 0;
-        padding: 0.8rem;
-        gap: 0.55rem;
-        border-radius: 1.25rem;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: calc(var(--vh, 1vh) * 100);
+        max-height: none;
+        padding:
+          calc(0.7rem + env(safe-area-inset-top))
+          calc(0.55rem + env(safe-area-inset-right))
+          calc(0.7rem + env(safe-area-inset-bottom))
+          calc(0.55rem + env(safe-area-inset-left));
+        gap: 0.65rem;
+        border-radius: 0;
+        border-width: 0;
         align-content: center;
-        overflow-x: hidden;
-        overflow-y: auto;
+        justify-items: center;
+        overflow: hidden;
       }
 
       .hero > *,
@@ -1088,139 +1182,152 @@
 
       .hero .brandMark,
       .endBox .brandMark {
-        width: 4.7rem;
+        width: 5.5rem;
+        margin-bottom: 0.1rem;
       }
 
       .brandMark span {
-        font-size: 0.54rem;
+        font-size: 0.7rem;
+        max-width: 4.5rem;
       }
 
-      .hero h1 {
+      .hero h1,
+      .endBox h2 {
         max-width: 100%;
-        font-size: clamp(1.65rem, 9.5vw, 2rem);
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
         line-height: 1;
         overflow-wrap: anywhere;
+        letter-spacing: -0.02em;
       }
 
       .hero .subtitle,
       .endBox .subtitle {
         margin: 0.1rem 0;
-        font-size: 0.95rem;
+        font-size: clamp(1rem, 4vw, 1.3rem);
         line-height: 1.2;
+        padding-inline: 0.5rem;
+        font-weight: 800;
       }
 
       .hero #btnStart,
-      .endBox button {
-        min-height: 2.8rem;
-        padding: 0.45rem 0.65rem;
-        border-radius: 0.9rem;
-        font-size: 1.05rem;
+      .endBox button.primary {
+        width: min(92%, 24rem);
+        min-height: 3.6rem;
+        padding: 0.6rem 1rem;
+        border-radius: 1.1rem;
+        font-size: clamp(1.15rem, 5vw, 1.5rem);
+        margin-top: 0.15rem;
       }
 
       .hero .startOptions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.45rem;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-top: 0.15rem;
+        padding-inline: 0.2rem;
       }
 
       .hero .startOptions button {
         min-width: 0;
-        min-height: 2.7rem;
-        padding: 0.35rem;
-        border-radius: 0.8rem;
-        font-size: 0.82rem;
-        line-height: 1.1;
+        min-height: 3.1rem;
+        padding: 0.5rem 0.4rem;
+        border-radius: 0.95rem;
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        line-height: 1.15;
         overflow-wrap: anywhere;
       }
 
       #gameScreen {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        display: grid;
+        grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
+        width: 100vw;
         min-width: 0;
-        height: 100vh;
-        height: 100dvh;
+        height: calc(var(--vh, 1vh) * 100);
         padding:
-          max(0.4rem, env(safe-area-inset-top))
-          max(0.4rem, env(safe-area-inset-right))
-          max(0.45rem, env(safe-area-inset-bottom))
-          max(0.4rem, env(safe-area-inset-left));
-        gap: 0.42rem;
-        overflow-x: hidden;
-        overflow-y: auto;
-        scrollbar-gutter: auto;
+          calc(0.35rem + env(safe-area-inset-top))
+          calc(0.4rem + env(safe-area-inset-right))
+          calc(0.4rem + env(safe-area-inset-bottom))
+          calc(0.4rem + env(safe-area-inset-left));
+        gap: 0.5rem;
+        overflow: hidden;
       }
 
       #gameScreen > * {
         min-width: 0;
         max-width: 100%;
+        width: 100%;
       }
 
       .topbar {
         grid-row: 1;
         min-height: 0;
         flex-wrap: nowrap;
-        padding: 0.3rem 0.4rem;
+        justify-content: space-between;
+        padding: 0.45rem 0.6rem;
         border-width: 1px;
-        border-radius: 0.85rem;
+        border-radius: 1.1rem;
       }
 
       .topButtons {
         min-width: 0;
-        gap: 0.3rem;
+        gap: 0.4rem;
       }
 
       .iconBtn {
-        min-width: 2.25rem;
-        width: 2.25rem;
-        min-height: 2.25rem;
-        height: 2.25rem;
-        flex: 0 0 2.25rem;
+        min-width: 2.7rem;
+        width: 2.7rem;
+        min-height: 2.7rem;
+        height: 2.7rem;
+        flex: 0 0 2.7rem;
         padding: 0;
         border-width: 1px;
-        font-size: 0.95rem;
+        font-size: 1.15rem;
       }
 
       .statusRow {
         grid-row: 2;
         grid-template-columns: auto minmax(0, 1fr) auto;
-        gap: 0.35rem;
+        gap: 0.5rem;
         min-height: 0;
-        font-size: 0.82rem;
+        font-size: clamp(0.95rem, 3.5vw, 1.15rem);
         line-height: 1;
+        padding-inline: 0.15rem;
       }
 
       #questionNumber,
       #score {
         white-space: nowrap;
+        font-weight: 900;
       }
 
       .timerBox {
-        gap: 0.25rem;
+        gap: 0.35rem;
       }
 
       #timerWrap {
-        height: 0.7rem;
+        height: 0.95rem;
         border-width: 1px;
       }
 
       #timerText {
-        min-width: 2rem;
-        font-size: 0.82rem;
+        min-width: 2.4rem;
+        font-size: 1rem;
+        font-weight: 900;
       }
 
       #notice {
         grid-row: 3;
-        padding: 0.35rem 0.5rem;
+        padding: 0.5rem 0.7rem;
         border-width: 1px;
-        border-radius: 0.65rem;
-        font-size: 0.8rem;
+        border-radius: 0.85rem;
+        font-size: clamp(0.95rem, 3.8vw, 1.15rem);
       }
 
       #questionCard {
         grid-row: 4;
         min-height: 0;
         grid-template-columns: 1fr;
-        padding: 0.65rem 1rem;
+        padding: 0.7rem 1rem;
         border-width: 1px;
         text-align: center;
         clip-path: polygon(2.5% 0, 97.5% 0, 100% 50%, 97.5% 100%, 2.5% 100%, 0 50%);
@@ -1231,38 +1338,51 @@
       }
 
       #qText {
-        font-size: clamp(1.22rem, 7vw, 1.55rem);
-        line-height: 1.12;
+        font-size: clamp(1.4rem, 6vw, 1.9rem);
+        line-height: 1.15;
         overflow-wrap: anywhere;
         hyphens: auto;
+        font-weight: 900;
       }
 
       #bossBadge {
         margin-inline: auto;
-        font-size: 0.68rem;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
         border-width: 1px;
       }
 
       #answers {
         grid-row: 5;
-        flex: 1 1 0;
+        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, minmax(3.15rem, 1fr));
-        min-height: calc(12.6rem + 1.26rem);
-        height: auto;
-        gap: 0.42rem;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        gap: 0.45rem;
+        min-height: 0;
+        height: 100%;
       }
 
       .answer {
         min-width: 0;
+        min-height: 0;
         height: 100%;
-        min-height: 3.15rem;
-        padding: 0.35rem 0.8rem;
-        gap: 0.55rem;
+        padding: 0.5rem 0.9rem;
+        gap: 0.6rem;
         border-width: 1px;
-        font-size: 1.12rem;
-        line-height: 1.1;
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+        line-height: 1.15;
         clip-path: polygon(3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
+      }
+
+      .answer .letter {
+        width: 2.6rem;
+        height: 2.6rem;
+        flex: 0 0 2.6rem;
+        font-size: 1.3rem;
+      }
+
+      .answer > span:last-child {
+        font-weight: 800;
       }
 
       .answer:active:not(:disabled),
@@ -1272,57 +1392,81 @@
         transform: scale(0.985);
       }
 
-      .answer .letter {
-        width: 2.2rem;
-        height: 2.2rem;
-        flex: 0 0 2.2rem;
-        font-size: 1.12rem;
-      }
-
       #jokers {
         grid-row: 6;
         position: relative;
-        min-height: 2.8rem;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.35rem;
+        gap: 0.45rem;
         padding-top: 0;
       }
 
       .joker {
         min-width: 0;
-        min-height: 2.8rem;
-        padding: 0.3rem 0.2rem;
+        min-height: 3rem;
+        padding: 0.4rem 0.3rem;
         border-width: 1px;
-        font-size: 0.86rem;
-        line-height: 1.05;
+        font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+        line-height: 1.1;
         overflow-wrap: anywhere;
+        font-weight: 900;
       }
 
       #toast {
-        bottom: calc(0.45rem + env(safe-area-inset-bottom));
-        max-width: calc(100vw - 1rem);
-        padding: 0.35rem 0.55rem;
+        bottom: calc(0.5rem + env(safe-area-inset-bottom));
+        max-width: calc(100vw - 1.2rem);
+        padding: 0.55rem 0.8rem;
         border-width: 1px;
-        border-radius: 0.65rem;
-        font-size: 0.78rem;
+        border-radius: 0.9rem;
+        font-size: 0.9rem;
       }
 
       #endAmount {
-        font-size: 2rem;
+        font-size: clamp(2.2rem, 10vw, 3rem);
+        margin: 0.1rem 0;
+      }
+
+      .endBox h2 {
+        font-size: clamp(1.7rem, 7.5vw, 2.3rem);
+      }
+
+      .endBox button {
+        width: min(90%, 22rem);
+      }
+
+      .endBox button#btnHome {
+        min-height: 3.2rem;
+        font-size: 1.05rem;
       }
     }
 
     @media (max-width: 899px) and (orientation: landscape) {
+      html {
+        font-size: 16px;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
       .hero {
-        width: min(100%, 760px);
+        width: 100%;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        max-width: none;
+        border-radius: 0;
+        border-width: 0;
         grid-template-columns: auto minmax(0, 1fr);
         align-items: center;
-        padding: 0.5rem 0.7rem;
-        gap: 0.3rem 0.55rem;
+        padding:
+          calc(0.5rem + env(safe-area-inset-top))
+          calc(0.7rem + env(safe-area-inset-right))
+          calc(0.5rem + env(safe-area-inset-bottom))
+          calc(0.7rem + env(safe-area-inset-left));
+        gap: 0.3rem 0.6rem;
       }
 
       .hero .brandMark {
-        width: 3.2rem;
+        width: 3rem;
         grid-row: 1 / span 2;
       }
 
@@ -1332,34 +1476,38 @@
       }
 
       .hero h1 {
-        font-size: 1.55rem;
+        font-size: 1.6rem;
       }
 
       .hero .subtitle {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
       }
 
       .hero #btnStart {
-        min-height: 2.15rem;
+        min-height: 2.4rem;
       }
 
       .hero .startOptions {
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.3rem;
+        gap: 0.4rem;
       }
 
       .hero .startOptions button {
-        min-height: 2.05rem;
-        font-size: 0.65rem;
+        min-height: 2.2rem;
+        font-size: 0.7rem;
       }
 
       #gameScreen {
-        gap: 0.28rem;
-        padding-block: 0.3rem;
+        gap: 0.3rem;
+        padding:
+          calc(0.3rem + env(safe-area-inset-top))
+          calc(0.4rem + env(safe-area-inset-right))
+          calc(0.3rem + env(safe-area-inset-bottom))
+          calc(0.4rem + env(safe-area-inset-left));
       }
 
       .topbar {
-        padding-block: 0.2rem;
+        padding-block: 0.25rem;
       }
 
       .iconBtn {
@@ -1368,23 +1516,23 @@
         min-height: 1.9rem;
         height: 1.9rem;
         flex-basis: 1.9rem;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
       }
 
       #questionCard {
-        padding-block: 0.35rem;
+        padding-block: 0.4rem;
       }
 
       #qText {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
 
       #answers {
         flex: 0 0 auto;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(2, minmax(2.15rem, 1fr));
+        grid-template-rows: repeat(2, minmax(2.2rem, 1fr));
         min-height: 0;
-        gap: 0.28rem;
+        gap: 0.3rem;
       }
 
       #jokers {
@@ -1393,50 +1541,65 @@
 
       .answer,
       .joker {
-        min-height: 2.15rem;
+        min-height: 2.2rem;
       }
 
       .answer {
-        padding-block: 0.2rem;
-        font-size: 0.82rem;
+        padding-block: 0.25rem;
+        font-size: 0.85rem;
       }
 
       .answer .letter {
-        width: 1.75rem;
-        height: 1.75rem;
-        font-size: 0.8rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
       }
 
       .joker {
-        font-size: 0.68rem;
+        font-size: 0.75rem;
       }
     }
 
     @media (max-width: 360px) {
+      html {
+        font-size: 18px;
+      }
+
       .hero .brandMark,
       .endBox .brandMark {
-        width: 4.1rem;
+        width: 5rem;
       }
 
-      .hero h1 {
-        font-size: 1.5rem;
+      .hero h1,
+      .endBox h2 {
+        font-size: clamp(1.7rem, 7.5vw, 2.2rem);
       }
 
-      .hero .subtitle {
-        font-size: 0.82rem;
+      .hero .subtitle,
+      .endBox .subtitle {
+        font-size: clamp(0.95rem, 4vw, 1.15rem);
       }
 
       .statusRow {
-        font-size: 0.7rem;
+        font-size: 0.85rem;
+      }
+
+      #qText {
+        font-size: clamp(1.25rem, 5.5vw, 1.7rem);
       }
 
       .answer {
-        padding-inline: 0.65rem;
-        font-size: 0.92rem;
+        padding-inline: 0.75rem;
+        font-size: 1rem;
       }
 
       .joker {
-        font-size: 0.69rem;
+        font-size: 0.85rem;
+        min-height: 2.8rem;
+      }
+
+      #endAmount {
+        font-size: 2.1rem;
       }
     }
   </style>
@@ -1448,25 +1611,33 @@
   <div id="confetti" aria-hidden="true"></div>
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <!-- START -->
   <section id="startScreen" class="screen">
     <div class="hero">
       <div class="brandMark" aria-hidden="true"><span>Die<br>Millionen&shy;frage</span></div>
       <h1>Die Millionenfrage</h1>
       <p class="subtitle">15 Fragen · 3 Joker · 1.000.000 €</p>
 
+      <fieldset class="difficultyPicker">
+        <legend>Schwierigkeit</legend>
+        <div class="difficultyButtons" role="group" aria-label="Schwierigkeitsgrad wählen">
+          <button class="difficultyBtn" type="button" data-difficulty="easy" aria-pressed="false">Leicht</button>
+          <button class="difficultyBtn" type="button" data-difficulty="normal" aria-pressed="true">Normal</button>
+          <button class="difficultyBtn" type="button" data-difficulty="hard" aria-pressed="false">Schwer</button>
+        </div>
+      </fieldset>
+
       <button id="btnStart" class="primary" type="button">Start</button>
 
       <div class="startOptions">
         <button id="btnIntro" type="button">Anleitung hören</button>
         <button id="btnMusicStart" type="button">Musik: an</button>
+        <button id="btnSpeechStart" type="button">Sprachausgabe: aus</button>
         <button id="btnFontMinusStart" type="button">A− kleiner</button>
         <button id="btnFontPlusStart" type="button">A＋ größer</button>
       </div>
     </div>
   </section>
 
-  <!-- SPIEL -->
   <section id="gameScreen" hidden>
 
     <div class="topbar">
@@ -1478,6 +1649,7 @@
       <div class="topButtons">
         <button id="btnPause" class="iconBtn" type="button" aria-label="Pause">⏸️</button>
         <button id="btnMusic" class="iconBtn" type="button" aria-label="Musik">🎵</button>
+        <button id="btnSpeech" class="iconBtn" type="button" aria-label="Sprachausgabe">🔇</button>
         <button id="btnQuit" class="iconBtn" type="button" aria-label="Zur Startseite">🏠</button>
       </div>
     </div>
@@ -1517,7 +1689,6 @@
 
   </section>
 
-  <!-- ENDE -->
   <section id="endScreen" class="screen" hidden>
     <div class="endBox">
       <div class="brandMark" aria-hidden="true"><span>Die<br>Millionen&shy;frage</span></div>
@@ -1533,8 +1704,46 @@
   <script>
     'use strict';
 
-    // Zwei Varianten pro Gewinnstufe sorgen auch bei einer neuen Runde für Abwechslung.
-    // Jede Zeile enthält: Frage, vier plausible Antworten, richtige Antwort, Symbol, Auflösung.
+    // ==============================
+    // AUTO-FULLSCREEN & VH-FIX
+    // ==============================
+
+    function setVh() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', () => setTimeout(setVh, 150));
+
+    function tryFullscreen(el) {
+      const target = el || document.documentElement;
+      const rfs =
+        target.requestFullscreen ||
+        target.webkitRequestFullscreen ||
+        target.mozRequestFullScreen ||
+        target.msRequestFullscreen;
+      if (rfs) {
+        rfs.call(target).catch(function () {});
+      }
+    }
+
+    function requestLockOrientation() {
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('portrait').catch(function () {});
+        }
+      } catch (e) {}
+    }
+
+    document.addEventListener('fullscreenchange', function () {
+      setTimeout(setVh, 100);
+    });
+
+    // ==============================
+    // SPIELLOGIK
+    // ==============================
+
     const QUESTION_LADDER = [
       [
         { question: 'Welche Farbe entsteht, wenn man Blau und Rot mischt?', options: ['Grün', 'Violett', 'Orange', 'Braun'], answer: 'Violett', emoji: '🎨', fact: 'Blau und Rot ergeben Violett.' },
@@ -1607,11 +1816,22 @@
     const LETTERS = ['A', 'B', 'C', 'D'];
     const QUESTION_TIME = 60;
     const SETTINGS_KEY = 'sprech-raetsel-xl-settings';
+    const DIFFICULTIES = {
+      easy: { label: 'Leicht', time: 75, firstTier: 0, lastTier: 7 },
+      normal: { label: 'Normal', time: 60, firstTier: 0, lastTier: 14 },
+      hard: { label: 'Schwer', time: 45, firstTier: 7, lastTier: 14 }
+    };
+    const BGM_TRACKS = {
+      quiz: ['audio/quiz-runway.mp3', 'audio/quiz-runway-alt.mp3'],
+      finale: ['audio/letzte-frage.mp3', 'audio/letzte-frage-alt.mp3']
+    };
 
     let settings = {
-      fontPx: 32,
+      fontPx: 22,
       music: true,
-      sound: true
+      sound: true,
+      speech: false,
+      difficulty: 'normal'
     };
 
     let audioCtx = null;
@@ -1620,6 +1840,8 @@
     let bgmTimer = null;
     let bgmStep = 0;
     let bgmMood = -1;
+    let bgmAudio = null;
+    let bgmSource = '';
 
     let run = {
       answered: 0,
@@ -1632,6 +1854,9 @@
       pauseReason: null,
       pendingActivate: false,
       question: null,
+      questionPool: [],
+      difficulty: 'normal',
+      trackVariant: 0,
       timerInterval: null,
       timeLeft: QUESTION_TIME,
       timeLimit: QUESTION_TIME,
@@ -1661,6 +1886,9 @@
 
       document.addEventListener('visibilitychange', onVisibilityChange);
       window.addEventListener('resize', applyFont, { passive: true });
+      window.addEventListener('orientationchange', function() {
+        setTimeout(applyFont, 100);
+      });
     }
 
     function $(id) {
@@ -1718,6 +1946,8 @@
         if (typeof parsed.fontPx === 'number') settings.fontPx = parsed.fontPx;
         if (typeof parsed.music === 'boolean') settings.music = parsed.music;
         if (typeof parsed.sound === 'boolean') settings.sound = parsed.sound;
+        if (typeof parsed.speech === 'boolean') settings.speech = parsed.speech;
+        if (DIFFICULTIES[parsed.difficulty]) settings.difficulty = parsed.difficulty;
       } catch (e) {}
     }
 
@@ -1728,19 +1958,24 @@
     }
 
     function applyFont() {
+      const isPortraitMobile = window.innerWidth < 900 && window.innerHeight > window.innerWidth;
+      const isSmallScreen = window.innerWidth < 600;
+
       let effectivePx = settings.fontPx;
 
-      if (window.innerWidth < 600) {
-        effectivePx = Math.max(22, Math.min(36, Math.round(settings.fontPx * 0.75)));
-      } else if (window.innerWidth < 900) {
-        effectivePx = Math.max(23, Math.min(36, Math.round(settings.fontPx * 0.85)));
+      if (isPortraitMobile) {
+        effectivePx = Math.max(18, Math.min(28, settings.fontPx));
+      } else if (isSmallScreen) {
+        effectivePx = Math.max(16, Math.min(24, settings.fontPx * 0.85));
+      } else {
+        effectivePx = Math.max(20, Math.min(36, settings.fontPx));
       }
 
       document.documentElement.style.fontSize = effectivePx + 'px';
     }
 
     function changeFont(delta) {
-      settings.fontPx = Math.max(24, Math.min(52, settings.fontPx + delta));
+      settings.fontPx = Math.max(16, Math.min(40, settings.fontPx + delta));
       applyFont();
       saveSettings();
       toast('Schriftgröße geändert');
@@ -1751,7 +1986,18 @@
       $('btnMusicStart').textContent =
         'Musik: ' + (settings.music ? 'an' : 'aus');
 
+      $('btnSpeechStart').textContent =
+        'Sprachausgabe: ' + (settings.speech ? 'an' : 'aus');
+
       $('btnMusic').textContent = settings.music ? '🎵' : '🚫';
+      $('btnSpeech').textContent = settings.speech ? '🗣️' : '🔇';
+      $('btnSpeech').setAttribute('aria-label',
+        'Sprachausgabe ' + (settings.speech ? 'ausschalten' : 'einschalten'));
+
+      document.querySelectorAll('.difficultyBtn').forEach(function (btn) {
+        const selected = btn.dataset.difficulty === settings.difficulty;
+        btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
     }
 
     function showScreen(id) {
@@ -1827,10 +2073,6 @@
       }
     }
 
-    /* =====================================================
-       AUDIO
-    ===================================================== */
-
     function ensureAudio() {
       try {
         const AC = window.AudioContext || window.webkitAudioContext;
@@ -1840,7 +2082,7 @@
           audioCtx = new AC();
 
           musicGain = audioCtx.createGain();
-          musicGain.gain.value = 0.18;
+          musicGain.gain.value = 0.4;
           musicGain.connect(audioCtx.destination);
 
           sfxGain = audioCtx.createGain();
@@ -1965,8 +2207,121 @@
       setTimeout(function () { sfxTone(77.78, 0.62, 'triangle', 0.06); }, 180);
     }
 
+    function kickDrum(gain, delay) {
+      if (!audioCtx || !musicGain) return;
+      const t = audioCtx.currentTime + (delay || 0);
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(160, t);
+      osc.frequency.exponentialRampToValueAtTime(35, t + 0.1);
+      g.gain.setValueAtTime(gain, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      osc.connect(g);
+      g.connect(musicGain);
+      osc.start(t);
+      osc.stop(t + 0.2);
+    }
+
+    function snare(gain, delay) {
+      if (!audioCtx || !musicGain) return;
+      const t = audioCtx.currentTime + (delay || 0);
+      const bufferSize = audioCtx.sampleRate * 0.1;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+      const source = audioCtx.createBufferSource();
+      source.buffer = buffer;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.value = 3500;
+      filter.Q.value = 0.8;
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(gain, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.1);
+      source.connect(filter);
+      filter.connect(g);
+      g.connect(musicGain);
+      source.start(t);
+    }
+
+    function hihat(gain, delay) {
+      if (!audioCtx || !musicGain) return;
+      const t = audioCtx.currentTime + (delay || 0);
+      const bufferSize = audioCtx.sampleRate * 0.03;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+      const source = audioCtx.createBufferSource();
+      source.buffer = buffer;
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'highpass';
+      filter.frequency.value = 9000;
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(gain, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+      source.connect(filter);
+      filter.connect(g);
+      g.connect(musicGain);
+      source.start(t);
+    }
+
+    function bassline(freq, dur, gain) {
+      if (!audioCtx || !musicGain) return;
+      const t = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, t);
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(280, t);
+      filter.frequency.exponentialRampToValueAtTime(900, t + dur * 0.25);
+      filter.frequency.exponentialRampToValueAtTime(180, t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(gain, t + 0.015);
+      g.gain.setValueAtTime(gain * 0.85, t + dur * 0.7);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      osc.connect(filter);
+      filter.connect(g);
+      g.connect(musicGain);
+      osc.start(t);
+      osc.stop(t + dur + 0.05);
+    }
+
+    function arpNote(freq, dur, gain, delay) {
+      musicTone(freq, dur, 'square', gain, delay);
+    }
+
     function startBGM() {
       if (!settings.music) return;
+
+      const group = run.qIndex === MONEY.length - 1 ? 'finale' : 'quiz';
+      const tracks = BGM_TRACKS[group];
+      const source = tracks[run.trackVariant % tracks.length];
+
+      if (!bgmAudio) {
+        bgmAudio = new Audio();
+        bgmAudio.loop = true;
+        bgmAudio.preload = 'auto';
+        bgmAudio.volume = 0.32;
+      }
+
+      if (bgmSource !== source) {
+        bgmAudio.pause();
+        bgmAudio.src = source;
+        bgmAudio.currentTime = 0;
+        bgmSource = source;
+      }
+
+      bgmAudio.play().catch(function () {
+        toast('Musik konnte nicht gestartet werden.');
+      });
+      return;
 
       ensureAudio();
 
@@ -1980,42 +2335,106 @@
       bgmStep = 0;
       bgmMood = mood;
 
-      const tempos = [640, 500, 390];
+      const tempos = [132, 148, 168];
+      const bpm = tempos[mood];
+      const beatDur = 60 / bpm;
       const rootsByMood = [
         [65.41, 58.27, 61.74, 55],
         [58.27, 51.91, 55, 49],
         [51.91, 46.25, 49, 43.65]
       ];
-      const tempo = tempos[mood];
       const roots = rootsByMood[mood];
+
+      const arpPatterns = [
+        [1, 1.5, 2, 1.5, 1, 1.5, 2, 3],
+        [1, 1.25, 1.5, 2, 1.5, 1.25, 1, 1.5],
+        [1, 2, 1.5, 2, 3, 2, 1.5, 1]
+      ];
+      const arpPattern = arpPatterns[mood];
 
       bgmTimer = setInterval(function () {
         bgmStep++;
 
         const root = roots[Math.floor(bgmStep / 8) % roots.length];
         const danger = run.timeLimit > 0 && run.timeLeft / run.timeLimit < 0.28;
+        const stepInBeat = bgmStep % 4;
 
-        musicTone(root, tempo / 1000 * 0.72, 'triangle', mood === 2 ? 0.19 : 0.15);
+        // KICK DRUM - four-on-the-floor, treibend
+        if (stepInBeat === 0) {
+          kickDrum(0.55, 0);
+        }
 
+        // SNARE auf 2 und 4
+        if (stepInBeat === 2) {
+          snare(mood === 2 ? 0.22 : 0.16, 0);
+        }
+
+        // HIHAT - 16tel für Drive
+        hihat(mood === 2 ? 0.09 : 0.06, 0);
+        if (mood > 0 && (stepInBeat === 1 || stepInBeat === 3)) {
+          hihat(mood === 2 ? 0.12 : 0.08, beatDur * 0.5);
+        }
+
+        // BASSLINE - pumpend, dominant
+        if (stepInBeat === 0) {
+          bassline(root * 2, beatDur * 0.85, mood === 2 ? 0.4 : 0.32);
+        }
+        if (stepInBeat === 2 && mood > 0) {
+          bassline(root * 2.5, beatDur * 0.65, 0.26);
+        }
+        // Octave-Jump für Energie in Mood 2
+        if (mood === 2 && stepInBeat === 3) {
+          bassline(root * 4, beatDur * 0.4, 0.2);
+        }
+
+        // ARPEGGIO - melodischer Drive
         if (bgmStep % 2 === 0) {
-          musicTone(root * 2, 0.11, 'square', 0.025 + mood * 0.008);
+          const arpIndex = Math.floor(bgmStep / 2) % arpPattern.length;
+          const arpFreq = root * 4 * arpPattern[arpIndex];
+          arpNote(arpFreq, beatDur * 0.35, mood === 2 ? 0.09 : 0.07, 0);
         }
 
+        // CHORD STABS - Akzente
         if (bgmStep % 8 === 1) {
-          musicChord(root * 2, tempo / 1000 * 3.2, 0.045 + mood * 0.012);
+          musicChord(root * 2, beatDur * 2, mood === 2 ? 0.14 : 0.1);
         }
 
-        if (mood > 0 && bgmStep % 4 === 3) {
-          musicTone(root * 4.5, 0.16, 'sine', 0.018 + mood * 0.009);
+        // SYNTH RISER für Spannung
+        if (bgmStep % 16 === 15 && mood > 0) {
+          musicTone(root * 3, beatDur * 2, 'sine', 0.05, beatDur);
         }
 
+        // DANGER MODE - zusätzlicher Druck
         if (danger) {
-          musicTone(880, 0.045, 'square', 0.035);
+          if (stepInBeat === 0 || stepInBeat === 2) {
+            musicTone(880, 0.06, 'square', 0.07, 0);
+          }
+          if (bgmStep % 4 === 0) {
+            kickDrum(0.35, beatDur * 0.5);
+          }
+          // Extra HiHat-Rolls
+          hihat(0.1, beatDur * 0.25);
+          hihat(0.1, beatDur * 0.75);
         }
-      }, tempo);
+
+        // MOOD 2 - Extra Intensität
+        if (mood === 2 && bgmStep % 16 === 0) {
+          musicChord(root * 4, beatDur * 4, 0.09);
+        }
+      }, beatDur * 1000);
     }
 
-    function stopBGM() {
+    function stopBGM(resetTrack) {
+      if (bgmAudio) {
+        bgmAudio.pause();
+        if (resetTrack) {
+          bgmAudio.currentTime = 0;
+          bgmSource = '';
+          bgmAudio.removeAttribute('src');
+          bgmAudio.load();
+        }
+      }
+
       if (bgmTimer) {
         clearInterval(bgmTimer);
         bgmTimer = null;
@@ -2038,8 +2457,21 @@
       }
     }
 
-    function speak(text) {
-      if (!settings.sound) return;
+    function toggleSpeech() {
+      settings.speech = !settings.speech;
+      saveSettings();
+      updateButtons();
+
+      if (!settings.speech && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+
+      toast(settings.speech ? '🗣️ Sprachausgabe an' : '🔇 Sprachausgabe aus');
+      if (settings.speech) speak('Sprachausgabe eingeschaltet.');
+    }
+
+    function speak(text, force) {
+      if (!settings.speech && !force) return;
       if (!('speechSynthesis' in window)) return;
 
       try {
@@ -2062,13 +2494,16 @@
       } catch (e) {}
     }
 
-    /* =====================================================
-       SPIEL
-    ===================================================== */
-
     function prepareRun() {
       if (transitionTimer) clearTimeout(transitionTimer);
       if (run.timerInterval) clearInterval(run.timerInterval);
+      stopBGM(true);
+
+      const difficulty = DIFFICULTIES[settings.difficulty]
+        ? settings.difficulty
+        : 'normal';
+      const questionPool = buildQuestionPool(difficulty);
+      const questionTime = DIFFICULTIES[difficulty].time;
 
       run = {
         answered: 0,
@@ -2081,9 +2516,12 @@
         pauseReason: null,
         pendingActivate: false,
         question: null,
+        questionPool: questionPool,
+        difficulty: difficulty,
+        trackVariant: difficulty === 'hard' ? 1 : difficulty === 'easy' ? 0 : Math.floor(Math.random() * 2),
         timerInterval: null,
-        timeLeft: QUESTION_TIME,
-        timeLimit: QUESTION_TIME,
+        timeLeft: questionTime,
+        timeLimit: questionTime,
         selectTimeLeft: 0,
         lastTick: 0,
         jokers: {
@@ -2105,8 +2543,31 @@
       document.body.classList.remove('timeDanger');
     }
 
+    function buildQuestionPool(difficultyKey) {
+      const config = DIFFICULTIES[difficultyKey];
+      const pool = QUESTION_LADDER
+        .slice(config.firstTier, config.lastTier + 1)
+        .reduce(function (all, tier) {
+          return all.concat(tier);
+        }, [])
+        .map(function (question) {
+          return { question: question, sort: Math.random() };
+        })
+        .sort(function (a, b) {
+          return a.sort - b.sort;
+        })
+        .map(function (item) {
+          return item.question;
+        });
+
+      return pool.slice(0, MONEY.length);
+    }
+
     function startRun() {
       if (startupLock) return;
+
+      tryFullscreen(document.documentElement);
+      requestLockOrientation();
 
       startupLock = true;
 
@@ -2131,8 +2592,7 @@
     }
 
     function generateQuestion(level) {
-      const variants = QUESTION_LADDER[level];
-      const source = variants[Math.floor(Math.random() * variants.length)];
+      const source = run.questionPool[level];
       const options = source.options
         .map(function (text) {
           return { text: text, sort: Math.random() };
@@ -2184,15 +2644,16 @@
       updateScoreUI();
       updateMoneyLadder();
 
-      run.timeLimit = QUESTION_TIME;
-      run.timeLeft = QUESTION_TIME;
+      run.timeLimit = DIFFICULTIES[run.difficulty].time;
+      run.timeLeft = run.timeLimit;
       run.lastTick = 0;
 
       updateTimerUI();
       setAnswersEnabled(false);
 
       $('questionNumber').textContent =
-        'Frage ' + Math.min(15, run.qIndex + 1) + '/15';
+        'Frage ' + Math.min(15, run.qIndex + 1) + '/15 · ' +
+        DIFFICULTIES[run.difficulty].label;
 
       if (isSafetyLevel) {
         showNotice('🔒 Diese Frage sichert ' + MONEY[run.qIndex] + ' €');
@@ -2518,10 +2979,6 @@
       updateButtons();
     }
 
-    /* =====================================================
-       JOKER
-    ===================================================== */
-
     function useFifty() {
       if (!run.active || run.locked || run.paused || run.jokers.fifty || $('j5050').disabled) return;
 
@@ -2619,10 +3076,6 @@
       speak('Zeitbonus: plus zehn Sekunden.');
     }
 
-    /* =====================================================
-       PAUSE
-    ===================================================== */
-
     function pauseGame(reason, silent) {
       if (!$('gameScreen').hidden && run.active && !run.locked && !run.paused) {
         run.paused = true;
@@ -2697,10 +3150,6 @@
       }
     }
 
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
-
     function bindButtons() {
       $('btnStart').addEventListener('click', function () {
         ensureAudio();
@@ -2714,12 +3163,13 @@
         speak(
           'Anleitung. ' +
           'Sie bekommen eine Frage und vier Antworten. ' +
-          'Sie haben 60 Sekunden pro Frage. ' +
+          'Je nach Schwierigkeit haben Sie 75, 60 oder 45 Sekunden pro Frage. ' +
           'Tippen Sie auf die richtige Antwort. ' +
           'Mit 50:50 werden zwei falsche Antworten entfernt. ' +
           'Der Publikumsjoker zeigt die Abstimmung im Studio. ' +
           'Mit plus Zeit bekommen Sie zehn Sekunden extra. ' +
-          'Viel Erfolg!'
+          'Viel Erfolg!',
+          true
         );
 
         toast('Anleitung wird vorgelesen.');
@@ -2727,6 +3177,18 @@
 
       $('btnMusicStart').addEventListener('click', toggleMusic);
       $('btnMusic').addEventListener('click', toggleMusic);
+      $('btnSpeechStart').addEventListener('click', toggleSpeech);
+      $('btnSpeech').addEventListener('click', toggleSpeech);
+
+      document.querySelectorAll('.difficultyBtn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          settings.difficulty = btn.dataset.difficulty;
+          saveSettings();
+          updateButtons();
+          sfxClick();
+          toast('Schwierigkeit: ' + DIFFICULTIES[settings.difficulty].label);
+        });
+      });
 
       $('btnFontMinusStart').addEventListener('click', function () {
         changeFont(-2);
