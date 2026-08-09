@@ -2302,7 +2302,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER].forEach(function (ladder) {
+    const BIGGER_SHUFFLE_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Daumen hat ein Mensch normalerweise?', options: ['Einen', 'Zwei', 'Vier', 'Fünf'], answer: 'Zwei', emoji: '👍', fact: 'An jeder Hand befindet sich normalerweise ein Daumen.' },
+        { question: 'Welches Tier trägt typischerweise ein Geweih?', options: ['Hirsch', 'Fuchs', 'Dachs', 'Hase'], answer: 'Hirsch', emoji: '🦌', fact: 'Männliche Hirsche tragen bei den meisten Hirscharten ein Geweih.' },
+        { question: 'Welche Form hat ein klassischer Fußball?', options: ['Kugelförmig', 'Würfelförmig', 'Pyramidenförmig', 'Zylinderförmig'], answer: 'Kugelförmig', emoji: '⚽', fact: 'Ein Fußball ist annähernd kugelförmig.' },
+        { question: 'Wie viel ist drei plus vier?', options: ['Fünf', 'Sechs', 'Sieben', 'Acht'], answer: 'Sieben', emoji: '➕', fact: 'Drei plus vier ergibt sieben.' }
+      ],
+      [
+        { question: 'Welcher Monat folgt direkt auf den April?', options: ['März', 'Mai', 'Juni', 'Juli'], answer: 'Mai', emoji: '🗓️', fact: 'Auf den April folgt der Mai.' },
+        { question: 'Welches Getränk entsteht beim Aufbrühen von Teeblättern?', options: ['Kakao', 'Tee', 'Limonade', 'Milch'], answer: 'Tee', emoji: '🍵', fact: 'Teeblätter werden mit heißem Wasser aufgebrüht.' },
+        { question: 'Wie viele Minuten hat eine halbe Stunde?', options: ['15', '20', '30', '45'], answer: '30', emoji: '⏱️', fact: 'Eine halbe Stunde entspricht 30 Minuten.' },
+        { question: 'Welcher Kontinent liegt am Südpol?', options: ['Europa', 'Asien', 'Antarktika', 'Afrika'], answer: 'Antarktika', emoji: '🧊', fact: 'Der geografische Südpol liegt in der Antarktika.' }
+      ],
+      [
+        { question: 'Welches Meer liegt zwischen Europa und Afrika?', options: ['Mittelmeer', 'Nordsee', 'Ostsee', 'Karibisches Meer'], answer: 'Mittelmeer', emoji: '🌊', fact: 'Das Mittelmeer trennt Europa im Norden von Afrika im Süden.' },
+        { question: 'Welcher Pflanzenteil nimmt meist Wasser aus dem Boden auf?', options: ['Blüte', 'Wurzel', 'Frucht', 'Blatt'], answer: 'Wurzel', emoji: '🌱', fact: 'Wurzeln nehmen Wasser und gelöste Mineralstoffe aus dem Boden auf.' },
+        { question: 'Wie nennt man ein Dreieck mit drei gleich langen Seiten?', options: ['Rechtwinkliges Dreieck', 'Gleichseitiges Dreieck', 'Stumpfwinkliges Dreieck', 'Ungleichseitiges Dreieck'], answer: 'Gleichseitiges Dreieck', emoji: '📐', fact: 'Beim gleichseitigen Dreieck sind alle drei Seiten gleich lang.' },
+        { question: 'Welches Tier baut Dämme aus Ästen und Holz?', options: ['Biber', 'Otter', 'Dachs', 'Waschbär'], answer: 'Biber', emoji: '🦫', fact: 'Biber stauen mit Dämmen Bäche und schaffen geschützte Lebensräume.' }
+      ],
+      [
+        { question: 'Welcher Ozean liegt zwischen Europa und Nordamerika?', options: ['Atlantischer Ozean', 'Indischer Ozean', 'Pazifischer Ozean', 'Arktischer Ozean'], answer: 'Atlantischer Ozean', emoji: '🌊', fact: 'Der Atlantische Ozean trennt Europa von Nordamerika.' },
+        { question: 'Welcher Teil des Auges bestimmt hauptsächlich seine sichtbare Farbe?', options: ['Iris', 'Netzhaut', 'Linse', 'Sehnerv'], answer: 'Iris', emoji: '👁️', fact: 'Pigmente in der Iris bestimmen die sichtbare Augenfarbe.' },
+        { question: 'In welcher Stadt steht das Kolosseum?', options: ['Rom', 'Athen', 'Madrid', 'Lissabon'], answer: 'Rom', emoji: '🏛️', fact: 'Das antike Kolosseum steht im Zentrum von Rom.' },
+        { question: 'Wie viele Seitenflächen besitzt ein Würfel?', options: ['Vier', 'Fünf', 'Sechs', 'Acht'], answer: 'Sechs', emoji: '🎲', fact: 'Ein Würfel besitzt sechs quadratische Seitenflächen.' }
+      ],
+      [
+        { question: 'Welcher Fluss fließt durch Budapest?', options: ['Rhein', 'Donau', 'Seine', 'Themse'], answer: 'Donau', emoji: '🌊', fact: 'Die Donau teilt Budapest in Buda und Pest.' },
+        { question: 'Für welches Element steht das Symbol „Ag“?', options: ['Gold', 'Silber', 'Argon', 'Aluminium'], answer: 'Silber', emoji: '🥈', fact: 'Ag leitet sich vom lateinischen Namen Argentum für Silber ab.' },
+        { question: 'Wer schrieb den Roman „Oliver Twist“?', options: ['Charles Dickens', 'Oscar Wilde', 'George Orwell', 'Jane Austen'], answer: 'Charles Dickens', emoji: '📖', fact: 'Charles Dickens veröffentlichte „Oliver Twist“ als Fortsetzungsroman.' },
+        { question: 'Wie nennt man Tiere, die sich überwiegend von Pflanzen ernähren?', options: ['Pflanzenfresser', 'Fleischfresser', 'Allesfresser', 'Aasfresser'], answer: 'Pflanzenfresser', emoji: '🌿', fact: 'Pflanzenfresser werden auch Herbivoren genannt.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Litauens?', options: ['Kaunas', 'Vilnius', 'Klaipėda', 'Riga'], answer: 'Vilnius', emoji: '🇱🇹', fact: 'Vilnius ist die Hauptstadt Litauens.' },
+        { question: 'Welche Blutgefäße führen Blut vom Herzen weg?', options: ['Venen', 'Arterien', 'Kapillaren', 'Lymphgefäße'], answer: 'Arterien', emoji: '🫀', fact: 'Arterien transportieren Blut vom Herzen weg.' },
+        { question: 'Wie lautet die römische Zahl für 50?', options: ['L', 'C', 'D', 'M'], answer: 'L', emoji: '🏛️', fact: 'In der römischen Zahlschrift steht L für 50.' },
+        { question: 'Welche Wüste erstreckt sich über weite Teile Nordafrikas?', options: ['Gobi', 'Sahara', 'Kalahari', 'Atacama'], answer: 'Sahara', emoji: '🏜️', fact: 'Die Sahara ist die größte heiße Wüste der Erde.' }
+      ],
+      [
+        { question: 'Wer beschrieb den Blutkreislauf im 17. Jahrhundert grundlegend?', options: ['William Harvey', 'Andreas Vesalius', 'Paracelsus', 'Galen'], answer: 'William Harvey', emoji: '🫀', fact: 'William Harvey veröffentlichte 1628 seine Beschreibung des Blutkreislaufs.' },
+        { question: 'Welche Einheit misst die elektrische Kapazität?', options: ['Farad', 'Ohm', 'Tesla', 'Watt'], answer: 'Farad', emoji: '🔌', fact: 'Das Farad ist die SI-Einheit der elektrischen Kapazität.' },
+        { question: 'Welcher Kontinent wird sowohl vom Äquator als auch vom Nullmeridian durchquert?', options: ['Afrika', 'Asien', 'Südamerika', 'Australien'], answer: 'Afrika', emoji: '🌍', fact: 'Äquator und Nullmeridian verlaufen beide durch Afrika.' },
+        { question: 'Welcher Künstler malte das Bild „Nighthawks“?', options: ['Edward Hopper', 'Grant Wood', 'Jackson Pollock', 'Andy Warhol'], answer: 'Edward Hopper', emoji: '🎨', fact: 'Edward Hopper malte „Nighthawks“ 1942.' }
+      ],
+      [
+        { question: 'Welches Gebirge trennt die Iberische Halbinsel weitgehend vom übrigen Europa?', options: ['Pyrenäen', 'Karpaten', 'Apennin', 'Dinarisches Gebirge'], answer: 'Pyrenäen', emoji: '⛰️', fact: 'Die Pyrenäen bilden eine natürliche Grenze zwischen Spanien und Frankreich.' },
+        { question: 'Welcher Gehirnteil koordiniert besonders Bewegungen und Gleichgewicht?', options: ['Kleinhirn', 'Hypothalamus', 'Hirnstamm', 'Thalamus'], answer: 'Kleinhirn', emoji: '🧠', fact: 'Das Kleinhirn ist wesentlich an Bewegungskoordination und Gleichgewicht beteiligt.' },
+        { question: 'Wer schrieb das Drama „Warten auf Godot“?', options: ['Samuel Beckett', 'Eugène Ionesco', 'Bertolt Brecht', 'Jean-Paul Sartre'], answer: 'Samuel Beckett', emoji: '🎭', fact: 'Samuel Becketts Stück wurde 1953 in Paris uraufgeführt.' },
+        { question: 'Welcher Vertrag gründete 1957 die Europäische Wirtschaftsgemeinschaft?', options: ['Vertrag von Maastricht', 'Römische Verträge', 'Vertrag von Lissabon', 'Schengener Abkommen'], answer: 'Römische Verträge', emoji: '🇪🇺', fact: 'Die Römischen Verträge schufen unter anderem die EWG.' }
+      ],
+      [
+        { question: 'Wie viele Halswirbel besitzt ein Mensch normalerweise?', options: ['Fünf', 'Sieben', 'Neun', 'Zwölf'], answer: 'Sieben', emoji: '🦴', fact: 'Die menschliche Halswirbelsäule besteht normalerweise aus sieben Wirbeln.' },
+        { question: 'Welcher große See liegt an der Grenze zwischen Peru und Bolivien?', options: ['Titicacasee', 'Maracaibo-See', 'Poopó-See', 'Argentinischer See'], answer: 'Titicacasee', emoji: '🏞️', fact: 'Der Titicacasee liegt im Altiplano zwischen Peru und Bolivien.' },
+        { question: 'Wer entwickelte die Theorie der Kontinentaldrift?', options: ['Alfred Wegener', 'Charles Lyell', 'James Hutton', 'Alexander von Humboldt'], answer: 'Alfred Wegener', emoji: '🌍', fact: 'Alfred Wegener stellte 1912 seine Kontinentaldrift-Hypothese vor.' },
+        { question: 'Welche Zahl ist die Quadratwurzel von 2025?', options: ['35', '40', '45', '50'], answer: '45', emoji: '√', fact: '45 mal 45 ergibt 2025.' }
+      ],
+      [
+        { question: 'Welches Metall besitzt das chemische Symbol „Sn“?', options: ['Zinn', 'Zink', 'Silber', 'Natrium'], answer: 'Zinn', emoji: '🧪', fact: 'Sn stammt vom lateinischen Namen Stannum für Zinn.' },
+        { question: 'Wer schrieb den Roman „Die Blendung“?', options: ['Elias Canetti', 'Hermann Broch', 'Robert Musil', 'Joseph Roth'], answer: 'Elias Canetti', emoji: '📚', fact: 'Elias Canettis Roman „Die Blendung“ erschien 1935.' },
+        { question: 'Wie heißt die Meerenge zwischen Spanien und Marokko?', options: ['Bosporus', 'Straße von Gibraltar', 'Beringstraße', 'Straße von Hormus'], answer: 'Straße von Gibraltar', emoji: '🗺️', fact: 'Die Straße von Gibraltar verbindet Atlantik und Mittelmeer.' },
+        { question: 'Welches Zellorganell modifiziert und sortiert viele Proteine?', options: ['Golgi-Apparat', 'Zentriol', 'Nukleolus', 'Peroxisom'], answer: 'Golgi-Apparat', emoji: '🔬', fact: 'Der Golgi-Apparat verändert, sortiert und verpackt zahlreiche Proteine.' }
+      ],
+      [
+        { question: 'Wer prägte den Begriff „Survival of the Fittest“?', options: ['Charles Darwin', 'Herbert Spencer', 'Thomas Huxley', 'Alfred Russel Wallace'], answer: 'Herbert Spencer', emoji: '📜', fact: 'Herbert Spencer verwendete die Formulierung 1864; Darwin übernahm sie später.' },
+        { question: 'Welche Dynastie regierte China von 1368 bis 1644?', options: ['Ming-Dynastie', 'Tang-Dynastie', 'Song-Dynastie', 'Qing-Dynastie'], answer: 'Ming-Dynastie', emoji: '🏯', fact: 'Die Ming-Dynastie herrschte von 1368 bis 1644 über China.' },
+        { question: 'Welche physikalische Größe wird in Pascal gemessen?', options: ['Leistung', 'Druck', 'Ladung', 'Magnetfluss'], answer: 'Druck', emoji: '📏', fact: 'Das Pascal ist die SI-Einheit des Drucks.' },
+        { question: 'Wer komponierte den Orchesterzyklus „Die Planeten“?', options: ['Gustav Holst', 'Edward Elgar', 'Claude Debussy', 'Maurice Ravel'], answer: 'Gustav Holst', emoji: '🎻', fact: 'Gustav Holst komponierte „The Planets“ zwischen 1914 und 1916.' }
+      ],
+      [
+        { question: 'Welches Teilchen vermittelt die elektromagnetische Wechselwirkung?', options: ['Photon', 'Gluon', 'Higgs-Boson', 'Neutrino'], answer: 'Photon', emoji: '⚛️', fact: 'In der Quantenelektrodynamik ist das Photon das Austauschteilchen.' },
+        { question: 'Wer schrieb den Roman „Der Mann ohne Eigenschaften“?', options: ['Robert Musil', 'Hermann Broch', 'Joseph Roth', 'Arthur Schnitzler'], answer: 'Robert Musil', emoji: '📕', fact: 'Robert Musils unvollendeter Roman erschien ab 1930.' },
+        { question: 'Welcher antike Gelehrte berechnete den Erdumfang mithilfe von Schattenmessungen?', options: ['Eratosthenes', 'Euklid', 'Archimedes', 'Hipparchos'], answer: 'Eratosthenes', emoji: '🌍', fact: 'Eratosthenes verglich Schattenwinkel in zwei Städten und schätzte daraus den Erdumfang.' },
+        { question: 'Welches Hormon senkt den Blutzuckerspiegel?', options: ['Adrenalin', 'Insulin', 'Glukagon', 'Cortisol'], answer: 'Insulin', emoji: '🧬', fact: 'Insulin fördert die Aufnahme von Glukose aus dem Blut.' }
+      ],
+      [
+        { question: 'Nach wem ist die geometrische Darstellung komplexer Zahlen als Ebene benannt?', options: ['Jean-Robert Argand', 'Joseph Fourier', 'Évariste Galois', 'Augustin-Louis Cauchy'], answer: 'Jean-Robert Argand', emoji: '📐', fact: 'Die Argandebene stellt komplexe Zahlen als Punkte einer Ebene dar.' },
+        { question: 'Welcher Staat hat Yamoussoukro als Hauptstadt?', options: ['Elfenbeinküste', 'Togo', 'Benin', 'Guinea'], answer: 'Elfenbeinküste', emoji: '🌍', fact: 'Yamoussoukro ist die politische Hauptstadt der Elfenbeinküste.' },
+        { question: 'Welches Werk beginnt mit der Figur Hans Castorp?', options: ['Der Zauberberg', 'Buddenbrooks', 'Steppenwolf', 'Berlin Alexanderplatz'], answer: 'Der Zauberberg', emoji: '📘', fact: 'Hans Castorp ist die Hauptfigur in Thomas Manns „Der Zauberberg“.' },
+        { question: 'Welche Einheit misst die Äquivalentdosis ionisierender Strahlung?', options: ['Sievert', 'Gray', 'Becquerel', 'Tesla'], answer: 'Sievert', emoji: '☢️', fact: 'Das Sievert berücksichtigt die biologische Wirkung ionisierender Strahlung.' }
+      ],
+      [
+        { question: 'Wer entdeckte die erste Pulsarquelle im Jahr 1967?', options: ['Jocelyn Bell Burnell', 'Vera Rubin', 'Cecilia Payne-Gaposchkin', 'Henrietta Leavitt'], answer: 'Jocelyn Bell Burnell', emoji: '📡', fact: 'Jocelyn Bell Burnell erkannte 1967 das charakteristische Radiosignal eines Pulsars.' },
+        { question: 'Welcher Vertrag legte 1923 die Grenzen der modernen Türkei fest?', options: ['Vertrag von Lausanne', 'Vertrag von Sèvres', 'Vertrag von Rapallo', 'Vertrag von Trianon'], answer: 'Vertrag von Lausanne', emoji: '📜', fact: 'Der Vertrag von Lausanne regelte 1923 die Grenzen der modernen Türkei.' },
+        { question: 'Welche Aminosäure wird durch das Startcodon AUG codiert?', options: ['Methionin', 'Tryptophan', 'Leucin', 'Glycin'], answer: 'Methionin', emoji: '🧬', fact: 'AUG codiert Methionin und dient meist als Startsignal der Translation.' },
+        { question: 'Wie heißt die Hauptstadt der Komoren?', options: ['Moroni', 'Mutsamudu', 'Mamoudzou', 'Victoria'], answer: 'Moroni', emoji: '🏝️', fact: 'Moroni ist die Hauptstadt der Komoren.' }
+      ],
+      [
+        { question: 'Welcher Satz garantiert einen Fixpunkt für jede stetige Selbstabbildung einer abgeschlossenen Vollkugel?', options: ['Brouwerscher Fixpunktsatz', 'Satz von Rolle', 'Satz von Fubini', 'Cayley-Hamilton-Satz'], answer: 'Brouwerscher Fixpunktsatz', emoji: '♾️', fact: 'Der Brouwersche Fixpunktsatz gilt in jeder endlichen Dimension.' },
+        { question: 'Wer verfasste das mittelhochdeutsche Epos „Parzival“?', options: ['Wolfram von Eschenbach', 'Walther von der Vogelweide', 'Hartmann von Aue', 'Gottfried von Straßburg'], answer: 'Wolfram von Eschenbach', emoji: '🛡️', fact: 'Wolfram von Eschenbach schrieb „Parzival“ vermutlich im frühen 13. Jahrhundert.' },
+        { question: 'Welches Element wurde nach dem Zwergplaneten Ceres benannt?', options: ['Cer', 'Plutonium', 'Palladium', 'Tellur'], answer: 'Cer', emoji: '🔭', fact: 'Cer wurde 1803 benannt, kurz nach der Entdeckung von Ceres.' },
+        { question: 'Welche Schlacht von 216 v. Chr. gilt als Hannibals größter Sieg?', options: ['Cannae', 'Zama', 'Actium', 'Pharsalos'], answer: 'Cannae', emoji: '⚔️', fact: 'Bei Cannae umschloss Hannibals Heer die zahlenmäßig überlegenen Römer.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
@@ -3019,7 +3112,7 @@
         question: null,
         questionPool: questionPool,
         difficulty: difficulty,
-        trackVariant: difficulty === 'hard' ? 1 : difficulty === 'easy' ? 0 : Math.floor(Math.random() * 2),
+        trackVariant: difficulty === 'hard' ? 1 : difficulty === 'easy' ? 0 : randomInt(2),
         timerInterval: null,
         timeLeft: questionTime,
         timeLimit: questionTime,
@@ -3031,6 +3124,8 @@
           time: false
         }
       };
+
+      lastCorrectOptionIndex = -1;
 
       ['j5050', 'jHint', 'jTime'].forEach(function (id) {
         const btn = $(id);
@@ -3044,11 +3139,29 @@
       document.body.classList.remove('timeDanger');
     }
 
+    function randomInt(maxExclusive) {
+      if (!Number.isInteger(maxExclusive) || maxExclusive <= 0) return 0;
+
+      if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+        const values = new Uint32Array(1);
+        const range = 0x100000000;
+        const limit = Math.floor(range / maxExclusive) * maxExclusive;
+
+        do {
+          window.crypto.getRandomValues(values);
+        } while (values[0] >= limit);
+
+        return values[0] % maxExclusive;
+      }
+
+      return Math.floor(Math.random() * maxExclusive);
+    }
+
     function shuffleArray(items) {
       const shuffled = items.slice();
 
       for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = randomInt(i + 1);
         const current = shuffled[i];
         shuffled[i] = shuffled[j];
         shuffled[j] = current;
@@ -3058,6 +3171,8 @@
     }
 
     let tierQuestionBags = {};
+    let tierLastQuestionIndex = {};
+    let lastCorrectOptionIndex = -1;
 
     function drawQuestionsFromTier(tierIndex, count) {
       const tier = QUESTION_LADDER[tierIndex];
@@ -3073,7 +3188,10 @@
           bag = shuffleArray(tier.map(function (_, index) { return index; }));
 
           const safeIndex = bag.findIndex(function (index) {
-            return chosenIndices.indexOf(index) === -1;
+            const repeatsInCurrentDraw = chosenIndices.indexOf(index) !== -1;
+            const repeatsPreviousQuestion = tier.length > 1 &&
+              tierLastQuestionIndex[tierIndex] === index;
+            return !repeatsInCurrentDraw && !repeatsPreviousQuestion;
           });
 
           if (safeIndex > 0) {
@@ -3086,6 +3204,7 @@
         const nextIndex = bag.shift();
         if (chosenIndices.indexOf(nextIndex) === -1) {
           chosenIndices.push(nextIndex);
+          tierLastQuestionIndex[tierIndex] = nextIndex;
         }
       }
 
@@ -3153,13 +3272,24 @@
     function generateQuestion(level) {
       const source = run.questionPool[level];
       const options = shuffleArray(source.options);
+      let correctIndex = options.indexOf(source.answer);
+
+      if (options.length > 1 && correctIndex === lastCorrectOptionIndex) {
+        const differentIndex = (correctIndex + 1 + randomInt(options.length - 1)) % options.length;
+        const current = options[correctIndex];
+        options[correctIndex] = options[differentIndex];
+        options[differentIndex] = current;
+        correctIndex = differentIndex;
+      }
+
+      lastCorrectOptionIndex = correctIndex;
 
       return {
         clue: source.question,
         emoji: source.emoji,
         options: options,
         correct: source.answer,
-        correctIndex: options.indexOf(source.answer),
+        correctIndex: correctIndex,
         fact: source.fact
       };
     }
@@ -3551,11 +3681,7 @@
           return i !== q.correctIndex && btn && !btn.disabled;
         });
 
-      wrongs.sort(function () {
-        return Math.random() - 0.5;
-      });
-
-      wrongs.slice(0, 2).forEach(function (i) {
+      shuffleArray(wrongs).slice(0, 2).forEach(function (i) {
         const btn = $('answer-' + i);
         if (!btn) return;
 

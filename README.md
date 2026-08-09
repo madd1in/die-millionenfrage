@@ -1,6 +1,6 @@
 # Die Millionenfrage
 
-Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 360 Fragenvarianten, drei Jokern, optionaler Sprachausgabe und eigener MP3-Hintergrundmusik.
+Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 420 Fragenvarianten, drei Jokern, optionaler Sprachausgabe und eigener MP3-Hintergrundmusik.
 
 Das Spiel läuft vollständig im Browser und benötigt keine Installation.
 
@@ -14,8 +14,9 @@ Die veröffentlichte Version ist über GitHub Pages erreichbar.
 - Schwierigkeit: Leicht (75 Sekunden), Normal (60 Sekunden) oder Schwer (45 Sekunden)
 - Fragenpools: leichte, gemischte oder schwere Fragen passend zum gewählten Durchlauf
 - Verlauf: Die Fragen werden innerhalb jedes Durchlaufs kontinuierlich schwieriger
-- Zufall: Fragenvarianten und Antwortpositionen werden vor jedem Durchlauf neu gemischt
-- Shuffle-Bags: Innerhalb einer Sitzung werden Varianten erst wiederholt, nachdem der jeweilige Stufenpool durchgespielt wurde
+- Zufall: Fragenvarianten und Antwortpositionen werden mit Browser-Kryptozufall neu gemischt
+- Shuffle-Bags: Innerhalb einer Sitzung werden Varianten erst wiederholt, nachdem der jeweilige Stufenpool durchgespielt wurde; direkte Wiederholungen über Bag-Grenzen werden verhindert
+- Antwortmix: Die richtige Antwort steht nie zweimal nacheinander an derselben Position
 - Frage vorlesen: Fragekarte antippen
 - Sprachausgabe: auf Start- und Spielbildschirm jederzeit ein- oder ausschaltbar
 - Joker: 50:50, Publikum und zehn Sekunden Zusatzzeit
