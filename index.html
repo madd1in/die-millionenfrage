@@ -2674,7 +2674,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_660_QUESTION_LADDER = [
+      [
+        { question: 'Womit putzt man gewöhnlich die Zähne?', options: ['Zahnbürste', 'Haarbürste', 'Gabel', 'Lineal'], answer: 'Zahnbürste', emoji: '🪥', fact: 'Eine Zahnbürste entfernt zusammen mit Zahnpasta Beläge von den Zähnen.' },
+        { question: 'Welches Tier grunzt typischerweise?', options: ['Schwein', 'Pferd', 'Katze', 'Ente'], answer: 'Schwein', emoji: '🐖', fact: 'Schweine verständigen sich unter anderem durch Grunzen.' },
+        { question: 'Wie viele Nasen hat ein Mensch normalerweise?', options: ['Eine', 'Zwei', 'Drei', 'Vier'], answer: 'Eine', emoji: '👃', fact: 'Ein Mensch besitzt normalerweise eine Nase mit zwei Nasenöffnungen.' },
+        { question: 'Welche Farbe hat Kohle meistens?', options: ['Schwarz', 'Rosa', 'Blau', 'Gelb'], answer: 'Schwarz', emoji: '⚫', fact: 'Kohle erscheint wegen ihres hohen Kohlenstoffanteils meist schwarz.' }
+      ],
+      [
+        { question: 'Wie viele Minuten hat eine Stunde?', options: ['30', '45', '60', '90'], answer: '60', emoji: '⏰', fact: 'Eine Stunde besteht aus 60 Minuten.' },
+        { question: 'Wie nennt man ein junges Pferd?', options: ['Fohlen', 'Kalb', 'Lamm', 'Welpe'], answer: 'Fohlen', emoji: '🐴', fact: 'Ein junges Pferd wird Fohlen genannt.' },
+        { question: 'Was ist das Gegenteil von „laut“?', options: ['Leise', 'Hell', 'Schnell', 'Breit'], answer: 'Leise', emoji: '🤫', fact: '„Leise“ bezeichnet eine geringe Lautstärke und ist das Gegenteil von „laut“.' },
+        { question: 'Wie viele Ecken besitzt ein Rechteck?', options: ['Drei', 'Vier', 'Fünf', 'Sechs'], answer: 'Vier', emoji: '▭', fact: 'Ein Rechteck besitzt vier Ecken und vier rechte Winkel.' }
+      ],
+      [
+        { question: 'Wie viele Beine besitzen Insekten?', options: ['Vier', 'Sechs', 'Acht', 'Zehn'], answer: 'Sechs', emoji: '🐞', fact: 'Insekten besitzen drei Beinpaare und damit sechs Beine.' },
+        { question: 'In welche Richtung zeigt die markierte Seite einer Kompassnadel?', options: ['Norden', 'Süden', 'Osten', 'Westen'], answer: 'Norden', emoji: '🧭', fact: 'Die markierte Kompassspitze richtet sich ungefähr zum magnetischen Norden aus.' },
+        { question: 'Wie viel ist fünf mal sechs?', options: ['25', '30', '35', '40'], answer: '30', emoji: '✖️', fact: 'Fünf mal sechs ergibt 30.' },
+        { question: 'In welcher Jahreszeit verlieren viele Laubbäume ihre Blätter?', options: ['Herbst', 'Frühling', 'Sommer', 'Winteranfang ausschließlich'], answer: 'Herbst', emoji: '🍂', fact: 'Viele Laubbäume werfen im Herbst ihre Blätter ab.' }
+      ],
+      [
+        { question: 'Wer schrieb das Theaterstück „Peter Pan“?', options: ['J. M. Barrie', 'A. A. Milne', 'Lewis Carroll', 'Kenneth Grahame'], answer: 'J. M. Barrie', emoji: '🧚', fact: 'J. M. Barries Theaterstück wurde 1904 uraufgeführt.' },
+        { question: 'Wie viel ist ein Viertel von 100?', options: ['20', '25', '30', '40'], answer: '25', emoji: '➗', fact: 'Hundert geteilt durch vier ergibt 25.' },
+        { question: 'Welche Organe nehmen beim Atmen Sauerstoff aus der Luft auf?', options: ['Lungen', 'Nieren', 'Magen', 'Leber'], answer: 'Lungen', emoji: '🫁', fact: 'In den Lungenbläschen gelangt Sauerstoff aus der Atemluft ins Blut.' },
+        { question: 'Welcher Ozean liegt vor der Ostküste der USA?', options: ['Atlantischer Ozean', 'Pazifischer Ozean', 'Indischer Ozean', 'Südlicher Ozean'], answer: 'Atlantischer Ozean', emoji: '🌊', fact: 'Die Ostküste der Vereinigten Staaten grenzt an den Atlantischen Ozean.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Kenias?', options: ['Nairobi', 'Mombasa', 'Kisumu', 'Kampala'], answer: 'Nairobi', emoji: '🇰🇪', fact: 'Nairobi ist die Hauptstadt Kenias.' },
+        { question: 'Wer schrieb den Roman „Der geheime Garten“?', options: ['Frances Hodgson Burnett', 'Louisa May Alcott', 'E. Nesbit', 'Lucy Maud Montgomery'], answer: 'Frances Hodgson Burnett', emoji: '🌿', fact: 'Frances Hodgson Burnett veröffentlichte den Roman 1911.' },
+        { question: 'Welches Volumen besitzt ein Würfel mit drei Zentimetern Kantenlänge?', options: ['9 Kubikzentimeter', '18 Kubikzentimeter', '27 Kubikzentimeter', '36 Kubikzentimeter'], answer: '27 Kubikzentimeter', emoji: '🧊', fact: 'Drei hoch drei ergibt ein Volumen von 27 Kubikzentimetern.' },
+        { question: 'Wer malte „Der Sohn des Mannes“ mit dem Apfel vor dem Gesicht?', options: ['René Magritte', 'Salvador Dalí', 'Max Ernst', 'Paul Delvaux'], answer: 'René Magritte', emoji: '🍏', fact: 'René Magritte malte „Der Sohn des Mannes“ 1964.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Madagaskars?', options: ['Antananarivo', 'Toamasina', 'Maputo', 'Port Louis'], answer: 'Antananarivo', emoji: '🇲🇬', fact: 'Antananarivo ist die Hauptstadt Madagaskars.' },
+        { question: 'Für welches Element steht das Symbol „Co“?', options: ['Kobalt', 'Kupfer', 'Kohlenstoff', 'Calcium'], answer: 'Kobalt', emoji: '🧪', fact: 'Co ist das chemische Symbol für Kobalt.' },
+        { question: 'Wer komponierte die Suite „Der Karneval der Tiere“?', options: ['Camille Saint-Saëns', 'Claude Debussy', 'Gabriel Fauré', 'Maurice Ravel'], answer: 'Camille Saint-Saëns', emoji: '🦁', fact: 'Camille Saint-Saëns komponierte die Suite 1886.' },
+        { question: 'Welche Skala beschreibt die Stärke des Windes?', options: ['Beaufortskala', 'Mohs-Skala', 'pH-Skala', 'Kelvinskala'], answer: 'Beaufortskala', emoji: '🌬️', fact: 'Die Beaufortskala ordnet Windstärken anhand beobachtbarer Wirkungen ein.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Costa Ricas?', options: ['San José', 'Limón', 'Liberia', 'Panama-Stadt'], answer: 'San José', emoji: '🇨🇷', fact: 'San José ist die Hauptstadt Costa Ricas.' },
+        { question: 'Wer schrieb „Anne auf Green Gables“?', options: ['Lucy Maud Montgomery', 'Louisa May Alcott', 'Frances Hodgson Burnett', 'Laura Ingalls Wilder'], answer: 'Lucy Maud Montgomery', emoji: '📚', fact: 'Lucy Maud Montgomery veröffentlichte den Roman 1908.' },
+        { question: 'Welches Schilddrüsenhormon beeinflusst den Stoffwechsel besonders?', options: ['Thyroxin', 'Melatonin', 'Insulin', 'Oxytocin'], answer: 'Thyroxin', emoji: '🧬', fact: 'Thyroxin steigert in vielen Geweben den Energieumsatz.' },
+        { question: 'Welchen Wert hat drei hoch fünf?', options: ['81', '125', '243', '625'], answer: '243', emoji: '🔢', fact: 'Drei fünfmal mit sich selbst multipliziert ergibt 243.' }
+      ],
+      [
+        { question: 'Wie heißt die legislative Hauptstadt Sri Lankas?', options: ['Sri Jayawardenepura Kotte', 'Colombo', 'Kandy', 'Galle'], answer: 'Sri Jayawardenepura Kotte', emoji: '🇱🇰', fact: 'Das Parlament Sri Lankas sitzt in Sri Jayawardenepura Kotte.' },
+        { question: 'Welche Immunzellen können sich zu antikörperbildenden Plasmazellen entwickeln?', options: ['B-Lymphozyten', 'Erythrozyten', 'Thrombozyten', 'Neutrophile Granulozyten'], answer: 'B-Lymphozyten', emoji: '🧬', fact: 'Aktivierte B-Lymphozyten können zu Plasmazellen reifen und Antikörper bilden.' },
+        { question: 'Wer schrieb den Roman „Invisible Man“?', options: ['Ralph Ellison', 'Richard Wright', 'James Baldwin', 'Saul Bellow'], answer: 'Ralph Ellison', emoji: '📚', fact: 'Ralph Ellisons Roman erschien 1952.' },
+        { question: 'Wie groß ist der Zehnerlogarithmus von 1000?', options: ['2', '3', '10', '100'], answer: '3', emoji: '📈', fact: 'Zehn hoch drei ergibt 1000, daher ist der Zehnerlogarithmus drei.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Mosambiks?', options: ['Maputo', 'Beira', 'Nampula', 'Harare'], answer: 'Maputo', emoji: '🇲🇿', fact: 'Maputo ist die Hauptstadt Mosambiks.' },
+        { question: 'Wer komponierte das Ballett „Appalachian Spring“?', options: ['Aaron Copland', 'Samuel Barber', 'Leonard Bernstein', 'George Gershwin'], answer: 'Aaron Copland', emoji: '🎼', fact: 'Aaron Copland komponierte „Appalachian Spring“ 1944.' },
+        { question: 'Welche Ordnungszahl besitzt Brom?', options: ['33', '34', '35', '36'], answer: '35', emoji: '🧪', fact: 'Brom trägt das Elementsymbol Br und die Ordnungszahl 35.' },
+        { question: 'Welche Blutgruppe gilt für rote Blutkörperchen als Universalempfänger?', options: ['AB positiv', '0 negativ', 'A positiv', 'B negativ'], answer: 'AB positiv', emoji: '🩸', fact: 'Menschen mit AB positiv können unter Beachtung weiterer Faktoren Erythrozyten aller AB0- und Rhesusgruppen empfangen.' }
+      ],
+      [
+        { question: 'Welcher Vertrag beendete 1842 den Ersten Opiumkrieg?', options: ['Vertrag von Nanking', 'Vertrag von Tientsin', 'Vertrag von Shimonoseki', 'Vertrag von Portsmouth'], answer: 'Vertrag von Nanking', emoji: '📜', fact: 'Der Vertrag von Nanking beendete 1842 den Ersten Opiumkrieg.' },
+        { question: 'Wer schrieb den Roman „Mrs Dalloway“?', options: ['Virginia Woolf', 'Katherine Mansfield', 'Dorothy Richardson', 'Edith Wharton'], answer: 'Virginia Woolf', emoji: '📚', fact: 'Virginia Woolfs Roman erschien 1925.' },
+        { question: 'Welches Enzym wandelt Fibrinogen in Fibrin um?', options: ['Thrombin', 'Plasmin', 'Trypsin', 'Renin'], answer: 'Thrombin', emoji: '🩸', fact: 'Thrombin spaltet Fibrinogen und ermöglicht so die Bildung eines Fibrinnetzes.' },
+        { question: 'Wie lautet die Ableitung von sin(x)?', options: ['cos(x)', '−sin(x)', 'tan(x)', '1 / cos²(x)'], answer: 'cos(x)', emoji: '📈', fact: 'Die Ableitung der Sinusfunktion ist die Kosinusfunktion.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt von Belarus?', options: ['Minsk', 'Brest', 'Homel', 'Vilnius'], answer: 'Minsk', emoji: '🇧🇾', fact: 'Minsk ist die Hauptstadt von Belarus.' },
+        { question: 'Wer schrieb die „Phänomenologie des Geistes“?', options: ['Georg Wilhelm Friedrich Hegel', 'Immanuel Kant', 'Friedrich Schelling', 'Johann Gottlieb Fichte'], answer: 'Georg Wilhelm Friedrich Hegel', emoji: '🧠', fact: 'Hegels „Phänomenologie des Geistes“ erschien 1807.' },
+        { question: 'Welcher Effekt bezeichnet das Herauslösen von Elektronen durch Licht?', options: ['Photoeffekt', 'Compton-Effekt', 'Doppler-Effekt', 'Zeeman-Effekt'], answer: 'Photoeffekt', emoji: '💡', fact: 'Beim äußeren Photoeffekt lösen ausreichend energiereiche Photonen Elektronen aus einem Material.' },
+        { question: 'Wo läuft der Citratzyklus in eukaryotischen Zellen hauptsächlich ab?', options: ['Mitochondrienmatrix', 'Zellkern', 'Golgi-Apparat', 'Lysosom'], answer: 'Mitochondrienmatrix', emoji: '🔬', fact: 'Die Enzyme des Citratzyklus befinden sich überwiegend in der Mitochondrienmatrix.' }
+      ],
+      [
+        { question: 'Welcher König führte 1683 das Entsatzheer vor Wien an?', options: ['Johann III. Sobieski', 'Karl XII.', 'Leopold I.', 'Friedrich Wilhelm I.'], answer: 'Johann III. Sobieski', emoji: '⚔️', fact: 'Der polnische König Johann III. Sobieski führte 1683 einen wichtigen Teil des Entsatzheeres.' },
+        { question: 'Wer schrieb den Roman „Fahles Feuer“?', options: ['Vladimir Nabokov', 'John Updike', 'Saul Bellow', 'Philip Roth'], answer: 'Vladimir Nabokov', emoji: '📚', fact: 'Vladimir Nabokovs Roman „Pale Fire“ erschien 1962.' },
+        { question: 'Welcher Satz verbindet den Fluss durch eine geschlossene Oberfläche mit einem Volumenintegral der Divergenz?', options: ['Gaußscher Integralsatz', 'Satz von Stokes', 'Residuensatz', 'Satz von Green'], answer: 'Gaußscher Integralsatz', emoji: '∫', fact: 'Der Gaußsche Integralsatz setzt Fluss und Volumenintegral der Divergenz gleich.' },
+        { question: 'Welches Enzym synthetisiert einen neuen DNA-Strang anhand einer Vorlage?', options: ['DNA-Polymerase', 'RNA-Polymerase', 'Ligase', 'Primase'], answer: 'DNA-Polymerase', emoji: '🧬', fact: 'DNA-Polymerasen ergänzen Nukleotide komplementär zur Vorlage.' }
+      ],
+      [
+        { question: 'Womit beschäftigt sich die Hodge-Vermutung?', options: ['Mit algebraischen Zyklen und Kohomologieklassen', 'Mit der Verteilung von Primzahlen', 'Mit Lösungen der Navier-Stokes-Gleichungen', 'Mit der Färbung planarer Graphen'], answer: 'Mit algebraischen Zyklen und Kohomologieklassen', emoji: '♾️', fact: 'Die Hodge-Vermutung betrifft bestimmte Kohomologieklassen glatter projektiver Varietäten.' },
+        { question: 'Wer schrieb den Roman „The Tunnel“?', options: ['William H. Gass', 'William Gaddis', 'John Barth', 'Robert Coover'], answer: 'William H. Gass', emoji: '📚', fact: 'William H. Gass veröffentlichte „The Tunnel“ 1995.' },
+        { question: 'Welcher Frieden wurde 1718 zwischen dem Osmanischen Reich, Österreich und Venedig geschlossen?', options: ['Friede von Passarowitz', 'Friede von Karlowitz', 'Friede von Belgrad', 'Friede von Jassy'], answer: 'Friede von Passarowitz', emoji: '📜', fact: 'Der Friede von Passarowitz beendete 1718 mehrere verbundene Kriege.' },
+        { question: 'Welche Matrix beschreibt die Mischung von Quark-Flavours bei der schwachen Wechselwirkung?', options: ['CKM-Matrix', 'Pauli-Matrix', 'Dichtematrix', 'Hadamard-Matrix'], answer: 'CKM-Matrix', emoji: '⚛️', fact: 'Die Cabibbo-Kobayashi-Maskawa-Matrix beschreibt Übergänge zwischen Quark-Flavours.' }
+      ],
+      [
+        { question: 'Was verbindet das Langlands-Programm?', options: ['Zahlentheorie und Darstellungstheorie', 'Thermodynamik und Elektrodynamik', 'Topologie und Meteorologie', 'Genetik und Linguistik'], answer: 'Zahlentheorie und Darstellungstheorie', emoji: '🔢', fact: 'Das Langlands-Programm formuliert tiefe Beziehungen zwischen automorphen Formen, Galoisgruppen und Darstellungen.' },
+        { question: 'Wer schrieb den Roman „Nightwood“?', options: ['Djuna Barnes', 'Gertrude Stein', 'H.D.', 'Anaïs Nin'], answer: 'Djuna Barnes', emoji: '📚', fact: 'Djuna Barnes veröffentlichte „Nightwood“ 1936.' },
+        { question: 'Welches Enzym kann RNA in RNA-DNA-Hybriden abbauen?', options: ['RNase H', 'DNA-Ligase', 'Primase', 'Topoisomerase'], answer: 'RNase H', emoji: '🧬', fact: 'RNase H spaltet den RNA-Anteil von RNA-DNA-Hybriden.' },
+        { question: 'Welche Schlacht von 1757 stärkte die britische Herrschaft in Bengalen entscheidend?', options: ['Schlacht von Plassey', 'Schlacht von Buxar', 'Schlacht von Assaye', 'Schlacht von Seringapatam'], answer: 'Schlacht von Plassey', emoji: '⚔️', fact: 'Der Sieg der Ostindien-Kompanie bei Plassey 1757 verschob die Machtverhältnisse in Bengalen.' }
+      ],
+      [
+        { question: 'Was besagt die von Yau bewiesene Calabi-Vermutung vereinfacht?', options: ['Bestimmte Kähler-Mannigfaltigkeiten besitzen eine eindeutig bestimmte Ricci-Krümmung', 'Jede Primzahl ist Summe zweier Quadrate', 'Jede kompakte Fläche ist flach', 'Alle komplexen Mannigfaltigkeiten sind projektiv'], answer: 'Bestimmte Kähler-Mannigfaltigkeiten besitzen eine eindeutig bestimmte Ricci-Krümmung', emoji: '♾️', fact: 'Shing-Tung Yau bewies die Calabi-Vermutung 1976.' },
+        { question: 'Wer schrieb den Science-Fiction-Roman „Dhalgren“?', options: ['Samuel R. Delany', 'Ursula K. Le Guin', 'Philip K. Dick', 'Gene Wolfe'], answer: 'Samuel R. Delany', emoji: '📚', fact: 'Samuel R. Delany veröffentlichte „Dhalgren“ 1975.' },
+        { question: 'Wie heißt das Phänomen, durch das einzelne Quarks nicht frei beobachtet werden?', options: ['Quark-Confinement', 'Spontane Symmetriebrechung', 'Quantentunneln', 'Pauli-Blockade'], answer: 'Quark-Confinement', emoji: '⚛️', fact: 'Die starke Wechselwirkung bindet Quarks dauerhaft in farbneutralen Hadronen.' },
+        { question: 'Unter welchem Kaiser entstand das „Corpus Iuris Civilis“?', options: ['Justinian I.', 'Theodosius I.', 'Konstantin I.', 'Herakleios'], answer: 'Justinian I.', emoji: '📜', fact: 'Die Rechtssammlung wurde im 6. Jahrhundert unter Kaiser Justinian I. zusammengestellt.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER, EXPANDED_660_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
