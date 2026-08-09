@@ -2575,22 +2575,32 @@
 
     function buildQuestionPool(difficultyKey) {
       const config = DIFFICULTIES[difficultyKey];
-      const pool = QUESTION_LADDER
-        .slice(config.firstTier, config.lastTier + 1)
-        .reduce(function (all, tier) {
-          return all.concat(tier);
-        }, [])
-        .map(function (question) {
-          return { question: question, sort: Math.random() };
-        })
-        .sort(function (a, b) {
-          return a.sort - b.sort;
-        })
-        .map(function (item) {
-          return item.question;
-        });
+      const tierCount = config.lastTier - config.firstTier + 1;
+      const tierUse = {};
+      const shuffledTiers = QUESTION_LADDER.map(function (tier) {
+        return tier
+          .map(function (question) {
+            return { question: question, sort: Math.random() };
+          })
+          .sort(function (a, b) {
+            return a.sort - b.sort;
+          })
+          .map(function (item) {
+            return item.question;
+          });
+      });
 
-      return pool.slice(0, MONEY.length);
+      return MONEY.map(function (_, questionIndex) {
+        const tierOffset = Math.min(
+          tierCount - 1,
+          Math.floor(questionIndex * tierCount / MONEY.length)
+        );
+        const tierIndex = config.firstTier + tierOffset;
+        const usedInTier = tierUse[tierIndex] || 0;
+        tierUse[tierIndex] = usedInTier + 1;
+
+        return shuffledTiers[tierIndex][usedInTier % shuffledTiers[tierIndex].length];
+      });
     }
 
     function startRun() {
