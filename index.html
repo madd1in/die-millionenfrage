@@ -770,16 +770,131 @@
     }
 
     @media (min-width: 900px) {
+      #startScreen {
+        padding: 0.55rem;
+      }
+
+      .hero {
+        width: min(100%, 880px);
+        padding: 0.65rem 1rem;
+        gap: 0.45rem;
+      }
+
+      .hero .brandMark {
+        width: 4rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.65rem, 4.2vw, 2.15rem);
+        line-height: 1;
+      }
+
+      .hero .subtitle {
+        margin: 0.15rem 0;
+        font-size: 0.9rem;
+        line-height: 1.15;
+      }
+
+      .hero #btnStart {
+        min-height: 2.35rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 1rem;
+      }
+
+      .hero .startOptions {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.4rem;
+      }
+
+      .hero .startOptions button {
+        min-height: 2.15rem;
+        padding: 0.3rem 0.4rem;
+        font-size: 0.72rem;
+        line-height: 1.1;
+      }
+
+      #gameScreen {
+        grid-template-rows: repeat(6, auto);
+        align-content: start;
+        gap: 0.38rem;
+        padding-top: 0.4rem;
+        padding-bottom: calc(0.4rem + env(safe-area-inset-bottom));
+      }
+
+      .topbar {
+        min-height: 0;
+        padding: 0.25rem 0.45rem;
+      }
+
+      .iconBtn {
+        min-width: 2.25rem;
+        min-height: 2.25rem;
+        font-size: 1rem;
+      }
+
+      .statusRow {
+        min-height: 0;
+        font-size: 0.88rem;
+      }
+
+      #timerWrap {
+        height: 0.85rem;
+      }
+
+      #timerText {
+        min-width: 2.4rem;
+        font-size: 1rem;
+      }
+
+      #questionCard {
+        min-height: 0;
+        padding: 0.5rem 0.9rem;
+      }
+
+      #qEmoji {
+        font-size: 2rem;
+      }
+
       #answers {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: auto;
+        min-height: auto;
+        gap: 0.38rem;
       }
 
       #qText {
-        font-size: clamp(1.25rem, 2.5vw, 1.72rem);
+        font-size: clamp(1.05rem, 2.25vw, 1.42rem);
       }
 
       .answer {
-        font-size: clamp(1rem, 2vw, 1.28rem);
+        min-height: 2.75rem;
+        padding: 0.32rem 0.65rem;
+        gap: 0.45rem;
+        font-size: clamp(0.88rem, 1.75vw, 1.08rem);
+      }
+
+      .answer .letter {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+      }
+
+      #jokers {
+        min-height: 2.55rem;
+        gap: 0.4rem;
+      }
+
+      .joker {
+        min-height: 2.55rem;
+        padding: 0.28rem 0.5rem;
+        font-size: 0.88rem;
+      }
+
+      #toast {
+        bottom: 0.5rem;
+        padding: 0.35rem 0.65rem;
+        border-width: 2px;
+        font-size: 0.78rem;
       }
     }
 
@@ -787,7 +902,7 @@
       #gameScreen {
         width: min(calc(100% - 2rem), 1320px);
         grid-template-columns: minmax(0, 1fr) 9rem;
-        grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
+        grid-template-rows: repeat(6, auto);
         column-gap: 0.65rem;
         transform: none;
       }
@@ -874,18 +989,21 @@
       }
 
       .iconBtn {
-        min-width: 2.7rem;
-        min-height: 2.7rem;
-        font-size: 1.15rem;
+        min-width: 2.05rem;
+        min-height: 2.05rem;
+        font-size: 0.9rem;
       }
 
       #questionCard {
-        padding-block: 0.65rem;
+        padding-block: 0.4rem;
       }
 
-      .answer,
+      .answer {
+        min-height: 2.45rem;
+      }
+
       .joker {
-        min-height: 3.6rem;
+        min-height: 2.3rem;
       }
     }
 
@@ -1572,7 +1690,6 @@
       showScreen('gameScreen');
       loadQuestion();
 
-      toast('Los geht’s');
       speak('Los geht es.');
 
       transitionTimer = setTimeout(function () {
