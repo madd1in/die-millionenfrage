@@ -2176,7 +2176,70 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER].forEach(function (ladder) {
+    const SHUFFLE_BAG_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Augen hat ein Mensch normalerweise?', options: ['Eins', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '👀', fact: 'Ein Mensch besitzt normalerweise zwei Augen.' },
+        { question: 'Welche Farbe hat gesundes Gras meistens?', options: ['Grün', 'Blau', 'Rot', 'Schwarz'], answer: 'Grün', emoji: '🌱', fact: 'Chlorophyll lässt gesundes Gras grün erscheinen.' }
+      ],
+      [
+        { question: 'Wie viele Sekunden hat eine Minute?', options: ['30', '45', '60', '100'], answer: '60', emoji: '⏱️', fact: 'Eine Minute besteht aus 60 Sekunden.' },
+        { question: 'Wo entstehen Regentropfen?', options: ['In Wolken', 'Im Boden', 'In Sternen', 'In Vulkanen'], answer: 'In Wolken', emoji: '🌧️', fact: 'Regentropfen bilden sich in Wolken aus kondensiertem Wasser.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Belgiens?', options: ['Brügge', 'Brüssel', 'Antwerpen', 'Gent'], answer: 'Brüssel', emoji: '🇧🇪', fact: 'Brüssel ist die Hauptstadt Belgiens.' },
+        { question: 'Welches Tier trägt sein Junges häufig in einem Beutel?', options: ['Känguru', 'Zebra', 'Pinguin', 'Delfin'], answer: 'Känguru', emoji: '🦘', fact: 'Kängurus gehören zu den Beuteltieren.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Schwedens?', options: ['Göteborg', 'Stockholm', 'Malmö', 'Uppsala'], answer: 'Stockholm', emoji: '🇸🇪', fact: 'Stockholm ist die Hauptstadt Schwedens.' },
+        { question: 'Wie viele Meter sind ein Kilometer?', options: ['100', '500', '1000', '10.000'], answer: '1000', emoji: '📏', fact: 'Ein Kilometer entspricht 1000 Metern.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Kroatiens?', options: ['Split', 'Zagreb', 'Dubrovnik', 'Rijeka'], answer: 'Zagreb', emoji: '🇭🇷', fact: 'Zagreb ist die Hauptstadt Kroatiens.' },
+        { question: 'Wer schrieb den Roman „Heidi“?', options: ['Johanna Spyri', 'Selma Lagerlöf', 'Astrid Lindgren', 'Enid Blyton'], answer: 'Johanna Spyri', emoji: '🏔️', fact: 'Johanna Spyri veröffentlichte den ersten Heidi-Band 1880.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Ungarns?', options: ['Debrecen', 'Budapest', 'Szeged', 'Pécs'], answer: 'Budapest', emoji: '🇭🇺', fact: 'Budapest ist die Hauptstadt Ungarns.' },
+        { question: 'In welchem Organ findet der Gasaustausch mit dem Blut statt?', options: ['Lunge', 'Magen', 'Leber', 'Milz'], answer: 'Lunge', emoji: '🫁', fact: 'In den Lungenbläschen werden Sauerstoff und Kohlendioxid ausgetauscht.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Rumäniens?', options: ['Klausenburg', 'Bukarest', 'Temeswar', 'Kronstadt'], answer: 'Bukarest', emoji: '🇷🇴', fact: 'Bukarest ist die Hauptstadt Rumäniens.' },
+        { question: 'Welche Mission brachte 1969 erstmals Menschen auf den Mond?', options: ['Apollo 8', 'Apollo 11', 'Apollo 13', 'Gemini 4'], answer: 'Apollo 11', emoji: '🚀', fact: 'Apollo 11 landete im Juli 1969 auf dem Mond.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Mexikos?', options: ['Monterrey', 'Mexiko-Stadt', 'Guadalajara', 'Cancún'], answer: 'Mexiko-Stadt', emoji: '🇲🇽', fact: 'Mexiko-Stadt ist die Hauptstadt Mexikos.' },
+        { question: 'Wem wird das Epos „Odyssee“ zugeschrieben?', options: ['Homer', 'Sophokles', 'Vergil', 'Ovid'], answer: 'Homer', emoji: '⛵', fact: 'Die „Odyssee“ wird traditionell dem Dichter Homer zugeschrieben.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Südkoreas?', options: ['Busan', 'Seoul', 'Incheon', 'Daegu'], answer: 'Seoul', emoji: '🇰🇷', fact: 'Seoul ist die Hauptstadt Südkoreas.' },
+        { question: 'In welchem Jahr begann der Zweite Weltkrieg in Europa?', options: ['1918', '1933', '1939', '1941'], answer: '1939', emoji: '📜', fact: 'Der deutsche Überfall auf Polen begann am 1. September 1939.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Perus?', options: ['Cusco', 'Lima', 'Arequipa', 'Trujillo'], answer: 'Lima', emoji: '🇵🇪', fact: 'Lima ist die Hauptstadt Perus.' },
+        { question: 'Wer entwickelte Ende des 18. Jahrhunderts die Pockenimpfung?', options: ['Edward Jenner', 'Louis Pasteur', 'Robert Koch', 'Joseph Lister'], answer: 'Edward Jenner', emoji: '💉', fact: 'Edward Jenner führte 1796 ein frühes erfolgreiches Pockenimpfexperiment durch.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Usbekistans?', options: ['Samarkand', 'Taschkent', 'Buchara', 'Chiwa'], answer: 'Taschkent', emoji: '🏙️', fact: 'Taschkent ist die Hauptstadt Usbekistans.' },
+        { question: 'In welcher Einheit wird der magnetische Fluss gemessen?', options: ['Weber', 'Tesla', 'Henry', 'Siemens'], answer: 'Weber', emoji: '🧲', fact: 'Der Weber ist die SI-Einheit des magnetischen Flusses.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt von Laos?', options: ['Luang Prabang', 'Vientiane', 'Pakse', 'Savannakhet'], answer: 'Vientiane', emoji: '🏙️', fact: 'Vientiane ist die Hauptstadt von Laos.' },
+        { question: 'Wer entdeckte mehrere Edelgase und erhielt 1904 den Chemie-Nobelpreis?', options: ['William Ramsay', 'Ernest Rutherford', 'Humphry Davy', 'Henry Cavendish'], answer: 'William Ramsay', emoji: '🧪', fact: 'William Ramsay war an der Entdeckung mehrerer Edelgase beteiligt.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Kirgisistans?', options: ['Osch', 'Bischkek', 'Almaty', 'Duschanbe'], answer: 'Bischkek', emoji: '🏙️', fact: 'Bischkek ist die Hauptstadt Kirgisistans.' },
+        { question: 'Welcher Frieden beendete 1763 den Siebenjährigen Krieg zwischen mehreren europäischen Mächten?', options: ['Friede von Paris', 'Friede von Hubertusburg', 'Friede von Utrecht', 'Friede von Aachen'], answer: 'Friede von Paris', emoji: '📜', fact: 'Der Pariser Frieden von 1763 beendete den globalen Konflikt zwischen Großbritannien, Frankreich und Spanien.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Burkina Fasos?', options: ['Bamako', 'Ouagadougou', 'Niamey', 'Lomé'], answer: 'Ouagadougou', emoji: '🏙️', fact: 'Ouagadougou ist die Hauptstadt Burkina Fasos.' },
+        { question: 'Welches Enzym schreibt RNA in DNA um?', options: ['Reverse Transkriptase', 'RNA-Polymerase', 'Helikase', 'Ligase'], answer: 'Reverse Transkriptase', emoji: '🧬', fact: 'Reverse Transkriptasen erzeugen anhand einer RNA-Vorlage DNA.' }
+      ],
+      [
+        { question: 'Welcher Satz verbindet elliptische Differentialoperatoren mit topologischen Invarianten?', options: ['Atiyah-Singer-Indexsatz', 'Satz von Stokes', 'Banachscher Fixpunktsatz', 'Satz von Fubini'], answer: 'Atiyah-Singer-Indexsatz', emoji: '🔢', fact: 'Der Atiyah-Singer-Indexsatz verbindet Analysis, Geometrie und Topologie.' },
+        { question: 'Welcher Frieden beendete 1779 den Bayerischen Erbfolgekrieg?', options: ['Friede von Teschen', 'Friede von Hubertusburg', 'Friede von Basel', 'Friede von Pressburg'], answer: 'Friede von Teschen', emoji: '📜', fact: 'Der Friede von Teschen beendete 1779 den Bayerischen Erbfolgekrieg.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
@@ -2931,24 +2994,68 @@
       return shuffled;
     }
 
+    let tierQuestionBags = {};
+
+    function drawQuestionsFromTier(tierIndex, count) {
+      const tier = QUESTION_LADDER[tierIndex];
+      let bag = Array.isArray(tierQuestionBags[tierIndex])
+        ? tierQuestionBags[tierIndex].filter(function (index) {
+            return Number.isInteger(index) && index >= 0 && index < tier.length;
+          })
+        : [];
+      const chosenIndices = [];
+
+      while (chosenIndices.length < count) {
+        if (bag.length === 0) {
+          bag = shuffleArray(tier.map(function (_, index) { return index; }));
+
+          const safeIndex = bag.findIndex(function (index) {
+            return chosenIndices.indexOf(index) === -1;
+          });
+
+          if (safeIndex > 0) {
+            const first = bag[0];
+            bag[0] = bag[safeIndex];
+            bag[safeIndex] = first;
+          }
+        }
+
+        const nextIndex = bag.shift();
+        if (chosenIndices.indexOf(nextIndex) === -1) {
+          chosenIndices.push(nextIndex);
+        }
+      }
+
+      tierQuestionBags[tierIndex] = bag;
+      return chosenIndices.map(function (index) { return tier[index]; });
+    }
+
     function buildQuestionPool(difficultyKey) {
       const config = DIFFICULTIES[difficultyKey];
       const tierCount = config.lastTier - config.firstTier + 1;
-      const tierUse = {};
-      const shuffledTiers = QUESTION_LADDER.map(function (tier) {
-        return shuffleArray(tier);
-      });
-
-      return MONEY.map(function (_, questionIndex) {
+      const tierPlan = MONEY.map(function (_, questionIndex) {
         const tierOffset = Math.min(
           tierCount - 1,
           Math.floor(questionIndex * tierCount / MONEY.length)
         );
-        const tierIndex = config.firstTier + tierOffset;
-        const usedInTier = tierUse[tierIndex] || 0;
-        tierUse[tierIndex] = usedInTier + 1;
+        return config.firstTier + tierOffset;
+      });
+      const requiredPerTier = {};
+      const drawsPerTier = {};
 
-        return shuffledTiers[tierIndex][usedInTier % shuffledTiers[tierIndex].length];
+      tierPlan.forEach(function (tierIndex) {
+        requiredPerTier[tierIndex] = (requiredPerTier[tierIndex] || 0) + 1;
+      });
+
+      Object.keys(requiredPerTier).forEach(function (tierIndex) {
+        drawsPerTier[tierIndex] = drawQuestionsFromTier(
+          Number(tierIndex),
+          requiredPerTier[tierIndex]
+        );
+      });
+
+      return tierPlan.map(function (tierIndex) {
+        return drawsPerTier[tierIndex].shift();
       });
     }
 
