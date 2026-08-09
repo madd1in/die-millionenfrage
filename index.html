@@ -2395,7 +2395,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_480_QUESTION_LADDER = [
+      [
+        { question: 'Welches Tier besitzt einen langen Rüssel?', options: ['Elefant', 'Giraffe', 'Nashorn', 'Zebra'], answer: 'Elefant', emoji: '🐘', fact: 'Elefanten nutzen ihren Rüssel zum Atmen, Riechen, Greifen und Trinken.' },
+        { question: 'Welcher Gegenstand schützt bei Regen?', options: ['Regenschirm', 'Sonnenbrille', 'Kissen', 'Lineal'], answer: 'Regenschirm', emoji: '☂️', fact: 'Ein aufgespannter Regenschirm hält einen großen Teil des Regens ab.' },
+        { question: 'Wie viele Räder besitzt ein gewöhnliches Fahrrad?', options: ['Eins', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '🚲', fact: 'Ein gewöhnliches Fahrrad rollt auf zwei Rädern.' },
+        { question: 'Welches Tier quakt und legt Eier?', options: ['Ente', 'Katze', 'Schaf', 'Pferd'], answer: 'Ente', emoji: '🦆', fact: 'Enten sind Vögel, legen Eier und viele von ihnen quaken.' }
+      ],
+      [
+        { question: 'Was ist das Gegenteil von „leer“?', options: ['Voll', 'Leicht', 'Klein', 'Leise'], answer: 'Voll', emoji: '🥛', fact: '„Voll“ bezeichnet den Gegenbegriff zu „leer“.' },
+        { question: 'Wie viele Monate eines Jahres haben 31 Tage?', options: ['Fünf', 'Sechs', 'Sieben', 'Acht'], answer: 'Sieben', emoji: '📅', fact: 'Januar, März, Mai, Juli, August, Oktober und Dezember haben 31 Tage.' },
+        { question: 'Welcher Körperteil verbindet Kopf und Rumpf?', options: ['Hals', 'Knie', 'Hand', 'Fuß'], answer: 'Hals', emoji: '🧍', fact: 'Der Hals verbindet den Kopf mit dem Rumpf.' },
+        { question: 'Welches Gerät hält Lebensmittel kühl?', options: ['Kühlschrank', 'Toaster', 'Staubsauger', 'Drucker'], answer: 'Kühlschrank', emoji: '🧊', fact: 'Ein Kühlschrank verlangsamt durch niedrige Temperaturen den Verderb vieler Lebensmittel.' }
+      ],
+      [
+        { question: 'Welches Meerestier besitzt acht Arme?', options: ['Oktopus', 'Seestern', 'Delfin', 'Seepferdchen'], answer: 'Oktopus', emoji: '🐙', fact: 'Oktopoden besitzen acht mit Saugnäpfen besetzte Arme.' },
+        { question: 'Welches Säugetier legt Eier und besitzt einen schnabelartigen Kiefer?', options: ['Schnabeltier', 'Koala', 'Wombat', 'Känguru'], answer: 'Schnabeltier', emoji: '🦆', fact: 'Das Schnabeltier gehört zu den eierlegenden Säugetieren.' },
+        { question: 'Welches Messgerät zeigt die Temperatur an?', options: ['Thermometer', 'Barometer', 'Kompass', 'Tachometer'], answer: 'Thermometer', emoji: '🌡️', fact: 'Ein Thermometer dient zur Messung der Temperatur.' },
+        { question: 'Welches Reptil ist für auffällige Farbwechsel bekannt?', options: ['Chamäleon', 'Krokodil', 'Schildkröte', 'Leguan'], answer: 'Chamäleon', emoji: '🦎', fact: 'Chamäleons wechseln ihre Färbung unter anderem zur Kommunikation und Temperaturregulation.' }
+      ],
+      [
+        { question: 'Welcher Kontinent umfasst die meisten allgemein anerkannten Staaten?', options: ['Afrika', 'Europa', 'Asien', 'Südamerika'], answer: 'Afrika', emoji: '🌍', fact: 'Afrika umfasst 54 Mitgliedstaaten der Vereinten Nationen und damit mehr als jeder andere Kontinent.' },
+        { question: 'Wer schrieb „Das Dschungelbuch“?', options: ['Rudyard Kipling', 'Daniel Defoe', 'Lewis Carroll', 'Mark Twain'], answer: 'Rudyard Kipling', emoji: '🐅', fact: 'Rudyard Kipling veröffentlichte „Das Dschungelbuch“ 1894.' },
+        { question: 'Welches Gas macht den größten Anteil der Erdatmosphäre aus?', options: ['Stickstoff', 'Sauerstoff', 'Kohlendioxid', 'Argon'], answer: 'Stickstoff', emoji: '🌬️', fact: 'Trockene Luft besteht zu rund 78 Prozent aus Stickstoff.' },
+        { question: 'Wie groß ist der Umfang eines Quadrats mit fünf Zentimetern Seitenlänge?', options: ['10 Zentimeter', '15 Zentimeter', '20 Zentimeter', '25 Zentimeter'], answer: '20 Zentimeter', emoji: '📐', fact: 'Der Umfang eines Quadrats ist viermal so groß wie seine Seitenlänge.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Serbiens?', options: ['Belgrad', 'Novi Sad', 'Niš', 'Sarajevo'], answer: 'Belgrad', emoji: '🇷🇸', fact: 'Belgrad ist die Hauptstadt und größte Stadt Serbiens.' },
+        { question: 'Wer erhielt 1876 ein grundlegendes US-Patent für das Telefon?', options: ['Alexander Graham Bell', 'Thomas Edison', 'Guglielmo Marconi', 'Nikola Tesla'], answer: 'Alexander Graham Bell', emoji: '☎️', fact: 'Alexander Graham Bell erhielt 1876 ein bedeutendes US-Patent für die Telefontechnik.' },
+        { question: 'Welche Schicht der Atmosphäre absorbiert einen großen Teil der schädlichen UV-Strahlung?', options: ['Ozonschicht', 'Troposphäre', 'Ionosphäre', 'Exosphäre'], answer: 'Ozonschicht', emoji: '🌤️', fact: 'Ozon in der Stratosphäre absorbiert insbesondere UV-B- und UV-C-Strahlung.' },
+        { question: 'Welchen Wert hat die römische Zahl „XC“?', options: ['40', '60', '90', '110'], answer: '90', emoji: '🏛️', fact: 'XC bedeutet hundert minus zehn und steht somit für 90.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Lettlands?', options: ['Riga', 'Daugavpils', 'Tallinn', 'Kaunas'], answer: 'Riga', emoji: '🇱🇻', fact: 'Riga ist die Hauptstadt Lettlands.' },
+        { question: 'Für welches Element steht das chemische Symbol „Pb“?', options: ['Blei', 'Platin', 'Phosphor', 'Palladium'], answer: 'Blei', emoji: '🧪', fact: 'Pb stammt vom lateinischen Namen Plumbum für Blei.' },
+        { question: 'Welche gedachte Linie teilt die Erde in Nord- und Südhalbkugel?', options: ['Äquator', 'Nullmeridian', 'Wendekreis des Krebses', 'Datumsgrenze'], answer: 'Äquator', emoji: '🌐', fact: 'Der Äquator verläuft in gleichem Abstand von Nord- und Südpol.' },
+        { question: 'Wer komponierte die Bühnenmusik zu „Peer Gynt“?', options: ['Edvard Grieg', 'Jean Sibelius', 'Antonín Dvořák', 'Bedřich Smetana'], answer: 'Edvard Grieg', emoji: '🎼', fact: 'Edvard Grieg komponierte die Bühnenmusik zu Henrik Ibsens „Peer Gynt“.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Uruguays?', options: ['Montevideo', 'Punta del Este', 'Asunción', 'Rosario'], answer: 'Montevideo', emoji: '🇺🇾', fact: 'Montevideo ist die Hauptstadt Uruguays.' },
+        { question: 'Welche Skala ordnet Mineralen Werte von Talk bis Diamant zu?', options: ['Mohs-Skala', 'Richterskala', 'Beaufortskala', 'pH-Skala'], answer: 'Mohs-Skala', emoji: '💎', fact: 'Die Mohs-Skala vergleicht die Ritzhärte von Mineralen.' },
+        { question: 'Wer schrieb die politische Fabel „Farm der Tiere“?', options: ['George Orwell', 'Aldous Huxley', 'Ray Bradbury', 'John Steinbeck'], answer: 'George Orwell', emoji: '🐖', fact: 'George Orwell veröffentlichte „Farm der Tiere“ 1945.' },
+        { question: 'Welches Gasgesetz besagt bei konstanter Temperatur, dass Druck mal Volumen konstant bleibt?', options: ['Boyle-Mariotte-Gesetz', 'Ohmsches Gesetz', 'Hookesches Gesetz', 'Faradaysches Gesetz'], answer: 'Boyle-Mariotte-Gesetz', emoji: '🧪', fact: 'Für eine feste Gasmenge gilt bei konstanter Temperatur p mal V gleich konstant.' }
+      ],
+      [
+        { question: 'Welcher Meeresstrom trägt zum milden Klima Westeuropas bei?', options: ['Golfstrom', 'Humboldtstrom', 'Benguelastrom', 'Labradorstrom'], answer: 'Golfstrom', emoji: '🌊', fact: 'Das Golfstromsystem transportiert Wärme in den Nordatlantik.' },
+        { question: 'Welche ist die kleinste Primzahl, die größer als 100 ist?', options: ['101', '103', '105', '107'], answer: '101', emoji: '🔢', fact: '101 ist nur durch eins und sich selbst teilbar.' },
+        { question: 'Welche Säure besitzt die Summenformel H₂SO₄?', options: ['Schwefelsäure', 'Salzsäure', 'Salpetersäure', 'Kohlensäure'], answer: 'Schwefelsäure', emoji: '🧪', fact: 'H₂SO₄ ist die Summenformel der Schwefelsäure.' },
+        { question: 'Welcher Philosoph verfasste den Dialog „Politeia“, auf Deutsch „Der Staat“?', options: ['Platon', 'Aristoteles', 'Sokrates', 'Epikur'], answer: 'Platon', emoji: '🏛️', fact: 'Platons „Politeia“ behandelt unter anderem Gerechtigkeit und den idealen Staat.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Georgiens?', options: ['Tiflis', 'Batumi', 'Kutaissi', 'Jerewan'], answer: 'Tiflis', emoji: '🇬🇪', fact: 'Tiflis, international meist Tbilisi genannt, ist die Hauptstadt Georgiens.' },
+        { question: 'Welche Skala wurde historisch zur Angabe der Erdbebenmagnitude bekannt?', options: ['Richterskala', 'Kelvinskala', 'Beaufortskala', 'Mohs-Skala'], answer: 'Richterskala', emoji: '🌋', fact: 'Charles Richter entwickelte 1935 eine logarithmische Magnitudenskala für lokale Erdbeben.' },
+        { question: 'Wer komponierte das Ballett „Schwanensee“?', options: ['Pjotr Tschaikowski', 'Igor Strawinsky', 'Sergei Prokofjew', 'Nikolai Rimski-Korsakow'], answer: 'Pjotr Tschaikowski', emoji: '🩰', fact: 'Pjotr Tschaikowski komponierte „Schwanensee“ in den 1870er-Jahren.' },
+        { question: 'Wie lautet die Ableitung der Funktion f(x) = x³?', options: ['3x²', 'x²', '3x', 'x⁴'], answer: '3x²', emoji: '📈', fact: 'Nach der Potenzregel ist die Ableitung von x hoch drei gleich 3x².' }
+      ],
+      [
+        { question: 'Welcher Vertrag regelte 1919 den Frieden mit Deutschland nach dem Ersten Weltkrieg?', options: ['Vertrag von Versailles', 'Vertrag von Saint-Germain', 'Vertrag von Trianon', 'Vertrag von Brest-Litowsk'], answer: 'Vertrag von Versailles', emoji: '📜', fact: 'Der Vertrag von Versailles wurde 1919 unterzeichnet und trat 1920 in Kraft.' },
+        { question: 'Wer veröffentlichte 1543 ein heliozentrisches Modell des Planetensystems?', options: ['Nikolaus Kopernikus', 'Johannes Kepler', 'Tycho Brahe', 'Galileo Galilei'], answer: 'Nikolaus Kopernikus', emoji: '☀️', fact: 'Kopernikus veröffentlichte 1543 „De revolutionibus orbium coelestium“.' },
+        { question: 'Welche Ordnungszahl besitzt Kupfer?', options: ['27', '28', '29', '30'], answer: '29', emoji: '🧪', fact: 'Kupfer trägt das Elementsymbol Cu und die Ordnungszahl 29.' },
+        { question: 'Welcher Roman beginnt in deutscher Übersetzung berühmt mit „Nennt mich Ismael“?', options: ['Moby-Dick', 'Der Seewolf', 'Die Schatzinsel', 'Robinson Crusoe'], answer: 'Moby-Dick', emoji: '🐋', fact: 'Ismael erzählt Herman Melvilles Roman „Moby-Dick“.' }
+      ],
+      [
+        { question: 'Wer schrieb das philosophische Werk „Sein und Zeit“?', options: ['Martin Heidegger', 'Edmund Husserl', 'Karl Jaspers', 'Jean-Paul Sartre'], answer: 'Martin Heidegger', emoji: '🧠', fact: 'Martin Heideggers „Sein und Zeit“ erschien 1927.' },
+        { question: 'Tenochtitlan war die Hauptstadt welches Reiches?', options: ['Aztekenreich', 'Inkareich', 'Maya-Reich', 'Toltekenreich'], answer: 'Aztekenreich', emoji: '🏛️', fact: 'Tenochtitlan war das politische Zentrum des Aztekenreiches.' },
+        { question: 'Wie heißt die Ablenkung und Bündelung von Licht durch die Gravitation großer Massen?', options: ['Gravitationslinseneffekt', 'Doppler-Effekt', 'Photoeffekt', 'Compton-Effekt'], answer: 'Gravitationslinseneffekt', emoji: '🔭', fact: 'Masse krümmt die Raumzeit und kann Licht wie eine Linse ablenken.' },
+        { question: 'Welches Enzym verbindet die Okazaki-Fragmente bei der DNA-Replikation?', options: ['DNA-Ligase', 'Helikase', 'Primase', 'Topoisomerase'], answer: 'DNA-Ligase', emoji: '🧬', fact: 'Die DNA-Ligase schließt Lücken zwischen den Fragmenten des Folgestrangs.' }
+      ],
+      [
+        { question: 'Welche Formel verbindet in der statistischen Physik Entropie und Zahl der Mikrozustände?', options: ['S = k · ln W', 'E = mc²', 'pV = nRT', 'F = ma'], answer: 'S = k · ln W', emoji: '⚛️', fact: 'Die Boltzmann-Formel verknüpft Entropie mit der Zahl möglicher Mikrozustände.' },
+        { question: 'Wer schrieb den Roman „Wenn ein Reisender in einer Winternacht“?', options: ['Italo Calvino', 'Umberto Eco', 'Primo Levi', 'Cesare Pavese'], answer: 'Italo Calvino', emoji: '📚', fact: 'Italo Calvinos experimenteller Roman erschien 1979.' },
+        { question: 'In welcher spanischen Stadt steht die Alhambra?', options: ['Granada', 'Sevilla', 'Toledo', 'Córdoba'], answer: 'Granada', emoji: '🏰', fact: 'Die Alhambra erhebt sich auf einem Hügel über Granada.' },
+        { question: 'Von welchem Staat wird Lesotho vollständig umschlossen?', options: ['Südafrika', 'Botswana', 'Eswatini', 'Mosambik'], answer: 'Südafrika', emoji: '🗺️', fact: 'Lesotho ist eine Enklave innerhalb Südafrikas.' }
+      ],
+      [
+        { question: 'Welcher Satz besagt, dass jede beschränkte Folge im euklidischen Raum eine konvergente Teilfolge besitzt?', options: ['Satz von Bolzano-Weierstraß', 'Satz von Green', 'Satz von Rolle', 'Satz von Bayes'], answer: 'Satz von Bolzano-Weierstraß', emoji: '🔢', fact: 'Der Satz von Bolzano-Weierstraß ist ein grundlegendes Kompaktheitsresultat der Analysis.' },
+        { question: 'Welche Austauschteilchen vermitteln die starke Wechselwirkung zwischen Quarks?', options: ['Gluonen', 'Photonen', 'W-Bosonen', 'Neutrinos'], answer: 'Gluonen', emoji: '⚛️', fact: 'Gluonen tragen die Farbladung der starken Wechselwirkung.' },
+        { question: 'Welche Dynastie stellte von 987 bis 1328 in direkter Linie die französischen Könige?', options: ['Kapetinger', 'Karolinger', 'Merowinger', 'Bourbonen'], answer: 'Kapetinger', emoji: '👑', fact: 'Die direkte Linie der Kapetinger herrschte in Frankreich von 987 bis 1328.' },
+        { question: 'Wer komponierte die unvollendete Oper „Moses und Aron“?', options: ['Arnold Schönberg', 'Alban Berg', 'Anton Webern', 'Paul Hindemith'], answer: 'Arnold Schönberg', emoji: '🎼', fact: 'Arnold Schönberg schrieb Text und Musik der Oper „Moses und Aron“.' }
+      ],
+      [
+        { question: 'Wie heißt die mathematische Konstante ζ(3)?', options: ['Apéry-Konstante', 'Catalan-Konstante', 'Eulersche Konstante', 'Feigenbaum-Konstante'], answer: 'Apéry-Konstante', emoji: '🔢', fact: 'Roger Apéry bewies 1978, dass ζ(3) irrational ist.' },
+        { question: 'Wer verfasste das 1621 erschienene Werk „The Anatomy of Melancholy“?', options: ['Robert Burton', 'Thomas Browne', 'John Donne', 'Francis Bacon'], answer: 'Robert Burton', emoji: '📜', fact: 'Robert Burton veröffentlichte das Werk unter dem Pseudonym Democritus Junior.' },
+        { question: 'In welcher Schlacht des Jahres 732 besiegte Karl Martell ein umayyadisches Heer?', options: ['Schlacht von Tours und Poitiers', 'Schlacht von Hastings', 'Schlacht von Bouvines', 'Schlacht von Azincourt'], answer: 'Schlacht von Tours und Poitiers', emoji: '⚔️', fact: 'Die Schlacht von Tours und Poitiers fand 732 im heutigen Frankreich statt.' },
+        { question: 'Welches Enzym verlängert die Enden linearer Chromosomen?', options: ['Telomerase', 'Primase', 'Topoisomerase', 'RNA-Polymerase'], answer: 'Telomerase', emoji: '🧬', fact: 'Die Telomerase fügt repetitive Sequenzen an Telomere an.' }
+      ],
+      [
+        { question: 'Welche Aussage wird als schwache Goldbachsche Vermutung bezeichnet?', options: ['Jede ungerade Zahl größer als fünf ist Summe dreier Primzahlen', 'Jede Primzahl ist Summe zweier Quadrate', 'Zwischen zwei Primzahlen liegt stets eine dritte', 'Es gibt nur endlich viele Primzahlzwillinge'], answer: 'Jede ungerade Zahl größer als fünf ist Summe dreier Primzahlen', emoji: '🔢', fact: 'Harald Helfgott veröffentlichte 2013 einen Beweis der schwachen Goldbachschen Vermutung.' },
+        { question: 'Wer schrieb den experimentellen Roman „Finnegans Wake“?', options: ['James Joyce', 'Samuel Beckett', 'Virginia Woolf', 'Flann O’Brien'], answer: 'James Joyce', emoji: '📚', fact: 'James Joyce veröffentlichte „Finnegans Wake“ 1939.' },
+        { question: 'Welche Teilchen mit ganzzahligem Spin gehorchen der Bose-Einstein-Statistik?', options: ['Bosonen', 'Fermionen', 'Leptonen', 'Baryonen'], answer: 'Bosonen', emoji: '⚛️', fact: 'Bosonen besitzen ganzzahligen Spin und können denselben Quantenzustand besetzen.' },
+        { question: 'Welches Abkommen beendete 1122 den Investiturstreit zwischen Kaiser und Papst?', options: ['Wormser Konkordat', 'Augsburger Religionsfrieden', 'Konkordat von Bologna', 'Goldene Bulle'], answer: 'Wormser Konkordat', emoji: '📜', fact: 'Das Wormser Konkordat regelte 1122 die Investitur von Bischöfen neu.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
