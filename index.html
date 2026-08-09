@@ -1747,63 +1747,93 @@
     const QUESTION_LADDER = [
       [
         { question: 'Welche Farbe entsteht, wenn man Blau und Rot mischt?', options: ['Grün', 'Violett', 'Orange', 'Braun'], answer: 'Violett', emoji: '🎨', fact: 'Blau und Rot ergeben Violett.' },
-        { question: 'Welche Himmelsrichtung liegt Norden genau gegenüber?', options: ['Osten', 'Westen', 'Süden', 'Nordosten'], answer: 'Süden', emoji: '🧭', fact: 'Süden liegt Norden gegenüber.' }
+        { question: 'Welche Himmelsrichtung liegt Norden genau gegenüber?', options: ['Osten', 'Westen', 'Süden', 'Nordosten'], answer: 'Süden', emoji: '🧭', fact: 'Süden liegt Norden gegenüber.' },
+        { question: 'Wie viele Beine hat eine Spinne?', options: ['Sechs', 'Acht', 'Zehn', 'Zwölf'], answer: 'Acht', emoji: '🕷️', fact: 'Spinnen gehören zu den Achtbeinern und besitzen acht Laufbeine.' },
+        { question: 'Welche Jahreszeit folgt auf den Frühling?', options: ['Herbst', 'Winter', 'Sommer', 'Frühling'], answer: 'Sommer', emoji: '☀️', fact: 'Auf den Frühling folgt der Sommer.' }
       ],
       [
         { question: 'Wie viele Tage hat ein Schaltjahr?', options: ['364', '365', '366', '367'], answer: '366', emoji: '📅', fact: 'Im Schaltjahr kommt der 29. Februar hinzu.' },
-        { question: 'Wie heißt die Hauptstadt von Österreich?', options: ['Graz', 'Salzburg', 'Innsbruck', 'Wien'], answer: 'Wien', emoji: '🏛️', fact: 'Wien ist Hauptstadt und zugleich ein Bundesland Österreichs.' }
+        { question: 'Wie heißt die Hauptstadt von Österreich?', options: ['Graz', 'Salzburg', 'Innsbruck', 'Wien'], answer: 'Wien', emoji: '🏛️', fact: 'Wien ist Hauptstadt und zugleich ein Bundesland Österreichs.' },
+        { question: 'Welcher ist der größte Planet unseres Sonnensystems?', options: ['Erde', 'Mars', 'Jupiter', 'Saturn'], answer: 'Jupiter', emoji: '🪐', fact: 'Jupiter ist der größte Planet des Sonnensystems.' },
+        { question: 'Bei welcher Temperatur gefriert Wasser normalerweise?', options: ['0 °C', '10 °C', '32 °C', '100 °C'], answer: '0 °C', emoji: '🧊', fact: 'Bei normalem Luftdruck gefriert reines Wasser bei 0 Grad Celsius.' }
       ],
       [
         { question: 'Welches Tier gilt sprichwörtlich als „König der Tiere“?', options: ['Tiger', 'Elefant', 'Löwe', 'Adler'], answer: 'Löwe', emoji: '🦁', fact: 'Der Löwe trägt diesen Beinamen.' },
-        { question: 'Welches Instrument besitzt Tasten, Saiten und Pedale?', options: ['Flöte', 'Klavier', 'Trompete', 'Akkordeon'], answer: 'Klavier', emoji: '🎹', fact: 'Beim Klavier schlagen Hämmer über die Tasten auf Saiten.' }
+        { question: 'Welches Instrument besitzt Tasten, Saiten und Pedale?', options: ['Flöte', 'Klavier', 'Trompete', 'Akkordeon'], answer: 'Klavier', emoji: '🎹', fact: 'Beim Klavier schlagen Hämmer über die Tasten auf Saiten.' },
+        { question: 'Wie heißt die Hauptstadt von Frankreich?', options: ['Lyon', 'Paris', 'Marseille', 'Nizza'], answer: 'Paris', emoji: '🗼', fact: 'Paris ist die Hauptstadt Frankreichs.' },
+        { question: 'Auf welchem Kontinent liegt Ägypten größtenteils?', options: ['Asien', 'Europa', 'Afrika', 'Südamerika'], answer: 'Afrika', emoji: '🐫', fact: 'Der größte Teil Ägyptens liegt in Nordafrika; die Sinai-Halbinsel gehört geografisch zu Asien.' }
       ],
       [
         { question: 'Bei welcher Temperatur kocht Wasser auf Meereshöhe?', options: ['80 °C', '90 °C', '100 °C', '120 °C'], answer: '100 °C', emoji: '🌡️', fact: 'Bei normalem Luftdruck liegt der Siedepunkt bei 100 Grad Celsius.' },
-        { question: 'Wer schrieb „Jim Knopf und Lukas der Lokomotivführer“?', options: ['Erich Kästner', 'Michael Ende', 'Otfried Preußler', 'Cornelia Funke'], answer: 'Michael Ende', emoji: '📚', fact: 'Michael Ende veröffentlichte den Kinderbuchklassiker 1960.' }
+        { question: 'Wer schrieb „Jim Knopf und Lukas der Lokomotivführer“?', options: ['Erich Kästner', 'Michael Ende', 'Otfried Preußler', 'Cornelia Funke'], answer: 'Michael Ende', emoji: '📚', fact: 'Michael Ende veröffentlichte den Kinderbuchklassiker 1960.' },
+        { question: 'Wer erfand die Kinderbuchfigur Pippi Langstrumpf?', options: ['Astrid Lindgren', 'Tove Jansson', 'Selma Lagerlöf', 'Enid Blyton'], answer: 'Astrid Lindgren', emoji: '📖', fact: 'Astrid Lindgren veröffentlichte das erste Pippi-Langstrumpf-Buch 1945.' },
+        { question: 'Welches Gas nehmen Pflanzen bei der Fotosynthese auf?', options: ['Sauerstoff', 'Stickstoff', 'Kohlendioxid', 'Wasserstoff'], answer: 'Kohlendioxid', emoji: '🌿', fact: 'Pflanzen nutzen Kohlendioxid und Wasser, um mithilfe von Licht energiereiche Stoffe aufzubauen.' }
       ],
       [
         { question: 'Welcher Planet ist besonders für sein auffälliges Ringsystem bekannt?', options: ['Mars', 'Venus', 'Saturn', 'Merkur'], answer: 'Saturn', emoji: '🪐', fact: 'Auch andere Gasplaneten haben Ringe, doch die des Saturn sind besonders markant.' },
-        { question: 'Was bedeutet die lateinische Redewendung „Carpe diem“?', options: ['Nutze den Tag', 'Die Zeit heilt', 'Lebe und lerne', 'Das Glück ist blind'], answer: 'Nutze den Tag', emoji: '⏳', fact: 'Die Wendung stammt aus einer Ode des römischen Dichters Horaz.' }
+        { question: 'Was bedeutet die lateinische Redewendung „Carpe diem“?', options: ['Nutze den Tag', 'Die Zeit heilt', 'Lebe und lerne', 'Das Glück ist blind'], answer: 'Nutze den Tag', emoji: '⏳', fact: 'Die Wendung stammt aus einer Ode des römischen Dichters Horaz.' },
+        { question: 'Wie viel ist zwölf mal zwölf?', options: ['124', '132', '144', '154'], answer: '144', emoji: '✖️', fact: 'Zwölf mal zwölf ergibt 144.' },
+        { question: 'Wer schrieb den Roman „Don Quijote“?', options: ['Miguel de Cervantes', 'Federico García Lorca', 'Lope de Vega', 'Gabriel García Márquez'], answer: 'Miguel de Cervantes', emoji: '📚', fact: 'Miguel de Cervantes veröffentlichte den ersten Teil des Romans 1605.' }
       ],
       [
         { question: 'Wie heißt die Währung Japans?', options: ['Won', 'Yuan', 'Yen', 'Baht'], answer: 'Yen', emoji: '💴', fact: 'Der Yen ist seit 1871 die japanische Währung.' },
-        { question: 'In welcher Stadt steht das Brandenburger Tor?', options: ['Potsdam', 'Berlin', 'Hamburg', 'Dresden'], answer: 'Berlin', emoji: '🏙️', fact: 'Das Brandenburger Tor steht am Pariser Platz in Berlin.' }
+        { question: 'In welcher Stadt steht das Brandenburger Tor?', options: ['Potsdam', 'Berlin', 'Hamburg', 'Dresden'], answer: 'Berlin', emoji: '🏙️', fact: 'Das Brandenburger Tor steht am Pariser Platz in Berlin.' },
+        { question: 'Für welches Element steht das chemische Symbol „Fe“?', options: ['Fluor', 'Eisen', 'Fermium', 'Francium'], answer: 'Eisen', emoji: '🔩', fact: 'Fe leitet sich vom lateinischen Namen „ferrum“ für Eisen ab.' },
+        { question: 'Wie heißt der höchste Berg Deutschlands?', options: ['Brocken', 'Watzmann', 'Feldberg', 'Zugspitze'], answer: 'Zugspitze', emoji: '🏔️', fact: 'Die Zugspitze ist mit 2.962 Metern der höchste Berg Deutschlands.' }
       ],
       [
         { question: 'Für welches chemische Element steht das Symbol „Au“?', options: ['Silber', 'Gold', 'Kupfer', 'Aluminium'], answer: 'Gold', emoji: '⚗️', fact: 'Au leitet sich vom lateinischen „aurum“ ab.' },
-        { question: 'Wer malte die „Mona Lisa“?', options: ['Michelangelo', 'Raffael', 'Leonardo da Vinci', 'Sandro Botticelli'], answer: 'Leonardo da Vinci', emoji: '🖼️', fact: 'Leonardo da Vinci malte das berühmte Porträt im frühen 16. Jahrhundert.' }
+        { question: 'Wer malte die „Mona Lisa“?', options: ['Michelangelo', 'Raffael', 'Leonardo da Vinci', 'Sandro Botticelli'], answer: 'Leonardo da Vinci', emoji: '🖼️', fact: 'Leonardo da Vinci malte das berühmte Porträt im frühen 16. Jahrhundert.' },
+        { question: 'Welche Blutzellen transportieren hauptsächlich Sauerstoff?', options: ['Rote Blutkörperchen', 'Weiße Blutkörperchen', 'Blutplättchen', 'Stammzellen'], answer: 'Rote Blutkörperchen', emoji: '🩸', fact: 'Rote Blutkörperchen transportieren Sauerstoff mithilfe des Proteins Hämoglobin.' },
+        { question: 'Wer malte das Gemälde „Sternennacht“?', options: ['Claude Monet', 'Vincent van Gogh', 'Paul Cézanne', 'Edvard Munch'], answer: 'Vincent van Gogh', emoji: '🌌', fact: 'Vincent van Gogh malte „Sternennacht“ im Jahr 1889.' }
       ],
       [
         { question: 'Wie heißt die Hauptstadt Australiens?', options: ['Sydney', 'Melbourne', 'Canberra', 'Perth'], answer: 'Canberra', emoji: '🌏', fact: 'Canberra wurde als Kompromiss zwischen Sydney und Melbourne Hauptstadt.' },
-        { question: 'Welcher ist der größte Ozean der Erde?', options: ['Atlantik', 'Indischer Ozean', 'Arktischer Ozean', 'Pazifik'], answer: 'Pazifik', emoji: '🌊', fact: 'Der Pazifik bedeckt etwa ein Drittel der Erdoberfläche.' }
+        { question: 'Welcher ist der größte Ozean der Erde?', options: ['Atlantik', 'Indischer Ozean', 'Arktischer Ozean', 'Pazifik'], answer: 'Pazifik', emoji: '🌊', fact: 'Der Pazifik bedeckt etwa ein Drittel der Erdoberfläche.' },
+        { question: 'Wie heißt die Hauptstadt Kanadas?', options: ['Toronto', 'Vancouver', 'Ottawa', 'Montreal'], answer: 'Ottawa', emoji: '🍁', fact: 'Ottawa ist seit 1867 die Hauptstadt Kanadas.' },
+        { question: 'In welches Meer mündet die Donau?', options: ['Ostsee', 'Schwarzes Meer', 'Adriatisches Meer', 'Kaspisches Meer'], answer: 'Schwarzes Meer', emoji: '🏞️', fact: 'Die Donau mündet über ein großes Delta in das Schwarze Meer.' }
       ],
       [
         { question: 'Welches Organ produziert das Hormon Insulin?', options: ['Leber', 'Bauchspeicheldrüse', 'Milz', 'Schilddrüse'], answer: 'Bauchspeicheldrüse', emoji: '🩺', fact: 'Insulin wird in den Betazellen der Bauchspeicheldrüse gebildet.' },
-        { question: 'In welchem Jahr trat das deutsche Grundgesetz in Kraft?', options: ['1945', '1948', '1949', '1953'], answer: '1949', emoji: '📜', fact: 'Das Grundgesetz trat am 24. Mai 1949 in Kraft.' }
+        { question: 'In welchem Jahr trat das deutsche Grundgesetz in Kraft?', options: ['1945', '1948', '1949', '1953'], answer: '1949', emoji: '📜', fact: 'Das Grundgesetz trat am 24. Mai 1949 in Kraft.' },
+        { question: 'Welcher Vertrag begründete 1993 die Europäische Union?', options: ['Vertrag von Maastricht', 'Vertrag von Versailles', 'Vertrag von Rom', 'Vertrag von Lissabon'], answer: 'Vertrag von Maastricht', emoji: '🇪🇺', fact: 'Der Vertrag von Maastricht trat 1993 in Kraft und begründete die Europäische Union.' },
+        { question: 'Wie viele Chromosomenpaare besitzt ein Mensch normalerweise?', options: ['21', '22', '23', '46'], answer: '23', emoji: '🧬', fact: 'Menschen besitzen normalerweise 23 Chromosomenpaare, also insgesamt 46 Chromosomen.' }
       ],
       [
         { question: 'Welcher ist der längste Fluss Europas?', options: ['Donau', 'Wolga', 'Rhein', 'Dnepr'], answer: 'Wolga', emoji: '🏞️', fact: 'Die Wolga ist mit rund 3.500 Kilometern Europas längster Fluss.' },
-        { question: 'In welchem Gebirge entspringt der Rhein?', options: ['Pyrenäen', 'Karpaten', 'Alpen', 'Apennin'], answer: 'Alpen', emoji: '🏔️', fact: 'Die Quellflüsse des Rheins entspringen in den Schweizer Alpen.' }
+        { question: 'In welchem Gebirge entspringt der Rhein?', options: ['Pyrenäen', 'Karpaten', 'Alpen', 'Apennin'], answer: 'Alpen', emoji: '🏔️', fact: 'Die Quellflüsse des Rheins entspringen in den Schweizer Alpen.' },
+        { question: 'Welcher ist der längste Knochen im menschlichen Körper?', options: ['Oberarmknochen', 'Schienbein', 'Oberschenkelknochen', 'Speiche'], answer: 'Oberschenkelknochen', emoji: '🦴', fact: 'Der Oberschenkelknochen, auch Femur genannt, ist der längste Knochen des Menschen.' },
+        { question: 'Welche Hochkultur errichtete Machu Picchu?', options: ['Maya', 'Azteken', 'Inka', 'Olmeken'], answer: 'Inka', emoji: '🏛️', fact: 'Machu Picchu wurde im 15. Jahrhundert von den Inka errichtet.' }
       ],
       [
         { question: 'In welchem Jahr wurde der Westfälische Frieden geschlossen?', options: ['1492', '1618', '1648', '1789'], answer: '1648', emoji: '🕊️', fact: 'Die Friedensschlüsse von 1648 beendeten den Dreißigjährigen Krieg.' },
-        { question: 'Titan ist der größte Mond welches Planeten?', options: ['Jupiter', 'Saturn', 'Uranus', 'Neptun'], answer: 'Saturn', emoji: '🔭', fact: 'Titan umkreist Saturn und besitzt eine dichte Atmosphäre.' }
+        { question: 'Titan ist der größte Mond welches Planeten?', options: ['Jupiter', 'Saturn', 'Uranus', 'Neptun'], answer: 'Saturn', emoji: '🔭', fact: 'Titan umkreist Saturn und besitzt eine dichte Atmosphäre.' },
+        { question: 'Welcher Wert beschreibt näherungsweise die Avogadro-Konstante?', options: ['6,022 · 10²³', '9,81 · 10²', '3,00 · 10⁸', '1,602 · 10⁻¹⁹'], answer: '6,022 · 10²³', emoji: '⚗️', fact: 'Die Avogadro-Konstante beträgt ungefähr 6,022 · 10²³ pro Mol.' },
+        { question: 'In welchem Jahr wurde der Augsburger Religionsfrieden geschlossen?', options: ['1517', '1530', '1555', '1648'], answer: '1555', emoji: '📜', fact: 'Der Augsburger Religionsfrieden wurde 1555 auf dem Reichstag zu Augsburg beschlossen.' }
       ],
       [
         { question: 'Welcher ist der kleinste Knochen im menschlichen Körper?', options: ['Steigbügel', 'Hammer', 'Amboss', 'Kniescheibe'], answer: 'Steigbügel', emoji: '🦴', fact: 'Der Steigbügel liegt im Mittelohr und ist nur wenige Millimeter groß.' },
-        { question: 'Wer formulierte die nach ihm benannte Unschärferelation?', options: ['Max Planck', 'Werner Heisenberg', 'Niels Bohr', 'Erwin Schrödinger'], answer: 'Werner Heisenberg', emoji: '⚛️', fact: 'Werner Heisenberg formulierte die Unschärferelation 1927.' }
+        { question: 'Wer formulierte die nach ihm benannte Unschärferelation?', options: ['Max Planck', 'Werner Heisenberg', 'Niels Bohr', 'Erwin Schrödinger'], answer: 'Werner Heisenberg', emoji: '⚛️', fact: 'Werner Heisenberg formulierte die Unschärferelation 1927.' },
+        { question: 'Welche Zellbestandteile besitzen neben dem Zellkern eigene DNA?', options: ['Ribosomen', 'Mitochondrien', 'Lysosomen', 'Golgi-Apparate'], answer: 'Mitochondrien', emoji: '🔬', fact: 'Mitochondrien besitzen ein eigenes ringförmiges Genom.' },
+        { question: 'Wer komponierte das Ballett „Le Sacre du printemps“?', options: ['Maurice Ravel', 'Claude Debussy', 'Igor Strawinsky', 'Sergei Prokofjew'], answer: 'Igor Strawinsky', emoji: '🎼', fact: 'Igor Strawinskys Ballett wurde 1913 in Paris uraufgeführt.' }
       ],
       [
         { question: 'Wer malte das Gemälde „Las Meninas“?', options: ['Francisco de Goya', 'El Greco', 'Diego Velázquez', 'Bartolomé Murillo'], answer: 'Diego Velázquez', emoji: '🎭', fact: 'Diego Velázquez vollendete das Werk 1656.' },
-        { question: 'Welche dieser Sprachen gilt als Sprachisolat?', options: ['Katalanisch', 'Baskisch', 'Bretonisch', 'Galicisch'], answer: 'Baskisch', emoji: '🗣️', fact: 'Für das Baskische ist keine Verwandtschaft mit einer anderen lebenden Sprache belegt.' }
+        { question: 'Welche dieser Sprachen gilt als Sprachisolat?', options: ['Katalanisch', 'Baskisch', 'Bretonisch', 'Galicisch'], answer: 'Baskisch', emoji: '🗣️', fact: 'Für das Baskische ist keine Verwandtschaft mit einer anderen lebenden Sprache belegt.' },
+        { question: 'An welcher Küste verläuft der Humboldtstrom?', options: ['Westküste Südamerikas', 'Ostküste Afrikas', 'Westküste Europas', 'Ostküste Australiens'], answer: 'Westküste Südamerikas', emoji: '🌊', fact: 'Der kalte Humboldtstrom fließt entlang der Westküste Südamerikas nach Norden.' },
+        { question: 'Welches Element besitzt die Ordnungszahl 79?', options: ['Silber', 'Gold', 'Platin', 'Quecksilber'], answer: 'Gold', emoji: '🧪', fact: 'Gold trägt das Elementsymbol Au und die Ordnungszahl 79.' }
       ],
       [
         { question: 'Welches Element hat die Ordnungszahl 74?', options: ['Wolfram', 'Platin', 'Quecksilber', 'Blei'], answer: 'Wolfram', emoji: '🧪', fact: 'Wolfram trägt das Elementsymbol W und die Ordnungszahl 74.' },
-        { question: 'Welche Frau erhielt als erste einen Nobelpreis?', options: ['Bertha von Suttner', 'Marie Curie', 'Selma Lagerlöf', 'Jane Addams'], answer: 'Marie Curie', emoji: '🏅', fact: 'Marie Curie erhielt 1903 gemeinsam mit Pierre Curie und Henri Becquerel den Physik-Nobelpreis.' }
+        { question: 'Welche Frau erhielt als erste einen Nobelpreis?', options: ['Bertha von Suttner', 'Marie Curie', 'Selma Lagerlöf', 'Jane Addams'], answer: 'Marie Curie', emoji: '🏅', fact: 'Marie Curie erhielt 1903 gemeinsam mit Pierre Curie und Henri Becquerel den Physik-Nobelpreis.' },
+        { question: 'Wie lautet der Vorname des Mathematikers Gödel?', options: ['Kurt', 'David', 'Bernhard', 'Georg'], answer: 'Kurt', emoji: '🧠', fact: 'Kurt Gödel veröffentlichte 1931 seine berühmten Unvollständigkeitssätze.' },
+        { question: 'In welchem Jahr fand die Seeschlacht von Lepanto statt?', options: ['1453', '1492', '1571', '1605'], answer: '1571', emoji: '⚔️', fact: 'Die Seeschlacht von Lepanto fand 1571 im Golf von Patras statt.' }
       ],
       [
         { question: 'Wer führte nach Magellans Tod die erste Weltumsegelung zu Ende?', options: ['Hernán Cortés', 'Juan Sebastián Elcano', 'Bartolomeu Dias', 'Amerigo Vespucci'], answer: 'Juan Sebastián Elcano', emoji: '⛵', fact: 'Elcano brachte 1522 das letzte Schiff der Expedition nach Spanien zurück.' },
-        { question: 'Welcher Mathematiker führte das Unendlichkeitszeichen „∞“ ein?', options: ['Leonhard Euler', 'Gottfried Wilhelm Leibniz', 'John Wallis', 'Isaac Newton'], answer: 'John Wallis', emoji: '∞️', fact: 'John Wallis verwendete das Zeichen erstmals 1655.' }
+        { question: 'Welcher Mathematiker führte das Unendlichkeitszeichen „∞“ ein?', options: ['Leonhard Euler', 'Gottfried Wilhelm Leibniz', 'John Wallis', 'Isaac Newton'], answer: 'John Wallis', emoji: '∞️', fact: 'John Wallis verwendete das Zeichen erstmals 1655.' },
+        { question: 'Mit welcher Zahlenfolge beschäftigt sich die Riemannsche Vermutung besonders?', options: ['Primzahlen', 'Fibonacci-Zahlen', 'Quadratzahlen', 'Dreieckszahlen'], answer: 'Primzahlen', emoji: '🔢', fact: 'Die Riemannsche Vermutung beschreibt über Nullstellen der Zetafunktion die Verteilung der Primzahlen.' },
+        { question: 'Welcher Frieden beendete 1713 einen Großteil des Spanischen Erbfolgekriegs?', options: ['Friede von Utrecht', 'Friede von Tilsit', 'Friede von Basel', 'Friede von Campo Formio'], answer: 'Friede von Utrecht', emoji: '🕊️', fact: 'Der Friede von Utrecht von 1713 beendete einen wesentlichen Teil des Spanischen Erbfolgekriegs.' }
       ]
     ];
 
