@@ -2488,7 +2488,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_540_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Flügel besitzt ein Schmetterling normalerweise?', options: ['Zwei', 'Vier', 'Sechs', 'Acht'], answer: 'Vier', emoji: '🦋', fact: 'Schmetterlinge besitzen zwei Vorder- und zwei Hinterflügel.' },
+        { question: 'Womit schneidet man gewöhnlich Papier?', options: ['Schere', 'Löffel', 'Kamm', 'Schlüssel'], answer: 'Schere', emoji: '✂️', fact: 'Eine Schere besitzt zwei gegeneinander bewegliche Schneiden.' },
+        { question: 'Welches Tier macht typischerweise „Muh“?', options: ['Kuh', 'Katze', 'Ente', 'Schwein'], answer: 'Kuh', emoji: '🐄', fact: 'Das typische Rufen einer Kuh wird auf Deutsch als Muhen bezeichnet.' },
+        { question: 'Welches Tier trägt sein Gehäuse auf dem Rücken?', options: ['Schnecke', 'Frosch', 'Igel', 'Maus'], answer: 'Schnecke', emoji: '🐌', fact: 'Viele Schnecken besitzen ein schützendes, spiralig gewundenes Gehäuse.' }
+      ],
+      [
+        { question: 'Welche Frucht trägt ihre kleinen Nüsschen sichtbar auf der Außenseite?', options: ['Erdbeere', 'Banane', 'Pflaume', 'Orange'], answer: 'Erdbeere', emoji: '🍓', fact: 'Die kleinen Punkte außen an der Erdbeere sind Nüsschenfrüchte.' },
+        { question: 'Wie nennt man eine junge Katze?', options: ['Kätzchen', 'Fohlen', 'Kalb', 'Küken'], answer: 'Kätzchen', emoji: '🐈', fact: 'Eine junge Katze wird Kätzchen oder Katzenjunges genannt.' },
+        { question: 'Welche Himmelsrichtung liegt Osten gegenüber?', options: ['Westen', 'Norden', 'Süden', 'Nordosten'], answer: 'Westen', emoji: '🧭', fact: 'Westen liegt Osten auf dem Kompass genau gegenüber.' },
+        { question: 'Wie viele Viertel ergeben ein Ganzes?', options: ['Zwei', 'Drei', 'Vier', 'Fünf'], answer: 'Vier', emoji: '🥧', fact: 'Vier Teile von jeweils einem Viertel ergeben ein Ganzes.' }
+      ],
+      [
+        { question: 'Welcher Vogel gilt als Symbol des Friedens?', options: ['Taube', 'Rabe', 'Adler', 'Specht'], answer: 'Taube', emoji: '🕊️', fact: 'Die weiße Taube mit Ölzweig ist ein verbreitetes Friedenssymbol.' },
+        { question: 'Wie viele Seiten besitzt ein Sechseck?', options: ['Vier', 'Fünf', 'Sechs', 'Sieben'], answer: 'Sechs', emoji: '⬡', fact: 'Ein Sechseck ist ein Polygon mit sechs Seiten.' },
+        { question: 'Welches Land trägt ein rotes Ahornblatt auf seiner Flagge?', options: ['Kanada', 'Österreich', 'Japan', 'Dänemark'], answer: 'Kanada', emoji: '🇨🇦', fact: 'Die kanadische Flagge zeigt ein stilisiertes rotes Ahornblatt.' },
+        { question: 'Aus welchem Metall bestehen viele leichte Getränkedosen?', options: ['Aluminium', 'Blei', 'Gold', 'Zinn'], answer: 'Aluminium', emoji: '🥫', fact: 'Viele Getränkedosen werden wegen seines geringen Gewichts aus Aluminium gefertigt.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt der Slowakei?', options: ['Bratislava', 'Košice', 'Prag', 'Brünn'], answer: 'Bratislava', emoji: '🇸🇰', fact: 'Bratislava ist die Hauptstadt der Slowakei.' },
+        { question: 'Welche Organe filtern Abfallstoffe aus dem Blut und bilden Urin?', options: ['Nieren', 'Lungen', 'Milz', 'Bauchspeicheldrüse'], answer: 'Nieren', emoji: '🫘', fact: 'Die Nieren filtern das Blut und regulieren den Wasser- und Salzhaushalt.' },
+        { question: 'Wer schrieb das Kinderbuch „Der Zauberer von Oz“?', options: ['L. Frank Baum', 'Lewis Carroll', 'A. A. Milne', 'J. M. Barrie'], answer: 'L. Frank Baum', emoji: '🌪️', fact: 'L. Frank Baum veröffentlichte „Der Zauberer von Oz“ im Jahr 1900.' },
+        { question: 'Wie viel sind 15 Prozent von 80?', options: ['8', '10', '12', '15'], answer: '12', emoji: '🧮', fact: 'Zehn Prozent von 80 sind acht und fünf Prozent sind vier; zusammen ergibt das zwölf.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt der Ukraine?', options: ['Kyjiw', 'Lwiw', 'Odessa', 'Charkiw'], answer: 'Kyjiw', emoji: '🇺🇦', fact: 'Kyjiw ist die Hauptstadt der Ukraine.' },
+        { question: 'Welche Blutbestandteile sind besonders wichtig für die Blutgerinnung?', options: ['Blutplättchen', 'Rote Blutkörperchen', 'Lymphozyten', 'Blutplasma allein'], answer: 'Blutplättchen', emoji: '🩸', fact: 'Blutplättchen, auch Thrombozyten genannt, helfen beim Verschluss verletzter Gefäße.' },
+        { question: 'Wer schrieb „20.000 Meilen unter dem Meer“?', options: ['Jules Verne', 'H. G. Wells', 'Daniel Defoe', 'Herman Melville'], answer: 'Jules Verne', emoji: '🚢', fact: 'Jules Vernes Abenteuerroman erschien 1869 und 1870 in Fortsetzungen.' },
+        { question: 'Bei welcher Sportart schlägt man einen Federball über ein Netz?', options: ['Badminton', 'Squash', 'Baseball', 'Handball'], answer: 'Badminton', emoji: '🏸', fact: 'Beim Badminton wird ein Federball mit Schlägern über ein Netz gespielt.' }
+      ],
+      [
+        { question: 'Für welches Element steht das Symbol „Mg“?', options: ['Magnesium', 'Mangan', 'Molybdän', 'Quecksilber'], answer: 'Magnesium', emoji: '🧪', fact: 'Mg ist das chemische Symbol für Magnesium.' },
+        { question: 'Wer komponierte die Serenade „Eine kleine Nachtmusik“?', options: ['Wolfgang Amadeus Mozart', 'Joseph Haydn', 'Franz Schubert', 'Ludwig van Beethoven'], answer: 'Wolfgang Amadeus Mozart', emoji: '🎻', fact: 'Mozart vollendete die Serenade im Jahr 1787.' },
+        { question: 'In welchem heutigen Land liegt die antike Felsenstadt Petra?', options: ['Jordanien', 'Libanon', 'Ägypten', 'Syrien'], answer: 'Jordanien', emoji: '🏜️', fact: 'Petra liegt im Süden des heutigen Jordanien.' },
+        { question: 'Wie groß ist die Winkelsumme eines Vierecks?', options: ['180 Grad', '270 Grad', '360 Grad', '540 Grad'], answer: '360 Grad', emoji: '📐', fact: 'Jedes einfache Viereck lässt sich in zwei Dreiecke mit insgesamt 360 Grad zerlegen.' }
+      ],
+      [
+        { question: 'Wer komponierte die Oper „Carmen“?', options: ['Georges Bizet', 'Giuseppe Verdi', 'Giacomo Puccini', 'Charles Gounod'], answer: 'Georges Bizet', emoji: '🎼', fact: 'Georges Bizets Oper „Carmen“ wurde 1875 in Paris uraufgeführt.' },
+        { question: 'Wie heißt die Hauptstadt Armeniens?', options: ['Jerewan', 'Gjumri', 'Baku', 'Tiflis'], answer: 'Jerewan', emoji: '🇦🇲', fact: 'Jerewan ist die Hauptstadt Armeniens.' },
+        { question: 'Welche SI-Basiseinheit misst die Stoffmenge?', options: ['Mol', 'Candela', 'Kelvin', 'Ampere'], answer: 'Mol', emoji: '⚗️', fact: 'Das Mol ist die SI-Basiseinheit der Stoffmenge.' },
+        { question: 'Wer entdeckte das AB0-System der Blutgruppen?', options: ['Karl Landsteiner', 'Paul Ehrlich', 'Robert Koch', 'Emil von Behring'], answer: 'Karl Landsteiner', emoji: '🩸', fact: 'Karl Landsteiner beschrieb zu Beginn des 20. Jahrhunderts das AB0-Blutgruppensystem.' }
+      ],
+      [
+        { question: 'Welches ist die größte Arterie des menschlichen Körpers?', options: ['Aorta', 'Halsschlagader', 'Lungenarterie', 'Oberschenkelarterie'], answer: 'Aorta', emoji: '🫀', fact: 'Die Aorta leitet sauerstoffreiches Blut aus der linken Herzkammer in den Körperkreislauf.' },
+        { question: 'Wer schrieb den Roman „Ulysses“?', options: ['James Joyce', 'Virginia Woolf', 'Samuel Beckett', 'D. H. Lawrence'], answer: 'James Joyce', emoji: '📚', fact: 'James Joyces Roman „Ulysses“ erschien 1922.' },
+        { question: 'Welches Hormon beeinflusst besonders den Schlaf-Wach-Rhythmus?', options: ['Melatonin', 'Insulin', 'Adrenalin', 'Thyroxin'], answer: 'Melatonin', emoji: '🌙', fact: 'Melatonin wird vor allem bei Dunkelheit ausgeschüttet und beeinflusst den Tag-Nacht-Rhythmus.' },
+        { question: 'Welchen Wert hat 2 hoch 10?', options: ['512', '1000', '1024', '2048'], answer: '1024', emoji: '💻', fact: 'Zwei zehnmal mit sich selbst multipliziert ergibt 1024.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Aserbaidschans?', options: ['Baku', 'Gəncə', 'Tiflis', 'Jerewan'], answer: 'Baku', emoji: '🇦🇿', fact: 'Baku liegt am Kaspischen Meer und ist die Hauptstadt Aserbaidschans.' },
+        { question: 'Wer entdeckte die elektromagnetische Induktion experimentell?', options: ['Michael Faraday', 'André-Marie Ampère', 'Georg Simon Ohm', 'James Clerk Maxwell'], answer: 'Michael Faraday', emoji: '🧲', fact: 'Michael Faraday demonstrierte 1831 die elektromagnetische Induktion.' },
+        { question: 'Wer schrieb den Roman „Der Meister und Margarita“?', options: ['Michail Bulgakow', 'Boris Pasternak', 'Iwan Bunin', 'Alexander Solschenizyn'], answer: 'Michail Bulgakow', emoji: '📚', fact: 'Michail Bulgakows Roman wurde ab 1966 postum veröffentlicht.' },
+        { question: 'Wie groß ist die molare Masse von Wasser ungefähr?', options: ['10 Gramm pro Mol', '18 Gramm pro Mol', '32 Gramm pro Mol', '44 Gramm pro Mol'], answer: '18 Gramm pro Mol', emoji: '💧', fact: 'Zwei Wasserstoffatome und ein Sauerstoffatom ergeben zusammen rund 18 Gramm pro Mol.' }
+      ],
+      [
+        { question: 'Wer komponierte die Oper „Aida“?', options: ['Giuseppe Verdi', 'Giacomo Puccini', 'Richard Wagner', 'Gaetano Donizetti'], answer: 'Giuseppe Verdi', emoji: '🎭', fact: 'Giuseppe Verdis Oper „Aida“ wurde 1871 in Kairo uraufgeführt.' },
+        { question: 'Wer schrieb den Roman „Der Leopard“?', options: ['Giuseppe Tomasi di Lampedusa', 'Italo Svevo', 'Luigi Pirandello', 'Alberto Moravia'], answer: 'Giuseppe Tomasi di Lampedusa', emoji: '📖', fact: '„Der Leopard“ erschien 1958 postum.' },
+        { question: 'Welche Zellorganellen übernehmen einen großen Teil der intrazellulären Verdauung?', options: ['Lysosomen', 'Zentriolen', 'Ribosomen', 'Nukleoli'], answer: 'Lysosomen', emoji: '🔬', fact: 'Lysosomen enthalten Enzyme zum Abbau zellulärer Stoffe.' },
+        { question: 'In welcher Einheit wird die elektrische Induktivität gemessen?', options: ['Henry', 'Farad', 'Weber', 'Siemens'], answer: 'Henry', emoji: '⚡', fact: 'Das Henry ist die SI-Einheit der Induktivität.' }
+      ],
+      [
+        { question: 'Welche Gesetze beschreiben den Stoffumsatz bei der Elektrolyse?', options: ['Faradaysche Gesetze', 'Keplersche Gesetze', 'Kirchhoffsche Regeln', 'Newtonsche Axiome'], answer: 'Faradaysche Gesetze', emoji: '⚗️', fact: 'Faradays Elektrolysegesetze verknüpfen elektrische Ladung und abgeschiedene Stoffmenge.' },
+        { question: 'Welche Quantenzahl beschreibt hauptsächlich die Form eines Atomorbitals?', options: ['Nebenquantenzahl', 'Hauptquantenzahl', 'Magnetische Quantenzahl', 'Spinquantenzahl'], answer: 'Nebenquantenzahl', emoji: '⚛️', fact: 'Die Nebenquantenzahl l kennzeichnet den Orbitaltyp und damit seine Form.' },
+        { question: 'Welcher Friedensschluss beendete 1856 den Krimkrieg?', options: ['Pariser Frieden', 'Frieden von San Stefano', 'Berliner Vertrag', 'Frieden von Küçük Kaynarca'], answer: 'Pariser Frieden', emoji: '📜', fact: 'Der Pariser Frieden von 1856 beendete den Krimkrieg.' },
+        { question: 'Welcher Künstler begründete den Suprematismus?', options: ['Kasimir Malewitsch', 'Wassily Kandinsky', 'El Lissitzky', 'Piet Mondrian'], answer: 'Kasimir Malewitsch', emoji: '🎨', fact: 'Kasimir Malewitsch entwickelte den Suprematismus in den 1910er-Jahren.' }
+      ],
+      [
+        { question: 'Was bezeichnet der Schwarzschildradius bei einem nicht rotierenden Schwarzen Loch?', options: ['Den Radius des Ereignishorizonts', 'Den Durchmesser der Akkretionsscheibe', 'Die Entfernung zur Singularität von außen', 'Die Wellenlänge der Hawking-Strahlung'], answer: 'Den Radius des Ereignishorizonts', emoji: '🕳️', fact: 'Beim Schwarzschild-Schwarzen-Loch liegt der Ereignishorizont am Schwarzschildradius.' },
+        { question: 'Welche Kultur errichtete den Tempelkomplex Angkor Wat?', options: ['Khmer', 'Champa', 'Srivijaya', 'Pagan'], answer: 'Khmer', emoji: '🏛️', fact: 'Angkor Wat wurde im 12. Jahrhundert im Khmer-Reich erbaut.' },
+        { question: 'Welcher RNA-Typ transportiert Aminosäuren zum Ribosom?', options: ['Transfer-RNA', 'Messenger-RNA', 'Ribosomale RNA', 'Mikro-RNA'], answer: 'Transfer-RNA', emoji: '🧬', fact: 'Transfer-RNA bindet Aminosäuren und erkennt passende Codons der mRNA.' },
+        { question: 'Wer komponierte die „Turangalîla-Sinfonie“?', options: ['Olivier Messiaen', 'Pierre Boulez', 'Henri Dutilleux', 'Francis Poulenc'], answer: 'Olivier Messiaen', emoji: '🎼', fact: 'Olivier Messiaen komponierte die „Turangalîla-Sinfonie“ zwischen 1946 und 1948.' }
+      ],
+      [
+        { question: 'Welcher topologische Satz wird anschaulich oft mit einem nicht kämmbaren Igel erklärt?', options: ['Igel-Theorem', 'Jordan-Kurvensatz', 'Fixpunktsatz von Banach', 'Satz von Tychonoff'], answer: 'Igel-Theorem', emoji: '🦔', fact: 'Das Igel-Theorem verbietet ein überall verschwindungsfreies stetiges Tangentialvektorfeld auf geraddimensionalen Sphären.' },
+        { question: 'Wer schrieb den Roman „Petersburg“?', options: ['Andrej Bely', 'Andrej Platonow', 'Iwan Bunin', 'Waleri Brjussow'], answer: 'Andrej Bely', emoji: '📚', fact: 'Andrej Belys modernistischer Roman erschien erstmals 1913 in Fortsetzungen.' },
+        { question: 'Welche beiden Herrscher trafen die Mailänder Vereinbarung von 313?', options: ['Konstantin und Licinius', 'Diokletian und Maximian', 'Theodosius und Gratian', 'Justinian und Theodora'], answer: 'Konstantin und Licinius', emoji: '📜', fact: 'Die Mailänder Vereinbarung von 313 gewährte weitgehende religiöse Toleranz im Römischen Reich.' },
+        { question: 'Wie nennt man hypothetische Fermionen, die ihre eigenen Antiteilchen sind?', options: ['Majorana-Fermionen', 'Dirac-Fermionen', 'Goldstone-Bosonen', 'Tachyonen'], answer: 'Majorana-Fermionen', emoji: '⚛️', fact: 'Ettore Majorana beschrieb 1937 Teilchen, die mit ihren Antiteilchen identisch wären.' }
+      ],
+      [
+        { question: 'Welches Paradoxon zerlegt mathematisch eine Kugel und setzt die Teile zu zwei gleich großen Kugeln zusammen?', options: ['Banach-Tarski-Paradoxon', 'Russells Paradoxon', 'Zwillingsparadoxon', 'Berry-Paradoxon'], answer: 'Banach-Tarski-Paradoxon', emoji: '🔮', fact: 'Das Banach-Tarski-Paradoxon beruht auf nicht messbaren Mengen und dem Auswahlaxiom.' },
+        { question: 'Wer verfasste das postum zusammengestellte „Buch der Unruhe“?', options: ['Fernando Pessoa', 'José Saramago', 'Eça de Queirós', 'Camilo Castelo Branco'], answer: 'Fernando Pessoa', emoji: '📚', fact: 'Fernando Pessoas Fragmente erschienen 1982 erstmals gesammelt als „Buch der Unruhe“.' },
+        { question: 'Welches Protein dient im CRISPR-Cas9-System als DNA-schneidendes Enzym?', options: ['Cas9', 'p53', 'Tubulin', 'Aktin'], answer: 'Cas9', emoji: '🧬', fact: 'Cas9 wird durch eine Leit-RNA zu einer passenden DNA-Sequenz geführt.' },
+        { question: 'Welche Schlacht von 1709 war ein Wendepunkt im Großen Nordischen Krieg?', options: ['Schlacht bei Poltawa', 'Schlacht bei Narva', 'Schlacht bei Leuthen', 'Schlacht bei Kunersdorf'], answer: 'Schlacht bei Poltawa', emoji: '⚔️', fact: 'Der russische Sieg bei Poltawa 1709 schwächte Schwedens Großmachtstellung entscheidend.' }
+      ],
+      [
+        { question: 'Welche drei Aussagen sind in der Mengenlehre zueinander äquivalent?', options: ['Auswahlaxiom, Zornsches Lemma und Wohlordnungssatz', 'Kontinuumshypothese, Riemannsche Vermutung und Auswahlaxiom', 'Zornsches Lemma, Satz von Bayes und Wohlordnungssatz', 'Auswahlaxiom, Fermatscher Satz und Satz von Stokes'], answer: 'Auswahlaxiom, Zornsches Lemma und Wohlordnungssatz', emoji: '♾️', fact: 'In der Zermelo-Fraenkel-Mengenlehre sind diese drei Prinzipien äquivalent.' },
+        { question: 'Wer verfasste den unvollendeten Gedichtzyklus „The Cantos“?', options: ['Ezra Pound', 'T. S. Eliot', 'W. B. Yeats', 'Wallace Stevens'], answer: 'Ezra Pound', emoji: '📜', fact: 'Ezra Pound arbeitete von 1915 bis in die 1960er-Jahre an „The Cantos“.' },
+        { question: 'Wie heißt die geometrische Phase bei einer zyklischen adiabatischen Entwicklung eines Quantensystems?', options: ['Berry-Phase', 'Gouy-Phase', 'Rabi-Phase', 'Maslov-Index'], answer: 'Berry-Phase', emoji: '⚛️', fact: 'Michael Berry beschrieb 1984 die nach ihm benannte geometrische Phase.' },
+        { question: 'Welches Konzil beendete 1417 weitgehend das Abendländische Schisma?', options: ['Konzil von Konstanz', 'Konzil von Trient', 'Erstes Konzil von Nicäa', 'Konzil von Clermont'], answer: 'Konzil von Konstanz', emoji: '⛪', fact: 'Das Konzil von Konstanz wählte 1417 Martin V. und beendete damit weitgehend das Schisma.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
@@ -2503,6 +2596,7 @@
     const LETTERS = ['A', 'B', 'C', 'D'];
     const QUESTION_TIME = 60;
     const SETTINGS_KEY = 'sprech-raetsel-xl-settings';
+    const SPEECH_DEFAULT_VERSION = 2;
     const DIFFICULTIES = {
       easy: { label: 'Leicht', time: 75, firstTier: 0, lastTier: 7 },
       normal: { label: 'Normal', time: 60, firstTier: 0, lastTier: 14 },
@@ -2517,7 +2611,8 @@
       fontPx: 22,
       music: true,
       sound: true,
-      speech: false,
+      speech: true,
+      speechDefaultVersion: SPEECH_DEFAULT_VERSION,
       difficulty: 'normal'
     };
 
@@ -2626,15 +2721,25 @@
     function loadSettings() {
       try {
         const raw = localStorage.getItem(SETTINGS_KEY);
-        if (!raw) return;
+        if (!raw) {
+          saveSettings();
+          return;
+        }
 
         const parsed = JSON.parse(raw);
 
         if (typeof parsed.fontPx === 'number') settings.fontPx = parsed.fontPx;
         if (typeof parsed.music === 'boolean') settings.music = parsed.music;
         if (typeof parsed.sound === 'boolean') settings.sound = parsed.sound;
-        if (typeof parsed.speech === 'boolean') settings.speech = parsed.speech;
+        if (parsed.speechDefaultVersion === SPEECH_DEFAULT_VERSION &&
+            typeof parsed.speech === 'boolean') {
+          settings.speech = parsed.speech;
+        } else {
+          settings.speech = true;
+        }
+        settings.speechDefaultVersion = SPEECH_DEFAULT_VERSION;
         if (DIFFICULTIES[parsed.difficulty]) settings.difficulty = parsed.difficulty;
+        saveSettings();
       } catch (e) {}
     }
 
