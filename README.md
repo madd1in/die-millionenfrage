@@ -1,6 +1,6 @@
 # Die Millionenfrage
 
-Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 720 Fragenvarianten, drei Jokern, standardmäßig aktivierter optionaler Sprachausgabe und eigener MP3-Hintergrundmusik.
+Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 780 Fragenvarianten, drei Jokern, standardmäßig aktivierter optionaler Sprachausgabe und eigener MP3-Hintergrundmusik.
 
 Das Spiel läuft vollständig im Browser und benötigt keine Installation.
 
