@@ -2581,7 +2581,100 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER].forEach(function (ladder) {
+    const EXPANDED_600_QUESTION_LADDER = [
+      [
+        { question: 'Womit schreibt man häufig auf Papier?', options: ['Bleistift', 'Teller', 'Schuh', 'Gabel'], answer: 'Bleistift', emoji: '✏️', fact: 'Ein Bleistift hinterlässt beim Schreiben eine Spur aus Graphit.' },
+        { question: 'Wie viele Beine besitzt ein Vogel normalerweise?', options: ['Eins', 'Zwei', 'Vier', 'Sechs'], answer: 'Zwei', emoji: '🐦', fact: 'Vögel besitzen normalerweise zwei Beine und zwei Flügel.' },
+        { question: 'Welches Besteck benutzt man zum Aufspießen von Essen?', options: ['Gabel', 'Löffel', 'Tasse', 'Schüssel'], answer: 'Gabel', emoji: '🍴', fact: 'Die Zinken einer Gabel können feste Speisen aufspießen.' },
+        { question: 'In welchem Lebensraum schwimmen Fische?', options: ['Wasser', 'Sand', 'Luft', 'Erde'], answer: 'Wasser', emoji: '🐟', fact: 'Fische leben im Wasser und atmen meist über Kiemen.' }
+      ],
+      [
+        { question: 'In welcher Jahreszeit fällt häufig Schnee?', options: ['Winter', 'Sommer', 'Frühling', 'Herbst'], answer: 'Winter', emoji: '⛄', fact: 'Im Winter sind die Temperaturen vielerorts niedrig genug für Schnee.' },
+        { question: 'Wie viele Räder besitzt ein gewöhnlicher Pkw?', options: ['Zwei', 'Drei', 'Vier', 'Sechs'], answer: 'Vier', emoji: '🚗', fact: 'Ein gewöhnlicher Pkw fährt auf vier Rädern.' },
+        { question: 'Welche Frucht wird oft mit Affen verbunden?', options: ['Banane', 'Kirsche', 'Zitrone', 'Birne'], answer: 'Banane', emoji: '🍌', fact: 'Bananen gehören zum natürlichen Nahrungsspektrum mancher Primaten.' },
+        { question: 'Was zeigen die Zeiger einer analogen Uhr an?', options: ['Uhrzeit', 'Temperatur', 'Gewicht', 'Entfernung'], answer: 'Uhrzeit', emoji: '🕒', fact: 'Stunden- und Minutenzeiger zeigen auf einem Zifferblatt die Uhrzeit an.' }
+      ],
+      [
+        { question: 'Welcher Planet wird auch Morgen- oder Abendstern genannt?', options: ['Venus', 'Mars', 'Merkur', 'Saturn'], answer: 'Venus', emoji: '✨', fact: 'Die helle Venus ist je nach Stellung vor Sonnenaufgang oder nach Sonnenuntergang sichtbar.' },
+        { question: 'Mit welchem Körperteil riecht ein Mensch hauptsächlich?', options: ['Nase', 'Ohr', 'Hand', 'Knie'], answer: 'Nase', emoji: '👃', fact: 'Riechzellen in der Nase erkennen Duftstoffe.' },
+        { question: 'Welche geometrische Form besitzt keine Ecken?', options: ['Kreis', 'Dreieck', 'Quadrat', 'Fünfeck'], answer: 'Kreis', emoji: '⭕', fact: 'Ein Kreis besitzt eine durchgehend gekrümmte Begrenzung ohne Ecken.' },
+        { question: 'Wie lautet die Mehrzahl des Wortes „Haus“?', options: ['Häuser', 'Hause', 'Hausen', 'Häuse'], answer: 'Häuser', emoji: '🏘️', fact: 'Der Plural von „Haus“ lautet „Häuser“.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt der Türkei?', options: ['Ankara', 'Istanbul', 'Izmir', 'Bursa'], answer: 'Ankara', emoji: '🇹🇷', fact: 'Ankara ist seit 1923 die Hauptstadt der Türkei.' },
+        { question: 'Wer schrieb die Geschichten von „Pu der Bär“?', options: ['A. A. Milne', 'Kenneth Grahame', 'Beatrix Potter', 'Lewis Carroll'], answer: 'A. A. Milne', emoji: '🐻', fact: 'A. A. Milne veröffentlichte das erste Pu-der-Bär-Buch 1926.' },
+        { question: 'Wie viel ist neun mal acht?', options: ['63', '72', '81', '89'], answer: '72', emoji: '✖️', fact: 'Neun mal acht ergibt 72.' },
+        { question: 'Welches Gas atmen Menschen vermehrt aus?', options: ['Kohlendioxid', 'Helium', 'Neon', 'Wasserstoff'], answer: 'Kohlendioxid', emoji: '🫁', fact: 'Bei der Zellatmung entsteht Kohlendioxid, das über die Lunge abgegeben wird.' }
+      ],
+      [
+        { question: 'Wie heißt die offizielle Hauptstadt Malaysias?', options: ['Kuala Lumpur', 'George Town', 'Johor Bahru', 'Malakka'], answer: 'Kuala Lumpur', emoji: '🇲🇾', fact: 'Kuala Lumpur ist Malaysias offizielle Hauptstadt; der Regierungssitz liegt in Putrajaya.' },
+        { question: 'Wer malte das Gemälde „American Gothic“?', options: ['Grant Wood', 'Edward Hopper', 'Andrew Wyeth', 'Norman Rockwell'], answer: 'Grant Wood', emoji: '🎨', fact: 'Grant Wood malte „American Gothic“ im Jahr 1930.' },
+        { question: 'Wie berechnet man die Fläche eines Dreiecks?', options: ['Grundseite mal Höhe geteilt durch zwei', 'Grundseite plus Höhe', 'Grundseite mal Höhe', 'Zweimal Grundseite plus Höhe'], answer: 'Grundseite mal Höhe geteilt durch zwei', emoji: '📐', fact: 'Ein Dreieck besitzt bei gleicher Grundseite und Höhe die halbe Fläche eines Parallelogramms.' },
+        { question: 'Wie heißt der flüssige Anteil des Blutes?', options: ['Blutplasma', 'Hämoglobin', 'Knochenmark', 'Lymphe'], answer: 'Blutplasma', emoji: '🩸', fact: 'Blutplasma besteht überwiegend aus Wasser und transportiert zahlreiche gelöste Stoffe.' }
+      ],
+      [
+        { question: 'Für welches Element steht das Symbol „Cl“?', options: ['Chlor', 'Calcium', 'Kohlenstoff', 'Chrom'], answer: 'Chlor', emoji: '🧪', fact: 'Cl ist das chemische Symbol für Chlor.' },
+        { question: 'Wie heißt die Hauptstadt Tansanias?', options: ['Dodoma', 'Daressalam', 'Arusha', 'Mombasa'], answer: 'Dodoma', emoji: '🇹🇿', fact: 'Dodoma ist die Hauptstadt Tansanias.' },
+        { question: 'Wer komponierte den Walzer „An der schönen blauen Donau“?', options: ['Johann Strauss Sohn', 'Franz Lehár', 'Josef Lanner', 'Franz von Suppè'], answer: 'Johann Strauss Sohn', emoji: '🎼', fact: 'Johann Strauss Sohn komponierte den Walzer 1866.' },
+        { question: 'Welche Skala beschreibt, wie sauer oder basisch eine Lösung ist?', options: ['pH-Skala', 'Mohs-Skala', 'Beaufortskala', 'Richterskala'], answer: 'pH-Skala', emoji: '⚗️', fact: 'Ein pH-Wert unter sieben ist sauer, über sieben basisch.' }
+      ],
+      [
+        { question: 'Wer schrieb den Roman „Little Women“?', options: ['Louisa May Alcott', 'Emily Brontë', 'George Eliot', 'Edith Wharton'], answer: 'Louisa May Alcott', emoji: '📚', fact: 'Louisa May Alcott veröffentlichte „Little Women“ ab 1868.' },
+        { question: 'Wie heißt die Hauptstadt Paraguays?', options: ['Asunción', 'Ciudad del Este', 'Montevideo', 'Santa Cruz'], answer: 'Asunción', emoji: '🇵🇾', fact: 'Asunción ist die Hauptstadt Paraguays.' },
+        { question: 'Wie heißt die Kniescheibe in der anatomischen Fachsprache?', options: ['Patella', 'Tibia', 'Fibula', 'Scapula'], answer: 'Patella', emoji: '🦴', fact: 'Die Patella liegt vor dem Kniegelenk und schützt es.' },
+        { question: 'Wer komponierte die Sinfonie „Aus der Neuen Welt“?', options: ['Antonín Dvořák', 'Bedřich Smetana', 'Leoš Janáček', 'Gustav Mahler'], answer: 'Antonín Dvořák', emoji: '🎻', fact: 'Antonín Dvořák komponierte seine neunte Sinfonie 1893 in New York.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Myanmars?', options: ['Naypyidaw', 'Yangon', 'Mandalay', 'Bago'], answer: 'Naypyidaw', emoji: '🇲🇲', fact: 'Naypyidaw ist seit 2005 der Regierungssitz und die Hauptstadt Myanmars.' },
+        { question: 'Wer entwickelte 1885 einen Impfstoff gegen Tollwut?', options: ['Louis Pasteur', 'Robert Koch', 'Joseph Lister', 'Paul Ehrlich'], answer: 'Louis Pasteur', emoji: '💉', fact: 'Louis Pasteur setzte 1885 erstmals erfolgreich eine Tollwutimpfung nach einem Biss ein.' },
+        { question: 'Welchen Wert besitzt null Fakultät, also 0!?', options: ['0', '1', 'Nicht definiert', 'Unendlich'], answer: '1', emoji: '🔢', fact: 'Per Definition gilt 0! gleich 1.' },
+        { question: 'Wer schrieb den Roman „Der Fremde“?', options: ['Albert Camus', 'Jean-Paul Sartre', 'André Gide', 'Romain Gary'], answer: 'Albert Camus', emoji: '📖', fact: 'Albert Camus veröffentlichte „Der Fremde“ 1942.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Namibias?', options: ['Windhoek', 'Walvis Bay', 'Gaborone', 'Lusaka'], answer: 'Windhoek', emoji: '🇳🇦', fact: 'Windhoek ist die Hauptstadt Namibias.' },
+        { question: 'Wer komponierte den Klavierzyklus „Bilder einer Ausstellung“?', options: ['Modest Mussorgski', 'Nikolai Rimski-Korsakow', 'Alexander Borodin', 'Sergei Rachmaninow'], answer: 'Modest Mussorgski', emoji: '🎹', fact: 'Modest Mussorgski komponierte den Zyklus 1874.' },
+        { question: 'Welche Ordnungszahl besitzt Zink?', options: ['28', '29', '30', '31'], answer: '30', emoji: '🧪', fact: 'Zink trägt das Elementsymbol Zn und die Ordnungszahl 30.' },
+        { question: 'Welches Blutgefäß führt sauerstoffreiches Blut von der Lunge zum Herzen?', options: ['Lungenvene', 'Lungenarterie', 'Aorta', 'Hohlvene'], answer: 'Lungenvene', emoji: '🫀', fact: 'Die Lungenvenen transportieren sauerstoffreiches Blut zum linken Vorhof.' }
+      ],
+      [
+        { question: 'Welcher Vertrag beendete 1905 den Russisch-Japanischen Krieg?', options: ['Vertrag von Portsmouth', 'Vertrag von Shimonoseki', 'Vertrag von Brest-Litowsk', 'Vertrag von Kanagawa'], answer: 'Vertrag von Portsmouth', emoji: '📜', fact: 'Der Vertrag von Portsmouth beendete 1905 den Russisch-Japanischen Krieg.' },
+        { question: 'Wer schrieb den Roman „Schall und Wahn“?', options: ['William Faulkner', 'John Steinbeck', 'Ernest Hemingway', 'F. Scott Fitzgerald'], answer: 'William Faulkner', emoji: '📚', fact: 'William Faulkners Roman erschien 1929.' },
+        { question: 'Welches Enzym spaltet Fette in Glycerin und Fettsäuren?', options: ['Lipase', 'Amylase', 'Pepsin', 'Laktase'], answer: 'Lipase', emoji: '🧬', fact: 'Lipasen katalysieren die Spaltung von Fetten.' },
+        { question: 'Wie groß ist die Winkelsumme eines Fünfecks?', options: ['360 Grad', '450 Grad', '540 Grad', '720 Grad'], answer: '540 Grad', emoji: '📐', fact: 'Ein Fünfeck lässt sich in drei Dreiecke mit zusammen 540 Grad zerlegen.' }
+      ],
+      [
+        { question: 'Welcher Physiker prägte den Begriff „Entropie“?', options: ['Rudolf Clausius', 'Ludwig Boltzmann', 'Lord Kelvin', 'Sadi Carnot'], answer: 'Rudolf Clausius', emoji: '🌡️', fact: 'Rudolf Clausius führte den Begriff Entropie 1865 ein.' },
+        { question: 'Wie heißt die Hauptstadt Moldaus?', options: ['Chișinău', 'Bălți', 'Iași', 'Tiraspol'], answer: 'Chișinău', emoji: '🇲🇩', fact: 'Chișinău ist die Hauptstadt der Republik Moldau.' },
+        { question: 'In welcher Phase der Meiose findet das Crossing-over hauptsächlich statt?', options: ['Prophase I', 'Metaphase II', 'Anaphase II', 'Telophase I'], answer: 'Prophase I', emoji: '🧬', fact: 'Während der Prophase I tauschen homologe Chromosomen Abschnitte aus.' },
+        { question: 'Wer schrieb den „Tractatus logico-philosophicus“?', options: ['Ludwig Wittgenstein', 'Bertrand Russell', 'Gottlob Frege', 'Rudolf Carnap'], answer: 'Ludwig Wittgenstein', emoji: '🧠', fact: 'Ludwig Wittgensteins „Tractatus“ erschien 1921.' }
+      ],
+      [
+        { question: 'Welcher Integralsatz verbindet ein Linienintegral über den Rand mit einem Flächenintegral der Rotation?', options: ['Satz von Stokes', 'Satz von Fubini', 'Residuensatz', 'Gaußscher Integralsatz'], answer: 'Satz von Stokes', emoji: '∫', fact: 'Der Satz von Stokes verallgemeinert mehrere klassische Integralsätze.' },
+        { question: 'Wer schrieb die Erzählungssammlung „Das Aleph“?', options: ['Jorge Luis Borges', 'Julio Cortázar', 'Adolfo Bioy Casares', 'Pablo Neruda'], answer: 'Jorge Luis Borges', emoji: '📚', fact: 'Jorge Luis Borges veröffentlichte „Das Aleph“ 1949.' },
+        { question: 'Ktesiphon war eine Hauptstadt welches spätantiken Reiches?', options: ['Sassanidenreich', 'Kuschana-Reich', 'Nabatäerreich', 'Seleukidenreich'], answer: 'Sassanidenreich', emoji: '🏛️', fact: 'Ktesiphon am Tigris war eine zentrale Residenz der Sassaniden.' },
+        { question: 'Welches Enzym beschleunigt die Umwandlung von Kohlendioxid und Wasser in Kohlensäure?', options: ['Carboanhydrase', 'Katalase', 'Urease', 'Peptidase'], answer: 'Carboanhydrase', emoji: '🧪', fact: 'Carboanhydrase katalysiert die reversible Hydratisierung von Kohlendioxid.' }
+      ],
+      [
+        { question: 'Ist die Existenz ungerader vollkommener Zahlen bislang bewiesen oder widerlegt?', options: ['Weder bewiesen noch widerlegt', 'Ihre Existenz ist bewiesen', 'Ihre Nichtexistenz ist bewiesen', 'Es gibt genau eine'], answer: 'Weder bewiesen noch widerlegt', emoji: '🔢', fact: 'Bis heute ist unbekannt, ob eine ungerade vollkommene Zahl existiert.' },
+        { question: 'Wer schrieb die Romantrilogie „Die Schlafwandler“?', options: ['Hermann Broch', 'Robert Musil', 'Alfred Döblin', 'Joseph Roth'], answer: 'Hermann Broch', emoji: '📚', fact: 'Hermann Brochs Trilogie erschien zwischen 1930 und 1932.' },
+        { question: 'Welche Teilchen vermitteln die schwache Wechselwirkung?', options: ['W- und Z-Bosonen', 'Photonen', 'Gluonen', 'Gravitonen'], answer: 'W- und Z-Bosonen', emoji: '⚛️', fact: 'Die schwache Wechselwirkung wird durch geladene W- und neutrale Z-Bosonen vermittelt.' },
+        { question: 'Welcher Friedensschluss erkannte 1648 die Unabhängigkeit der Niederlande an?', options: ['Friede von Münster', 'Friede von Osnabrück', 'Friede von Nimwegen', 'Friede von Breda'], answer: 'Friede von Münster', emoji: '📜', fact: 'Der Friede von Münster beendete 1648 den Achtzigjährigen Krieg.' }
+      ],
+      [
+        { question: 'Was behauptet die Kontinuumshypothese?', options: ['Es gibt keine Kardinalität strikt zwischen den natürlichen und den reellen Zahlen', 'Alle unendlichen Mengen sind gleich groß', 'Die reellen Zahlen sind abzählbar', 'Jede Menge besitzt genau eine Wohlordnung'], answer: 'Es gibt keine Kardinalität strikt zwischen den natürlichen und den reellen Zahlen', emoji: '♾️', fact: 'Die Kontinuumshypothese ist von den üblichen ZFC-Axiomen unabhängig.' },
+        { question: 'Wer schrieb den Roman „The Recognitions“?', options: ['William Gaddis', 'Thomas Pynchon', 'John Barth', 'Don DeLillo'], answer: 'William Gaddis', emoji: '📚', fact: 'William Gaddis veröffentlichte „The Recognitions“ 1955.' },
+        { question: 'Welches Enzym stellt bei der DNA-Replikation kurze RNA-Primer her?', options: ['Primase', 'Ligase', 'Helikase', 'Telomerase'], answer: 'Primase', emoji: '🧬', fact: 'Die Primase erzeugt RNA-Startstücke für DNA-Polymerasen.' },
+        { question: 'Welche Schlacht von 1526 führte zum Zusammenbruch des mittelalterlichen Königreichs Ungarn?', options: ['Schlacht bei Mohács', 'Schlacht bei Nikopolis', 'Schlacht bei Varna', 'Schlacht auf dem Amselfeld'], answer: 'Schlacht bei Mohács', emoji: '⚔️', fact: 'Der osmanische Sieg bei Mohács 1526 veränderte die Herrschaftsverhältnisse in Ungarn grundlegend.' }
+      ],
+      [
+        { question: 'Wer schrieb den monumentalen Roman „Zettel’s Traum“?', options: ['Arno Schmidt', 'Uwe Johnson', 'Hans Henny Jahnn', 'Wolfgang Koeppen'], answer: 'Arno Schmidt', emoji: '📚', fact: 'Arno Schmidts typografisch experimenteller Roman erschien 1970.' },
+        { question: 'Welcher Satz verknüpft die Nullstellen eines Vektorfeldes mit der Eulercharakteristik einer Mannigfaltigkeit?', options: ['Satz von Poincaré-Hopf', 'Satz von Hahn-Banach', 'Satz von Stone-Weierstraß', 'Satz von Riesz'], answer: 'Satz von Poincaré-Hopf', emoji: '♾️', fact: 'Der Poincaré-Hopf-Satz setzt die Indizes isolierter Nullstellen zur Eulercharakteristik in Beziehung.' },
+        { question: 'Welche Eichgruppe beschreibt das Standardmodell der Teilchenphysik?', options: ['SU(3) × SU(2) × U(1)', 'SO(3) × U(1)', 'SU(5)', 'E₈ × E₈'], answer: 'SU(3) × SU(2) × U(1)', emoji: '⚛️', fact: 'Das Standardmodell kombiniert die Eichgruppen der starken und elektroschwachen Wechselwirkung.' },
+        { question: 'In welcher Schlacht von 378 fiel der römische Kaiser Valens?', options: ['Schlacht von Adrianopel', 'Schlacht an der Milvischen Brücke', 'Schlacht auf den Katalaunischen Feldern', 'Schlacht von Frigidus'], answer: 'Schlacht von Adrianopel', emoji: '⚔️', fact: 'Valens fiel 378 im Kampf gegen die Goten bei Adrianopel.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER, BIGGER_SHUFFLE_QUESTION_LADDER, EXPANDED_480_QUESTION_LADDER, EXPANDED_540_QUESTION_LADDER, EXPANDED_600_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
