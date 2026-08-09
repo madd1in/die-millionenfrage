@@ -1042,6 +1042,11 @@
         background-attachment: scroll;
       }
 
+      body::before {
+        inset: -20vmax;
+        animation: none;
+      }
+
       .screen {
         width: 100%;
         min-width: 0;
@@ -1236,6 +1241,13 @@
         font-size: 1rem;
         line-height: 1.1;
         clip-path: polygon(3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
+      }
+
+      .answer:active:not(:disabled),
+      .joker:active:not(:disabled),
+      .iconBtn:active:not(:disabled) {
+        filter: brightness(1.22);
+        transform: scale(0.985);
       }
 
       .answer .letter {
@@ -1808,6 +1820,14 @@
       sfxTone(660, 0.06, 'triangle', 0.055);
     }
 
+    function haptic(pattern) {
+      try {
+        if ('vibrate' in navigator) {
+          navigator.vibrate(pattern);
+        }
+      } catch (e) {}
+    }
+
     function sfxSweep(from, to, dur, gain) {
       if (!settings.sound || !audioCtx || !sfxGain) return;
 
@@ -2251,6 +2271,7 @@
 
       btn.classList.add('selected');
       sfxSuspense();
+      haptic(28);
 
       speak('Antwort ' + LETTERS[i] + ' ist eingeloggt. Ist das richtig?');
 
@@ -2273,6 +2294,7 @@
         selectedBtn.classList.add('correct');
 
         sfxCorrect();
+        haptic([30, 45, 70]);
         confetti(30);
 
         run.score = MONEY[run.qIndex];
@@ -2317,6 +2339,7 @@
         updateScoreUI();
 
         sfxWrong();
+        haptic([85, 45, 85]);
         stopBGM();
 
         speak('Leider falsch. Richtig wäre ' + q.correct + ' gewesen. ' + q.fact);
@@ -2414,6 +2437,7 @@
       $('j5050').classList.add('used');
 
       sfxClick();
+      haptic(20);
       toast('50:50');
 
       const q = run.question;
@@ -2450,6 +2474,7 @@
       $('jHint').classList.add('used');
 
       sfxClick();
+      haptic(20);
 
       const q = run.question;
       const weights = q.options.map(function (_, i) {
@@ -2495,6 +2520,7 @@
       updateTimerUI();
 
       sfxClick();
+      haptic(20);
       toast('+10 Sekunden');
 
       speak('Zeitbonus: plus zehn Sekunden.');
