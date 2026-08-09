@@ -2239,7 +2239,70 @@
       ]
     ];
 
-    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER].forEach(function (ladder) {
+    const LATEST_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Ohren hat ein Mensch normalerweise?', options: ['Eins', 'Zwei', 'Drei', 'Vier'], answer: 'Zwei', emoji: '👂', fact: 'Ein Mensch besitzt normalerweise zwei Ohren.' },
+        { question: 'Wie viel ist zehn minus fünf?', options: ['Drei', 'Vier', 'Fünf', 'Sechs'], answer: 'Fünf', emoji: '➖', fact: 'Zehn minus fünf ergibt fünf.' }
+      ],
+      [
+        { question: 'Welcher Wochentag liegt direkt vor Freitag?', options: ['Mittwoch', 'Donnerstag', 'Samstag', 'Sonntag'], answer: 'Donnerstag', emoji: '📆', fact: 'Auf Donnerstag folgt Freitag.' },
+        { question: 'Welche Farbe hat eine reife Banane meistens?', options: ['Gelb', 'Blau', 'Violett', 'Schwarz'], answer: 'Gelb', emoji: '🍌', fact: 'Beim Reifen wird die Schale vieler Bananen gelb.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Irlands?', options: ['Cork', 'Dublin', 'Galway', 'Limerick'], answer: 'Dublin', emoji: '🇮🇪', fact: 'Dublin ist die Hauptstadt Irlands.' },
+        { question: 'Welcher ist der größte heute lebende Vogel?', options: ['Adler', 'Strauß', 'Kondor', 'Albatros'], answer: 'Strauß', emoji: '🐦', fact: 'Der Strauß ist der größte und schwerste heute lebende Vogel.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Sloweniens?', options: ['Maribor', 'Ljubljana', 'Koper', 'Celje'], answer: 'Ljubljana', emoji: '🇸🇮', fact: 'Ljubljana ist die Hauptstadt Sloweniens.' },
+        { question: 'Wie viele Milliliter ergeben einen Liter?', options: ['100', '500', '1000', '10.000'], answer: '1000', emoji: '🥛', fact: 'Ein Liter entspricht 1000 Millilitern.' }
+      ],
+      [
+        { question: 'Wer schrieb die Geschichte von „Pinocchio“?', options: ['Carlo Collodi', 'Gianni Rodari', 'Italo Calvino', 'Edmondo De Amicis'], answer: 'Carlo Collodi', emoji: '🤥', fact: 'Carlo Collodi schrieb die Abenteuer Pinocchios.' },
+        { question: 'Wie viele natürliche Monde besitzt die Erde?', options: ['Keinen', 'Einen', 'Zwei', 'Vier'], answer: 'Einen', emoji: '🌕', fact: 'Die Erde besitzt einen natürlichen Mond.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Bulgariens?', options: ['Plowdiw', 'Sofia', 'Warna', 'Burgas'], answer: 'Sofia', emoji: '🇧🇬', fact: 'Sofia ist die Hauptstadt Bulgariens.' },
+        { question: 'Für welches Element steht das Symbol „He“?', options: ['Helium', 'Hafnium', 'Holmium', 'Wasserstoff'], answer: 'Helium', emoji: '🎈', fact: 'He ist das chemische Symbol für Helium.' }
+      ],
+      [
+        { question: 'Wer schrieb „In 80 Tagen um die Welt“?', options: ['Jules Verne', 'Alexandre Dumas', 'Victor Hugo', 'Daniel Defoe'], answer: 'Jules Verne', emoji: '🌍', fact: 'Jules Verne veröffentlichte den Roman 1872.' },
+        { question: 'In welcher Einheit wird die elektrische Stromstärke gemessen?', options: ['Ampere', 'Volt', 'Watt', 'Ohm'], answer: 'Ampere', emoji: '⚡', fact: 'Das Ampere ist die SI-Basiseinheit der Stromstärke.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Kolumbiens?', options: ['Medellín', 'Bogotá', 'Cali', 'Cartagena'], answer: 'Bogotá', emoji: '🇨🇴', fact: 'Bogotá ist die Hauptstadt Kolumbiens.' },
+        { question: 'Wer malte „Die Geburt der Venus“?', options: ['Sandro Botticelli', 'Tizian', 'Raffael', 'Giorgione'], answer: 'Sandro Botticelli', emoji: '🖼️', fact: 'Sandro Botticelli malte das Werk im späten 15. Jahrhundert.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Thailands?', options: ['Chiang Mai', 'Bangkok', 'Phuket', 'Pattaya'], answer: 'Bangkok', emoji: '🇹🇭', fact: 'Bangkok ist die Hauptstadt Thailands.' },
+        { question: 'Welche Ordnungszahl besitzt Natrium?', options: ['9', '10', '11', '12'], answer: '11', emoji: '🧪', fact: 'Natrium besitzt die Ordnungszahl 11.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Ecuadors?', options: ['Guayaquil', 'Quito', 'Cuenca', 'Loja'], answer: 'Quito', emoji: '🇪🇨', fact: 'Quito ist die Hauptstadt Ecuadors.' },
+        { question: 'Wer formulierte grundlegende Vererbungsregeln anhand von Erbsen?', options: ['Gregor Mendel', 'Charles Darwin', 'Louis Pasteur', 'Carl von Linné'], answer: 'Gregor Mendel', emoji: '🫛', fact: 'Gregor Mendel leitete aus Kreuzungsversuchen Regeln der Vererbung ab.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Vietnams?', options: ['Ho-Chi-Minh-Stadt', 'Hanoi', 'Da Nang', 'Huế'], answer: 'Hanoi', emoji: '🇻🇳', fact: 'Hanoi ist die Hauptstadt Vietnams.' },
+        { question: 'Wer wurde im Jahr 800 in Rom zum Kaiser gekrönt?', options: ['Karl der Große', 'Otto der Große', 'Friedrich Barbarossa', 'Heinrich IV.'], answer: 'Karl der Große', emoji: '👑', fact: 'Papst Leo III. krönte Karl den Großen im Jahr 800.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Kambodschas?', options: ['Siem Reap', 'Phnom Penh', 'Battambang', 'Sihanoukville'], answer: 'Phnom Penh', emoji: '🇰🇭', fact: 'Phnom Penh ist die Hauptstadt Kambodschas.' },
+        { question: 'Wer schrieb den Roman „Doktor Faustus“?', options: ['Thomas Mann', 'Hermann Hesse', 'Alfred Döblin', 'Robert Musil'], answer: 'Thomas Mann', emoji: '📚', fact: 'Thomas Mann veröffentlichte „Doktor Faustus“ 1947.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Tadschikistans?', options: ['Duschanbe', 'Chudschand', 'Bischkek', 'Taschkent'], answer: 'Duschanbe', emoji: '🏙️', fact: 'Duschanbe ist die Hauptstadt Tadschikistans.' },
+        { question: 'Was beschreibt der Doppler-Effekt?', options: ['Eine Frequenzänderung durch Relativbewegung', 'Die Brechung von Licht im Prisma', 'Den Zerfall instabiler Kerne', 'Die Erwärmung durch Reibung'], answer: 'Eine Frequenzänderung durch Relativbewegung', emoji: '〰️', fact: 'Relativbewegung verändert die wahrgenommene Frequenz.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Eritreas?', options: ['Asmara', 'Massaua', 'Addis Abeba', 'Dschibuti'], answer: 'Asmara', emoji: '🏙️', fact: 'Asmara ist die Hauptstadt Eritreas.' },
+        { question: 'Wer formulierte das Ausschließungsprinzip für Elektronen?', options: ['Wolfgang Pauli', 'Enrico Fermi', 'Paul Dirac', 'Max Born'], answer: 'Wolfgang Pauli', emoji: '⚛️', fact: 'Das Pauli-Prinzip verbietet identische Quantenzustände für bestimmte Teilchen.' }
+      ],
+      [
+        { question: 'Welche Vermutung besagt, dass jede gerade Zahl größer als zwei Summe zweier Primzahlen ist?', options: ['Goldbachsche Vermutung', 'Riemannsche Vermutung', 'Collatz-Vermutung', 'Kontinuumshypothese'], answer: 'Goldbachsche Vermutung', emoji: '🔢', fact: 'Die starke Goldbachsche Vermutung ist bis heute unbewiesen.' },
+        { question: 'Welcher Frieden beendete 1748 den Österreichischen Erbfolgekrieg?', options: ['Friede von Aachen', 'Friede von Hubertusburg', 'Friede von Teschen', 'Friede von Rastatt'], answer: 'Friede von Aachen', emoji: '📜', fact: 'Der zweite Aachener Friede beendete 1748 den Krieg.' }
+      ]
+    ];
+
+    [EXTRA_QUESTION_LADDER, MORE_QUESTION_LADDER, EVEN_MORE_QUESTION_LADDER, SHUFFLE_BAG_QUESTION_LADDER, LATEST_QUESTION_LADDER].forEach(function (ladder) {
       ladder.forEach(function (questions, level) {
         QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
       });
