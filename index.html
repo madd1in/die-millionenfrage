@@ -8,35 +8,38 @@
 [hidden]{display:none!important}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{
-  margin:0;min-height:100vh;color:#fff;
-  font-family:Verdana,Arial,sans-serif;
-  background:radial-gradient(ellipse at 50% 40%,#0b2a6b 0%,#06153f 45%,#020a24 100%) fixed;
-  user-select:none;
+  margin:0;min-height:100vh;color:#fff;font-family:Verdana,Arial,sans-serif;user-select:none;
+  background:radial-gradient(ellipse at 50% 40%,#0b2a6b 0%,#06153f 45%,#020a24 100%) fixed;overflow-x:hidden;
 }
-body::before{content:"";position:fixed;inset:0;pointer-events:none;
-  background:
-   radial-gradient(circle at 15% 20%,rgba(255,255,255,.06) 0 2px,transparent 3px),
-   radial-gradient(circle at 80% 30%,rgba(255,255,255,.05) 0 2px,transparent 3px),
-   radial-gradient(circle at 60% 80%,rgba(255,255,255,.05) 0 2px,transparent 3px),
-   radial-gradient(circle at 30% 70%,rgba(255,255,255,.04) 0 2px,transparent 3px);
-}
-.screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;animation:fadeIn .4s ease}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 50% 120%,rgba(255,0,128,.18),transparent 60%);animation:hue 9s linear infinite}
+@keyframes hue{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+#flash{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:0}
+#flash.red{animation:flashR .8s ease}
+#flash.green{animation:flashG .8s ease}
+@keyframes flashR{0%{opacity:.45;background:red}100%{opacity:0;background:red}}
+@keyframes flashG{0%{opacity:.35;background:#0f0}100%{opacity:0;background:#0f0}}
+.shake{animation:shake .5s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-14px)}40%{transform:translateX(11px)}60%{transform:translateX(-8px)}80%{transform:translateX(6px)}}
+.screen{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 .logo{
   font-size:clamp(2rem,7vw,4.5rem);font-weight:900;text-align:center;letter-spacing:.06em;
-  color:#ffd700;text-shadow:0 0 25px rgba(255,215,0,.7),0 0 60px rgba(255,165,0,.4);
-  border:4px solid rgba(255,215,0,.8);border-radius:50%/60%;
+  color:#ffd700;border:4px solid rgba(255,215,0,.8);border-radius:50%/60%;
   padding:.6em 1.2em;margin-bottom:30px;
   background:radial-gradient(ellipse at center,rgba(255,215,0,.12),transparent 70%);
+  animation:logoPulse 2.4s ease-in-out infinite;
 }
+@keyframes logoPulse{0%,100%{text-shadow:0 0 25px rgba(255,215,0,.7),0 0 60px rgba(255,165,0,.4)}50%{text-shadow:0 0 60px rgba(255,215,0,1),0 0 110px rgba(255,140,0,.9)}}
 .bigBtn{font-size:1.4rem;font-weight:900;padding:16px 44px;border-radius:999px;cursor:pointer;
   border:3px solid #fff;color:#000;background:linear-gradient(180deg,#ffe259,#ffa751);
   box-shadow:0 0 25px rgba(255,215,0,.6);transition:transform .15s}
 .bigBtn:hover{transform:scale(1.06)}
 .bigBtn:active{transform:scale(.97)}
-.hint{color:#9fb4ff;margin-top:14px}
+.hint{color:#9fb4ff;margin-top:14px;text-align:center}
 .topbar{width:100%;max-width:1150px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.jokers{display:flex;gap:10px}
+.jokers{display:flex;gap:10px;flex-wrap:wrap}
 .joker{min-width:70px;padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:900;font-size:1rem;
   border:2px solid #e8e8ff;color:#fff;background:linear-gradient(180deg,#123a8f,#071d55);transition:.2s}
 .joker:hover{box-shadow:0 0 14px rgba(255,215,0,.7)}
@@ -47,18 +50,23 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
 .layout{width:100%;max-width:1150px;display:grid;grid-template-columns:1fr 230px;gap:20px;align-items:start}
 .qbox{
   border:3px solid #e8e8ff;border-radius:24px;padding:20px 26px;text-align:center;font-size:clamp(1rem,2.4vw,1.35rem);
-  background:linear-gradient(180deg,#123a8f,#071d55);box-shadow:0 0 30px rgba(0,80,255,.35), inset 0 0 25px rgba(255,255,255,.08);
-  margin-bottom:22px;min-height:90px;display:flex;align-items:center;justify-content:center}
+  background:linear-gradient(180deg,#123a8f,#071d55);margin-bottom:22px;min-height:90px;
+  display:flex;align-items:center;justify-content:center;animation:qGlow 2s infinite;
+}
+@keyframes qGlow{0%,100%{box-shadow:0 0 20px rgba(0,120,255,.4),inset 0 0 25px rgba(255,255,255,.08)}50%{box-shadow:0 0 50px rgba(0,180,255,.9),inset 0 0 35px rgba(255,255,255,.16)}}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .answer{
-  border:2px solid #e8e8ff;border-radius:999px;padding:14px 22px;text-align:left;cursor:pointer;
+  position:relative;overflow:hidden;border:2px solid #e8e8ff;border-radius:999px;padding:14px 22px;text-align:left;cursor:pointer;
   color:#fff;font-size:clamp(.9rem,2vw,1.05rem);font-weight:700;
   background:linear-gradient(180deg,#123a8f,#071d55);transition:.2s;
 }
+.answer::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3s infinite}
+@keyframes shine{0%{left:-60%}60%{left:130%}100%{left:130%}}
 .answer:hover:not(:disabled){box-shadow:0 0 16px rgba(255,215,0,.6)}
 .answer:disabled{cursor:default}
 .answer.selected{background:linear-gradient(180deg,#ffb300,#ff8f00);color:#000;animation:pulse 1s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 8px rgba(255,165,0,.6)}50%{box-shadow:0 0 24px rgba(255,165,0,1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 8px rgba(255,165,0,.6)}50%{box-shadow:0 0 28px rgba(255,165,0,1)}}
 .answer.correct{background:linear-gradient(180deg,#00c853,#007e33);color:#fff;animation:none}
 .answer.wrong{background:linear-gradient(180deg,#d50000,#8e0000);color:#fff;animation:none}
 .answer.gone{opacity:.22;pointer-events:none}
@@ -66,10 +74,11 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
 .ladder{display:flex;flex-direction:column;gap:3px;font-size:.85rem;font-weight:700}
 .row{display:flex;justify-content:space-between;padding:5px 12px;border-radius:8px;color:#cfd8ff}
 .row.milestone{color:#ffb300}
-.row.current{background:#ffd700;color:#000;box-shadow:0 0 14px rgba(255,215,0,.8)}
+.row.current{background:#ffd700;color:#000;animation:curPulse 1s infinite}
+@keyframes curPulse{0%,100%{box-shadow:0 0 8px rgba(255,215,0,.7)}50%{box-shadow:0 0 22px rgba(255,215,0,1)}}
 .winAmount{font-size:clamp(2rem,8vw,4rem);color:#7CFC7C;text-shadow:0 0 30px rgba(0,255,0,.7);margin:10px 0 20px;font-weight:900}
 .modal{position:fixed;inset:0;background:rgba(0,0,20,.75);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
-.modalBox{max-width:480px;width:100%;background:linear-gradient(180deg,#123a8f,#071d55);border:3px solid #ffd700;border-radius:20px;padding:22px;text-align:left}
+.modalBox{max-width:480px;width:100%;background:linear-gradient(180deg,#123a8f,#071d55);border:3px solid #ffd700;border-radius:20px;padding:22px;text-align:left;box-shadow:0 0 40px rgba(255,215,0,.5)}
 .audRow{display:grid;grid-template-columns:22px 1fr 48px;gap:10px;align-items:center;margin:8px 0}
 .barWrap{background:rgba(255,255,255,.12);border-radius:4px;height:20px;overflow:hidden}
 .bar{height:100%;background:linear-gradient(90deg,#ffd700,#ff9800);border-radius:4px}
@@ -81,11 +90,13 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
 </style>
 </head>
 <body>
+<canvas id="fx"></canvas>
+<div id="flash"></div>
 
 <div class="screen" id="startScreen">
   <div class="logo">DIE<br>MILLIONENFRAGE</div>
   <button class="bigBtn" id="startBtn">▶ Spiel starten</button>
-  <p class="hint">🎵 Musik & Sounds an · 3 Joker · 15 Fragen</p>
+  <p class="hint">🎧 Treibender Beat · 🗣 Sprachausgabe · ⛶ Auto-Fullscreen<br>3 Joker · 15 Fragen · Sicherheitsstufen</p>
 </div>
 
 <div class="screen" id="gameScreen" hidden>
@@ -121,7 +132,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
 <div class="screen" id="endScreen" hidden>
   <div class="logo" id="endTitle"></div>
   <div class="winAmount" id="endAmount"></div>
-  <p id="endMsg" style="max-width:500px;text-align:center"></p>
+  <p id="endMsg" style="max-width:520px;text-align:center"></p>
   <button class="bigBtn" onclick="location.reload()">🔄 Nochmal spielen</button>
 </div>
 
@@ -134,7 +145,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;
 </div>
 
 <script>
-/* ============ FRAGEN (15 Stufen, je 3 zur Auswahl) ============ */
+/* ================= FRAGEN ================= */
 const QUESTION_LADDER = [
   [
     { question: 'Welches Tier bellt und wird oft als „bester Freund des Menschen“ bezeichnet?', options: ['Hund','Katze','Kaninchen','Papagei'], answer: 'Hund', emoji: '🐕', fact: 'Der Hund wird traditionell als „bester Freund des Menschen“ bezeichnet.' },
@@ -142,74 +153,74 @@ const QUESTION_LADDER = [
     { question: 'Wie viele Räder besitzt ein Dreirad?', options: ['Zwei','Drei','Vier','Fünf'], answer: 'Drei', emoji: '🚲', fact: 'Ein Dreirad rollt, wie der Name sagt, auf drei Rädern.' }
   ],
   [
-    { question: 'Wie heißt die Hauptstadt Kubas?', options: ['Havanna','Santiago de Cuba','Camagüey','Holguín'], answer: 'Havanna', emoji: '🇨', fact: 'Havanna ist die Hauptstadt Kubas.' },
+    { question: 'Wie heißt die Hauptstadt Kubas?', options: ['Havanna','Santiago de Cuba','Camagüey','Holguín'], answer: 'Havanna', emoji: '🇨🇺', fact: 'Havanna ist die Hauptstadt Kubas.' },
     { question: 'Welches Tier ist für sein langsames Tempo bekannt und trägt ein Panzerhaus?', options: ['Schildkröte','Hase','Fuchs','Reh'], answer: 'Schildkröte', emoji: '🐢', fact: 'Schildkröten gelten sprichwörtlich als langsam.' },
     { question: 'Wie viel ist die Hälfte von 50?', options: ['20','25','30','35'], answer: '25', emoji: '➗', fact: 'Die Hälfte von 50 ist 25.' }
   ],
   [
     { question: 'Wer schrieb den Roman „Krieg und Frieden“?', options: ['Leo Tolstoi','Fjodor Dostojewski','Anton Tschechow','Iwan Turgenew'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Krieg und Frieden“ zwischen 1865 und 1869.' },
     { question: 'Welcher Fluss fließt durch London?', options: ['Themse','Avon','Severn','Mersey'], answer: 'Themse', emoji: '🏞️', fact: 'Die Themse durchquert London auf ihrem Weg zur Nordsee.' },
-    { question: 'Wie heißt die Hauptstadt Indonesiens?', options: ['Jakarta','Bali','Surabaya','Bandung'], answer: 'Jakarta', emoji: '🇮', fact: 'Jakarta ist die traditionelle Hauptstadt Indonesiens.' }
+    { question: 'Wie heißt die Hauptstadt Indonesiens?', options: ['Jakarta','Bali','Surabaya','Bandung'], answer: 'Jakarta', emoji: '🇮🇩', fact: 'Jakarta ist die traditionelle Hauptstadt Indonesiens.' }
   ],
   [
     { question: 'Für welches Element steht das Symbol „Al“?', options: ['Aluminium','Argon','Americium','Antimon'], answer: 'Aluminium', emoji: '🧪', fact: 'Al ist das chemische Symbol für Aluminium.' },
     { question: 'Wer komponierte die Oper „Die Fledermaus“?', options: ['Johann Strauss Sohn','Franz Lehár','Franz von Suppè','Emmerich Kálmán'], answer: 'Johann Strauss Sohn', emoji: '🎭', fact: 'Johann Strauss Sohn komponierte „Die Fledermaus“ 1874.' },
-    { question: 'Wie viele Herzkammern besitzt ein Frosch?', options: ['Eine','Zwei','Drei','Vier'], answer: 'Drei', emoji: '🐸', fact: 'Frösche besitzen ein dreikammeriges Herz mit zwei Vorhöfen und einer Kammer.' }
+    { question: 'Wie viele Herzkammern besitzt ein Frosch?', options: ['Eine','Zwei','Drei','Vier'], answer: 'Drei', emoji: '🐸', fact: 'Frösche besitzen ein dreikammeriges Herz.' }
   ],
   [
     { question: 'Wer schrieb den Roman „Anna Karenina“?', options: ['Leo Tolstoi','Fjodor Dostojewski','Nikolai Gogol','Iwan Gontscharow'], answer: 'Leo Tolstoi', emoji: '📚', fact: 'Leo Tolstoi veröffentlichte „Anna Karenina“ zwischen 1875 und 1877.' },
-    { question: 'Welches Land besitzt die Form eines Stiefels auf der Landkarte und liegt in Südeuropa?', options: ['Italien','Griechenland','Portugal','Kroatien'], answer: 'Italien', emoji: '👢', fact: 'Italien wird wegen seiner Form oft mit einem Stiefel verglichen.' },
-    { question: 'Wie heißt die Hauptstadt Venezuelas?', options: ['Caracas','Maracaibo','Valencia','Barquisimeto'], answer: 'Caracas', emoji: '🇻', fact: 'Caracas ist die Hauptstadt Venezuelas.' }
+    { question: 'Welches Land besitzt die Form eines Stiefels und liegt in Südeuropa?', options: ['Italien','Griechenland','Portugal','Kroatien'], answer: 'Italien', emoji: '👢', fact: 'Italien wird wegen seiner Form oft mit einem Stiefel verglichen.' },
+    { question: 'Wie heißt die Hauptstadt Venezuelas?', options: ['Caracas','Maracaibo','Valencia','Barquisimeto'], answer: 'Caracas', emoji: '🇻🇪', fact: 'Caracas ist die Hauptstadt Venezuelas.' }
   ],
   [
     { question: 'Welche Ordnungszahl besitzt Kalium?', options: ['17','18','19','20'], answer: '19', emoji: '🧪', fact: 'Kalium trägt das Elementsymbol K und die Ordnungszahl 19.' },
     { question: 'Wer malte „Die Schule von Athen“?', options: ['Raffael','Michelangelo','Leonardo da Vinci','Tizian'], answer: 'Raffael', emoji: '🖼️', fact: 'Raffael malte „Die Schule von Athen“ zwischen 1509 und 1511.' },
-    { question: 'Welcher Ozean ist der kälteste und liegt um den Nordpol?', options: ['Arktischer Ozean','Atlantischer Ozean','Pazifischer Ozean','Indischer Ozean'], answer: 'Arktischer Ozean', emoji: '🧊', fact: 'Der Arktische Ozean umgibt den Nordpol und ist der kleinste und flachste Ozean.' }
+    { question: 'Welcher Ozean ist der kälteste und liegt um den Nordpol?', options: ['Arktischer Ozean','Atlantischer Ozean','Pazifischer Ozean','Indischer Ozean'], answer: 'Arktischer Ozean', emoji: '🧊', fact: 'Der Arktische Ozean umgibt den Nordpol.' }
   ],
   [
     { question: 'Wer schrieb den Roman „Stolz und Vorurteil“?', options: ['Jane Austen','Charlotte Brontë','Emily Brontë','George Eliot'], answer: 'Jane Austen', emoji: '📚', fact: 'Jane Austen veröffentlichte „Stolz und Vorurteil“ 1813.' },
     { question: 'Welche Ordnungszahl besitzt Stickstoff?', options: ['5','6','7','8'], answer: '7', emoji: '🧪', fact: 'Stickstoff besitzt die Ordnungszahl 7.' },
-    { question: 'Welcher Gebirgszug bildet die Grenze zwischen Europa und Asien in Russland?', options: ['Ural','Kaukasus','Karpaten','Altai'], answer: 'Ural', emoji: '⛰️', fact: 'Der Ural wird traditionell als Grenze zwischen Europa und Asien angesehen.' }
+    { question: 'Welcher Gebirgszug bildet die Grenze zwischen Europa und Asien?', options: ['Ural','Kaukasus','Karpaten','Altai'], answer: 'Ural', emoji: '⛰️', fact: 'Der Ural wird traditionell als Grenze zwischen Europa und Asien angesehen.' }
   ],
   [
-    { question: 'Welcher Vertrag beendete 1783 den Amerikanischen Unabhängigkeitskrieg?', options: ['Vertrag von Paris','Vertrag von Gent','Vertrag von Utrecht','Vertrag von Versailles'], answer: 'Vertrag von Paris', emoji: '📜', fact: 'Der Vertrag von Paris von 1783 beendete den Amerikanischen Unabhängigkeitskrieg.' },
-    { question: 'Wer komponierte das Weihnachtsoratorium?', options: ['Johann Sebastian Bach','Georg Friedrich Händel','Antonio Vivaldi','Georg Philipp Telemann'], answer: 'Johann Sebastian Bach', emoji: '🎼', fact: 'Johann Sebastian Bach komponierte sein Weihnachtsoratorium 1734.' },
-    { question: 'Welches Blutgefäß führt sauerstoffarmes Blut vom Körper zurück zum Herzen?', options: ['Hohlvene','Aorta','Lungenvene','Halsschlagader'], answer: 'Hohlvene', emoji: '🫀', fact: 'Die obere und untere Hohlvene führen sauerstoffarmes Blut zum rechten Vorhof.' }
+    { question: 'Welcher Vertrag beendete 1783 den Amerikanischen Unabhängigkeitskrieg?', options: ['Vertrag von Paris','Vertrag von Gent','Vertrag von Utrecht','Vertrag von Versailles'], answer: 'Vertrag von Paris', emoji: '📜', fact: 'Der Vertrag von Paris von 1783 beendete den Unabhängigkeitskrieg.' },
+    { question: 'Wer komponierte das Weihnachtsoratorium?', options: ['Johann Sebastian Bach','Georg Friedrich Händel','Antonio Vivaldi','Georg Philipp Telemann'], answer: 'Johann Sebastian Bach', emoji: '🎼', fact: 'Bach komponierte sein Weihnachtsoratorium 1734.' },
+    { question: 'Welches Blutgefäß führt sauerstoffarmes Blut zum Herzen zurück?', options: ['Hohlvene','Aorta','Lungenvene','Halsschlagader'], answer: 'Hohlvene', emoji: '🫀', fact: 'Die Hohlvenen führen sauerstoffarmes Blut zum rechten Vorhof.' }
   ],
   [
-    { question: 'Wer schrieb den Roman „Der Idiot“?', options: ['Fjodor Dostojewski','Leo Tolstoi','Iwan Turgenew','Nikolai Leskow'], answer: 'Fjodor Dostojewski', emoji: '📚', fact: 'Fjodor Dostojewski veröffentlichte „Der Idiot“ 1868/69.' },
-    { question: 'Welche Ordnungszahl besitzt Schwefel?', options: ['14','15','16','17'], answer: '16', emoji: '🧪', fact: 'Schwefel trägt das Elementsymbol S und die Ordnungszahl 16.' },
-    { question: 'Welcher Frieden beendete den Devolutionskrieg mit den Verhandlungen in Aachen?', options: ['Friede von Aachen','Friede von Nimwegen','Friede von Rijswijk','Friede von Breda'], answer: 'Friede von Aachen', emoji: '📜', fact: 'Der erste Aachener Friede von 1668 beendete den Devolutionskrieg.' }
+    { question: 'Wer schrieb den Roman „Der Idiot“?', options: ['Fjodor Dostojewski','Leo Tolstoi','Iwan Turgenew','Nikolai Leskow'], answer: 'Fjodor Dostojewski', emoji: '📚', fact: 'Dostojewski veröffentlichte „Der Idiot“ 1868/69.' },
+    { question: 'Welche Ordnungszahl besitzt Schwefel?', options: ['14','15','16','17'], answer: '16', emoji: '🧪', fact: 'Schwefel trägt das Symbol S und die Ordnungszahl 16.' },
+    { question: 'Welcher Frieden beendete den Devolutionskrieg?', options: ['Friede von Aachen','Friede von Nimwegen','Friede von Rijswijk','Friede von Breda'], answer: 'Friede von Aachen', emoji: '📜', fact: 'Der Aachener Friede von 1668 beendete den Devolutionskrieg.' }
   ],
   [
-    { question: 'Welches Enzym katalysiert im Citratzyklus die Umwandlung von Succinat zu Fumarat?', options: ['Succinat-Dehydrogenase','Citrat-Synthase','Isocitrat-Dehydrogenase','Malat-Dehydrogenase'], answer: 'Succinat-Dehydrogenase', emoji: '🧬', fact: 'Die Succinat-Dehydrogenase ist zugleich Teil der mitochondrialen Atmungskette.' },
+    { question: 'Welches Enzym wandelt im Citratzyklus Succinat zu Fumarat um?', options: ['Succinat-Dehydrogenase','Citrat-Synthase','Isocitrat-Dehydrogenase','Malat-Dehydrogenase'], answer: 'Succinat-Dehydrogenase', emoji: '🧬', fact: 'Die Succinat-Dehydrogenase ist zugleich Teil der Atmungskette.' },
     { question: 'Wer schrieb den Roman „Middlemarch“?', options: ['George Eliot','Jane Austen','Charlotte Brontë','Elizabeth Gaskell'], answer: 'George Eliot', emoji: '📚', fact: 'George Eliot veröffentlichte „Middlemarch“ 1871/72.' },
-    { question: 'Welcher Frieden beendete 1721 den Großen Nordischen Krieg zwischen Schweden und Russland?', options: ['Friede von Nystad','Friede von Åbo','Friede von Stolbowo','Friede von Teschen'], answer: 'Friede von Nystad', emoji: '📜', fact: 'Der Friede von Nystad beendete 1721 den Großen Nordischen Krieg.' }
+    { question: 'Welcher Frieden beendete 1721 den Großen Nordischen Krieg?', options: ['Friede von Nystad','Friede von Åbo','Friede von Stolbowo','Friede von Teschen'], answer: 'Friede von Nystad', emoji: '📜', fact: 'Der Friede von Nystad beendete 1721 den Großen Nordischen Krieg.' }
   ],
   [
-    { question: 'Was beschreibt der Zentrale Grenzwertsatz in der Stochastik?', options: ['Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an','Jede Verteilung ist symmetrisch','Der Erwartungswert ist immer null','Varianz und Median sind stets gleich'], answer: 'Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an', emoji: '📊', fact: 'Der Zentrale Grenzwertsatz gilt unter recht allgemeinen Bedingungen für unabhängige Zufallsvariablen.' },
-    { question: 'Wer schrieb den Roman „Vom Winde verweht“?', options: ['Margaret Mitchell','Harper Lee','Toni Morrison','Carson McCullers'], answer: 'Margaret Mitchell', emoji: '📚', fact: 'Margaret Mitchell veröffentlichte „Vom Winde verweht“ 1936.' },
-    { question: 'Welcher Frieden beendete 1809 den Fünften Koalitionskrieg zwischen Österreich und Frankreich?', options: ['Friede von Schönbrunn','Friede von Preßburg','Friede von Tilsit','Friede von Lunéville'], answer: 'Friede von Schönbrunn', emoji: '📜', fact: 'Der Friede von Schönbrunn wurde 1809 nach der Schlacht bei Wagram geschlossen.' }
+    { question: 'Was beschreibt der Zentrale Grenzwertsatz?', options: ['Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an','Jede Verteilung ist symmetrisch','Der Erwartungswert ist immer null','Varianz und Median sind stets gleich'], answer: 'Summen vieler unabhängiger Zufallsvariablen nähern sich einer Normalverteilung an', emoji: '📊', fact: 'Der Zentrale Grenzwertsatz gilt unter sehr allgemeinen Bedingungen.' },
+    { question: 'Wer schrieb „Vom Winde verweht“?', options: ['Margaret Mitchell','Harper Lee','Toni Morrison','Carson McCullers'], answer: 'Margaret Mitchell', emoji: '📚', fact: 'Margaret Mitchell veröffentlichte den Roman 1936.' },
+    { question: 'Welcher Frieden beendete 1809 den Fünften Koalitionskrieg?', options: ['Friede von Schönbrunn','Friede von Preßburg','Friede von Tilsit','Friede von Lunéville'], answer: 'Friede von Schönbrunn', emoji: '📜', fact: 'Der Friede von Schönbrunn folgte auf die Schlacht bei Wagram.' }
   ],
   [
-    { question: 'Welches Konzept beschreibt in der Genetik den Austausch von Chromosomenabschnitten zwischen homologen Chromosomen?', options: ['Crossing-over','Mutation','Translation','Transkription'], answer: 'Crossing-over', emoji: '🧬', fact: 'Crossing-over erhöht die genetische Vielfalt der entstehenden Keimzellen.' },
-    { question: 'Wer verfasste den Roman „Das Schloss“?', options: ['Franz Kafka','Robert Musil','Stefan Zweig','Joseph Roth'], answer: 'Franz Kafka', emoji: '📚', fact: 'Franz Kafkas „Das Schloss“ wurde 1926 postum veröffentlicht.' },
-    { question: 'Welcher Frieden beendete 1697 den Neunjährigen Krieg zwischen Frankreich und der Großen Allianz?', options: ['Friede von Rijswijk','Friede von Utrecht','Friede von Nimwegen','Friede von Aachen'], answer: 'Friede von Rijswijk', emoji: '📜', fact: 'Der Friede von Rijswijk wurde 1697 geschlossen.' }
+    { question: 'Was beschreibt in der Genetik den Austausch von Chromosomenabschnitten?', options: ['Crossing-over','Mutation','Translation','Transkription'], answer: 'Crossing-over', emoji: '🧬', fact: 'Crossing-over erhöht die genetische Vielfalt.' },
+    { question: 'Wer verfasste den Roman „Das Schloss“?', options: ['Franz Kafka','Robert Musil','Stefan Zweig','Joseph Roth'], answer: 'Franz Kafka', emoji: '📚', fact: 'Kafkas „Das Schloss“ wurde 1926 postum veröffentlicht.' },
+    { question: 'Welcher Frieden beendete 1697 den Neunjährigen Krieg?', options: ['Friede von Rijswijk','Friede von Utrecht','Friede von Nimwegen','Friede von Aachen'], answer: 'Friede von Rijswijk', emoji: '📜', fact: 'Der Friede von Rijswijk wurde 1697 geschlossen.' }
   ],
   [
-    { question: 'Was besagt das Prinzip von Le Chatelier für ein chemisches Gleichgewicht?', options: ['Das System reagiert auf eine Störung, indem es ihr entgegenwirkt','Jede Reaktion läuft irreversibel ab','Katalysatoren verschieben immer das Gleichgewicht','Temperatur hat keinen Einfluss auf Gleichgewichte'], answer: 'Das System reagiert auf eine Störung, indem es ihr entgegenwirkt', emoji: '⚗️', fact: 'Das Prinzip von Le Chatelier beschreibt, wie sich ein Gleichgewicht bei äußeren Störungen verschiebt.' },
-    { question: 'Wer schrieb den Roman „Absalom, Absalom!“?', options: ['William Faulkner','Robert Penn Warren','Flannery O’Connor','Eudora Welty'], answer: 'William Faulkner', emoji: '📚', fact: 'William Faulkner veröffentlichte „Absalom, Absalom!“ 1936.' },
-    { question: 'Welcher Frieden beendete 1774 den Ersten Russisch-Türkischen Krieg unter Katharina der Großen?', options: ['Friede von Küçük Kaynarca','Friede von Jassy','Friede von Bukarest','Friede von Adrianopel'], answer: 'Friede von Küçük Kaynarca', emoji: '📜', fact: 'Der Friede von Küçük Kaynarca wurde 1774 geschlossen.' }
+    { question: 'Was besagt das Prinzip von Le Chatelier?', options: ['Das System reagiert auf eine Störung, indem es ihr entgegenwirkt','Jede Reaktion läuft irreversibel ab','Katalysatoren verschieben immer das Gleichgewicht','Temperatur hat keinen Einfluss'], answer: 'Das System reagiert auf eine Störung, indem es ihr entgegenwirkt', emoji: '⚗️', fact: 'Le Chatelier beschreibt die Verschiebung von Gleichgewichten.' },
+    { question: 'Wer schrieb „Absalom, Absalom!“?', options: ['William Faulkner','Robert Penn Warren','Flannery O’Connor','Eudora Welty'], answer: 'William Faulkner', emoji: '📚', fact: 'Faulkner veröffentlichte den Roman 1936.' },
+    { question: 'Welcher Frieden beendete 1774 den Ersten Russisch-Türkischen Krieg?', options: ['Friede von Küçük Kaynarca','Friede von Jassy','Friede von Bukarest','Friede von Adrianopel'], answer: 'Friede von Küçük Kaynarca', emoji: '📜', fact: 'Der Friede von Küçük Kaynarca wurde 1774 geschlossen.' }
   ],
   [
-    { question: 'Was besagt die Church-Turing-These informell?', options: ['Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen','Jedes Problem ist in polynomieller Zeit lösbar','Jede Sprache ist regulär','Alle Algorithmen terminieren garantiert'], answer: 'Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen', emoji: '💻', fact: 'Die Church-Turing-These ist eine grundlegende Arbeitshypothese der Berechenbarkeitstheorie.' },
-    { question: 'Wer schrieb den Roman „Herz der Finsternis“?', options: ['Joseph Conrad','Rudyard Kipling','E. M. Forster','Graham Greene'], answer: 'Joseph Conrad', emoji: '📚', fact: 'Joseph Conrad veröffentlichte „Herz der Finsternis“ 1899.' },
-    { question: 'Welcher Frieden beendete 1801 den Krieg zwischen Frankreich und Österreich vor dem Frieden von Amiens?', options: ['Friede von Lunéville','Friede von Campo Formio','Friede von Preßburg','Friede von Tilsit'], answer: 'Friede von Lunéville', emoji: '📜', fact: 'Der Friede von Lunéville wurde 1801 zwischen Frankreich und Österreich geschlossen.' }
+    { question: 'Was besagt die Church-Turing-These informell?', options: ['Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen','Jedes Problem ist in polynomieller Zeit lösbar','Jede Sprache ist regulär','Alle Algorithmen terminieren'], answer: 'Alles effektiv Berechenbare lässt sich durch eine Turingmaschine berechnen', emoji: '💻', fact: 'Die Church-Turing-These ist eine Arbeitshypothese der Berechenbarkeit.' },
+    { question: 'Wer schrieb „Herz der Finsternis“?', options: ['Joseph Conrad','Rudyard Kipling','E. M. Forster','Graham Greene'], answer: 'Joseph Conrad', emoji: '📚', fact: 'Conrad veröffentlichte die Novelle 1899.' },
+    { question: 'Welcher Frieden beendete 1801 den Krieg zwischen Frankreich und Österreich?', options: ['Friede von Lunéville','Friede von Campo Formio','Friede von Preßburg','Friede von Tilsit'], answer: 'Friede von Lunéville', emoji: '📜', fact: 'Der Friede von Lunéville wurde 1801 geschlossen.' }
   ],
   [
-    { question: 'Wie viele Sinfonien vollendete Johannes Brahms?', options: ['Vier','Fünf','Sechs','Neun'], answer: 'Vier', emoji: '🎼', fact: 'Brahms vollendete vier Sinfonien – die erste erst nach über 20 Jahren Arbeit.' },
-    { question: 'Welches chemische Element hat die höchste Dichte?', options: ['Osmium','Iridium','Platin','Gold'], answer: 'Osmium', emoji: '🧪', fact: 'Osmium ist mit etwa 22,6 g/cm³ das dichteste bekannte Element.' },
-    { question: 'In welchem Jahr erschien der erste Band von Karl Marx’ „Das Kapital“?', options: ['1867','1848','1871','1883'], answer: '1867', emoji: '📚', fact: 'Band 1 des „Kapital“ erschien 1867, die Bände 2 und 3 gab Engels postum heraus.' }
+    { question: 'Wie viele Sinfonien vollendete Johannes Brahms?', options: ['Vier','Fünf','Sechs','Neun'], answer: 'Vier', emoji: '🎼', fact: 'Brahms vollendete vier Sinfonien.' },
+    { question: 'Welches Element hat die höchste Dichte?', options: ['Osmium','Iridium','Platin','Gold'], answer: 'Osmium', emoji: '🧪', fact: 'Osmium ist mit 22,6 g/cm³ das dichteste Element.' },
+    { question: 'In welchem Jahr erschien der erste Band von Marx’ „Das Kapital“?', options: ['1867','1848','1871','1883'], answer: '1867', emoji: '📚', fact: 'Band 1 des „Kapital“ erschien 1867.' }
   ]
 ];
 
@@ -219,9 +230,20 @@ const LETTERS=['A','B','C','D'];
 const fmt=n=>'€'+n.toLocaleString('de-DE');
 const $=id=>document.getElementById(id);
 
-/* ============ SOUND & MUSIK (Web Audio, keine Dateien) ============ */
-let AC=null,muted=false,musicTimer=null,heartTimer=null;
-function ac(){ if(!AC) AC=new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==='suspended')AC.resume(); return AC; }
+/* ================= AUDIO-ENGINE ================= */
+let AC=null,master=null,musicGain=null,sfxGain=null,noiseBuf=null;
+let muted=false,heartTimer=null;
+function ac(){
+  if(!AC){
+    AC=new (window.AudioContext||window.webkitAudioContext)();
+    master=AC.createGain();master.connect(AC.destination);
+    musicGain=AC.createGain();musicGain.connect(master);
+    sfxGain=AC.createGain();sfxGain.connect(master);
+  }
+  if(AC.state==='suspended')AC.resume();
+  return AC;
+}
+function getNoise(){ if(!noiseBuf){ noiseBuf=AC.createBuffer(1,AC.sampleRate*0.5,AC.sampleRate); const d=noiseBuf.getChannelData(0); for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1; } return noiseBuf; }
 function tone(f,dur,type,vol,when,slide){
   if(muted)return;
   const c=ac(),t=c.currentTime+(when||0);
@@ -231,145 +253,58 @@ function tone(f,dur,type,vol,when,slide){
   g.gain.setValueAtTime(0.0001,t);
   g.gain.linearRampToValueAtTime(vol||0.2,t+0.02);
   g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
-  o.connect(g);g.connect(c.destination);
-  o.start(t);o.stop(t+dur+0.05);
+  o.connect(g);g.connect(sfxGain);o.start(t);o.stop(t+dur+0.05);
 }
-const CHORDS=[[110,164.81,220],[87.31,130.81,174.61],[98,146.83,196],[82.41,123.47,164.81]];
-let chordIdx=0;
-function playChord(){ if(muted)return; const c=CHORDS[chordIdx++%CHORDS.length];
-  tone(c[0]/2,3.8,'triangle',0.07); c.forEach(f=>{tone(f,3.8,'sine',0.05);tone(f*2,3.8,'sine',0.025);}); }
-function startMusic(){ stopMusic(); playChord(); musicTimer=setInterval(playChord,4000); }
-function stopMusic(){ if(musicTimer){clearInterval(musicTimer);musicTimer=null;} }
-function beat(){ tone(55,0.15,'sine',0.5); setTimeout(()=>tone(50,0.12,'sine',0.4),180); }
-function startHeart(){ stopHeart(); beat(); heartTimer=setInterval(beat,900); }
-function stopHeart(){ if(heartTimer){clearInterval(heartTimer);heartTimer=null;} }
+/* --- Drum-Sounds --- */
+function kick(t){ const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(45,t+0.12);g.gain.setValueAtTime(0.9,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.25);o.connect(g);g.connect(musicGain);o.start(t);o.stop(t+0.3); pulse=1; }
+function hat(t,v){ const s=AC.createBufferSource();s.buffer=getNoise();const f=AC.createBiquadFilter();f.type='highpass';f.frequency.value=7500;const g=AC.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.05);s.connect(f);f.connect(g);g.connect(musicGain);s.start(t);s.stop(t+0.06); }
+function clap(t){ const s=AC.createBufferSource();s.buffer=getNoise();const f=AC.createBiquadFilter();f.type='bandpass';f.frequency.value=1800;f.Q.value=1.2;const g=AC.createGain();g.gain.setValueAtTime(0.35,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);s.connect(f);f.connect(g);g.connect(musicGain);s.start(t);s.stop(t+0.2); }
+function bassNote(t,f){ const o=AC.createOscillator(),g=AC.createGain(),fl=AC.createBiquadFilter();o.type='sawtooth';o.frequency.value=f;fl.type='lowpass';fl.frequency.value=650;g.gain.setValueAtTime(0.28,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.2);o.connect(fl);fl.connect(g);g.connect(musicGain);o.start(t);o.stop(t+0.22); }
+function stab(t,f,v){ const o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(v||0.11,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);o.connect(g);g.connect(musicGain);o.start(t);o.stop(t+0.2); }
+/* --- Treibender Sequencer (128 BPM) --- */
+const BPM=128,STEPT=60/BPM/4;
+const CHORDS=[{b:55,n:[220,261.63,329.63]},{b:55,n:[220,261.63,329.63]},{b:43.65,n:[174.61,220,261.63]},{b:41.2,n:[164.81,207.65,246.94]}];
+let step=0,nextT=0,seqTimer=null;
+function scheduleStep(s,t){
+  const bar=Math.floor(s/16),pos=s%16;
+  const ch=CHORDS[Math.floor(bar/2)%CHORDS.length];
+  if(pos%4===0)kick(t);
+  if(pos===4||pos===12)clap(t);
+  if(pos%2===0)hat(t,pos%4===2?0.25:0.1);
+  if(pos%2===0)bassNote(t,pos===14?ch.b*2:ch.b);
+  if(pos%2===1)stab(t,ch.n[Math.floor(s/2)%3]);
+  if(pos===0)ch.n.forEach(f=>stab(t,f,0.16));
+}
+function scheduler(){ while(nextT<AC.currentTime+0.15){ scheduleStep(step,nextT); step++; nextT+=STEPT; } }
+function startMusic(){ stopMusic(); ac(); nextT=AC.currentTime+0.05; step=0; seqTimer=setInterval(scheduler,40); }
+function stopMusic(){ if(seqTimer){clearInterval(seqTimer);seqTimer=null;} }
+function duck(on){ if(musicGain)musicGain.gain.linearRampToValueAtTime(on?0.22:1,AC.currentTime+0.3); }
+/* --- SFX --- */
 function sSelect(){ tone(880,0.12,'square',0.12); }
 function sJoker(){ tone(1200,0.1,'square',0.12); tone(1600,0.12,'square',0.1,0.1); }
 function sCorrect(){ [523.25,659.25,783.99,1046.5].forEach((f,i)=>tone(f,0.35,'triangle',0.22,i*0.12)); }
 function sWrong(){ tone(220,0.6,'sawtooth',0.25,0,110); tone(180,0.8,'sawtooth',0.2,0.15,90); }
 function sMillion(){ [523.25,659.25,783.99,1046.5,1318.5,1568,2093].forEach((f,i)=>tone(f,0.5,'triangle',0.22,i*0.15)); }
+function beat(){ tone(55,0.15,'sine',0.5); setTimeout(()=>tone(50,0.12,'sine',0.4),180); }
+function startHeart(){ stopHeart(); beat(); heartTimer=setInterval(beat,900); }
+function stopHeart(){ if(heartTimer){clearInterval(heartTimer);heartTimer=null;} }
+function riser(dur){ if(muted)return; const c=ac(),s=c.createBufferSource();s.buffer=getNoise();const f=c.createBiquadFilter();f.type='bandpass';f.Q.value=1;const t=c.currentTime;f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(5000,t+dur);const g=AC.createGain();g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(0.14,t+dur*0.8);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);s.connect(f);f.connect(g);g.connect(sfxGain);s.start(t);s.stop(t+dur+0.05); }
 
-/* ============ SPIELLOGIK ============ */
-let level=0,q=null,locked=false,removed=[],used={f:false,p:false,a:false};
-
-function startGame(){
-  level=0;locked=false;removed=[];used={f:false,p:false,a:false};
-  $('startScreen').hidden=true;$('endScreen').hidden=true;$('gameScreen').hidden=false;
-  ['j5050','jPhone','jAud'].forEach(id=>$(id).classList.remove('used'));
-  buildLadder();startMusic();loadQuestion();
-}
-function buildLadder(){
-  let html='';
-  for(let i=PRIZES.length-1;i>=0;i--){
-    const cls=['row'];
-    if(SAFE_IDX.includes(i))cls.push('milestone');
-    if(i===level)cls.push('current');
-    html+='<div class="'+cls.join(' ')+'" data-l="'+i+'"><span>'+ (SAFE_IDX.includes(i)?'◆ ':'') +(i+1)+'</span><span>'+fmt(PRIZES[i])+'</span></div>';
-  }
-  $('ladder').innerHTML=html;
-}
-function loadQuestion(){
-  locked=false;removed=[];
-  const pool=QUESTION_LADDER[level];
-  q=pool[Math.floor(Math.random()*pool.length)];
-  $('qbox').textContent=q.emoji+'  '+q.question;
-  $('factBox').hidden=true;
-  for(let i=0;i<4;i++){
-    const b=$('a'+i);
-    b.textContent=LETTERS[i]+':  '+q.options[i];
-    b.className='answer';b.disabled=false;
-  }
-  buildLadder();
-}
-function clickAnswer(i){
-  if(locked)return;
-  locked=true;sSelect();
-  $('a'+i).classList.add('selected');
-  startHeart();
-  setTimeout(()=>reveal(i),3000);
-}
-function reveal(i){
-  stopHeart();
-  const correctIdx=q.options.indexOf(q.answer);
-  if(i===correctIdx){
-    $('a'+i).classList.remove('selected');$('a'+i).classList.add('correct');
-    if(level===PRIZES.length-1){ sMillion(); } else { sCorrect(); }
-    $('factText').textContent=q.emoji+' '+q.fact;
-    $('factBox').hidden=false;
-    $('nextBtn').textContent=(level===PRIZES.length-1)?'🏆 Gewinn abholen':'Nächste Frage ➜';
-  }else{
-    $('a'+i).classList.remove('selected');$('a'+i).classList.add('wrong');
-    $('a'+correctIdx).classList.add('correct');
-    sWrong();
-    const win=level>SAFE_IDX[1]?PRIZES[SAFE_IDX[1]]:(level>SAFE_IDX[0]?PRIZES[SAFE_IDX[0]]:0);
-    setTimeout(()=>endGame('❌ Leider falsch!',win,'Die richtige Antwort war '+LETTERS[correctIdx]+': '+q.answer+'. Dank Sicherheitsstufe '+ (win>0?fmt(win):'') +' gehst du mit '+fmt(win)+' nach Hause.'),2500);
-  }
-}
-function nextQuestion(){
-  if(level===PRIZES.length-1){ endGame('🏆 1 MILLION GEWONNEN!',PRIZES[14],'Unfassbar! Du hast alle 15 Fragen richtig beantwortet und die Million geholt!'); sMillion(); return; }
-  level++;loadQuestion();
-}
-function walkAway(){
-  const amount=level>0?PRIZES[level-1]:0;
-  if(confirm('Mit '+fmt(amount)+' sicher aussteigen?')) endGame('🚪 Ausgestiegen!',amount,'Klug entschieden! Du nimmst '+fmt(amount)+' mit nach Hause.');
-}
-function endGame(title,amount,msg){
-  stopHeart();stopMusic();
-  $('gameScreen').hidden=true;$('endScreen').hidden=false;
-  $('endTitle').textContent=title;
-  $('endAmount').textContent=fmt(amount);
-  $('endMsg').textContent=msg;
+/* ================= SPRACHE ================= */
+function speak(text){
+  if(muted||!('speechSynthesis' in window))return;
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang='de-DE';u.rate=1;
+    const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.startsWith('de'));
+    if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
 }
 
-/* ============ JOKER ============ */
-function useFifty(){
-  if(used.f||locked)return; used.f=true;sJoker();$('j5050').classList.add('used');
-  const correctIdx=q.options.indexOf(q.answer);
-  const wrong=[0,1,2,3].filter(i=>i!==correctIdx);
-  wrong.sort(()=>Math.random()-0.5);
-  removed=wrong.slice(0,2);
-  removed.forEach(i=>{ $('a'+i).classList.add('gone');$('a'+i).disabled=true; });
-}
-function usePhone(){
-  if(used.p||locked)return; used.p=true;sJoker();$('jPhone').classList.add('used');
-  const correctIdx=q.options.indexOf(q.answer);
-  const avail=[0,1,2,3].filter(i=>!removed.includes(i));
-  let guess=correctIdx;
-  if(Math.random()<0.25){ const others=avail.filter(i=>i!==correctIdx); if(others.length) guess=others[Math.floor(Math.random()*others.length)]; }
-  const names=['Alex','Maria','Jonas','Sophie'];
-  const name=names[Math.floor(Math.random()*names.length)];
-  const conf=60+Math.floor(Math.random()*35);
-  $('modalContent').innerHTML='<b>📞 Telefonjoker: '+name+'</b><br><br>„Hmm, lass mich nachdenken… Ich bin mir zu '+conf+'% sicher, die Antwort ist <b>'+LETTERS[guess]+': '+q.options[guess]+'</b>. Vertrau mir!“';
-  $('modal').hidden=false;
-}
-function useAudience(){
-  if(used.a||locked)return; used.a=true;sJoker();$('jAud').classList.add('used');
-  const correctIdx=q.options.indexOf(q.answer);
-  const avail=[0,1,2,3].filter(i=>!removed.includes(i));
-  let pct={};avail.forEach(i=>pct[i]=0);
-  pct[correctIdx]=45+Math.floor(Math.random()*30);
-  let rest=100-pct[correctIdx];
-  const others=avail.filter(i=>i!==correctIdx);
-  others.forEach((i,k)=>{ if(k===others.length-1){pct[i]=rest;} else {const v=Math.floor(Math.random()*rest);pct[i]=v;rest-=v;} });
-  let html='<b>👥 Publikumsjoker – Ergebnis:</b><br>';
-  for(let i=0;i<4;i++){
-    const p=removed.includes(i)?0:(pct[i]||0);
-    html+='<div class="audRow"><b>'+LETTERS[i]+'</b><div class="barWrap"><div class="bar" style="width:'+p+'%"></div></div><span>'+p+'%</span></div>';
-  }
-  $('modalContent').innerHTML=html;
-  $('modal').hidden=false;
-}
-
-/* ============ EVENTS ============ */
-$('startBtn').onclick=()=>{ ac(); startGame(); };
-for(let i=0;i<4;i++){ $('a'+i).onclick=()=>clickAnswer(i); }
-$('nextBtn').onclick=nextQuestion;
-$('walkBtn').onclick=walkAway;
-$('j5050').onclick=useFifty;
-$('jPhone').onclick=usePhone;
-$('jAud').onclick=useAudience;
-$('modalClose').onclick=()=>{ $('modal').hidden=true; };
-$('muteBtn').onclick=()=>{ muted=!muted; $('muteBtn').textContent=muted?'🔇':'🔊'; };
-</script>
-</body>
-</html>
+/* ================= FULLSCREEN ================= */
+function goFS(){
+  const el=document.documentElement;
+  const rfs=el.requestFullscreen||el.webkitRequestFullscreen||el.msRequestFullscreen;
+  if(rfs
