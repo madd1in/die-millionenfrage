@@ -1031,6 +1031,309 @@
         padding-inline: 1.1rem;
       }
     }
+
+    /* =====================================================
+       MOBILE — eigenständiges, touchoptimiertes Layout
+    ===================================================== */
+
+    @media (max-width: 899px) {
+      body {
+        min-width: 0;
+        background-attachment: scroll;
+      }
+
+      .screen {
+        width: 100%;
+        min-width: 0;
+        padding:
+          max(0.6rem, env(safe-area-inset-top))
+          max(0.6rem, env(safe-area-inset-right))
+          max(0.6rem, env(safe-area-inset-bottom))
+          max(0.6rem, env(safe-area-inset-left));
+      }
+
+      .hero,
+      .endBox {
+        width: 100%;
+        min-width: 0;
+        padding: 0.8rem;
+        gap: 0.55rem;
+        border-radius: 1.25rem;
+      }
+
+      .hero > *,
+      .endBox > * {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .hero .brandMark,
+      .endBox .brandMark {
+        width: 4.7rem;
+      }
+
+      .brandMark span {
+        font-size: 0.54rem;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+        font-size: clamp(1.65rem, 9.5vw, 2rem);
+        line-height: 1;
+        overflow-wrap: anywhere;
+      }
+
+      .hero .subtitle,
+      .endBox .subtitle {
+        margin: 0.1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.2;
+      }
+
+      .hero #btnStart,
+      .endBox button {
+        min-height: 2.8rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 0.9rem;
+        font-size: 1.05rem;
+      }
+
+      .hero .startOptions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.45rem;
+      }
+
+      .hero .startOptions button {
+        min-width: 0;
+        min-height: 2.7rem;
+        padding: 0.35rem;
+        border-radius: 0.8rem;
+        font-size: 0.82rem;
+        line-height: 1.1;
+        overflow-wrap: anywhere;
+      }
+
+      #gameScreen {
+        width: 100%;
+        min-width: 0;
+        height: 100vh;
+        height: 100dvh;
+        padding:
+          max(0.4rem, env(safe-area-inset-top))
+          max(0.4rem, env(safe-area-inset-right))
+          max(0.45rem, env(safe-area-inset-bottom))
+          max(0.4rem, env(safe-area-inset-left));
+        grid-template-rows: repeat(6, auto);
+        align-content: start;
+        gap: 0.42rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+
+      #gameScreen > * {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .topbar {
+        min-height: 0;
+        flex-wrap: nowrap;
+        padding: 0.3rem 0.4rem;
+        border-width: 1px;
+        border-radius: 0.85rem;
+      }
+
+      .topButtons {
+        min-width: 0;
+        gap: 0.3rem;
+      }
+
+      .iconBtn {
+        min-width: 2.25rem;
+        width: 2.25rem;
+        min-height: 2.25rem;
+        height: 2.25rem;
+        flex: 0 0 2.25rem;
+        padding: 0;
+        border-width: 1px;
+        font-size: 0.9rem;
+      }
+
+      .statusRow {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 0.35rem;
+        min-height: 0;
+        font-size: 0.78rem;
+        line-height: 1;
+      }
+
+      #questionNumber,
+      #score {
+        white-space: nowrap;
+      }
+
+      .timerBox {
+        gap: 0.25rem;
+      }
+
+      #timerWrap {
+        height: 0.7rem;
+        border-width: 1px;
+      }
+
+      #timerText {
+        min-width: 2rem;
+        font-size: 0.78rem;
+      }
+
+      #notice {
+        padding: 0.35rem 0.5rem;
+        border-width: 1px;
+        border-radius: 0.65rem;
+        font-size: 0.8rem;
+      }
+
+      #questionCard {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        padding: 0.65rem 1rem;
+        border-width: 1px;
+        text-align: center;
+        clip-path: polygon(2.5% 0, 97.5% 0, 100% 50%, 97.5% 100%, 2.5% 100%, 0 50%);
+      }
+
+      #qEmoji {
+        display: none;
+      }
+
+      #qText {
+        font-size: clamp(1.05rem, 6vw, 1.35rem);
+        line-height: 1.12;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+      }
+
+      #bossBadge {
+        margin-inline: auto;
+        font-size: 0.68rem;
+        border-width: 1px;
+      }
+
+      #answers {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        min-height: auto;
+        gap: 0.42rem;
+      }
+
+      .answer {
+        min-width: 0;
+        min-height: 3.15rem;
+        padding: 0.35rem 0.8rem;
+        gap: 0.55rem;
+        border-width: 1px;
+        font-size: 1rem;
+        line-height: 1.1;
+        clip-path: polygon(3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
+      }
+
+      .answer .letter {
+        width: 2.2rem;
+        height: 2.2rem;
+        flex: 0 0 2.2rem;
+        font-size: 1rem;
+      }
+
+      #jokers {
+        position: relative;
+        min-height: 2.8rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.35rem;
+        padding-top: 0;
+      }
+
+      .joker {
+        min-width: 0;
+        min-height: 2.8rem;
+        padding: 0.3rem 0.2rem;
+        border-width: 1px;
+        font-size: 0.78rem;
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+      }
+
+      #toast {
+        bottom: calc(0.45rem + env(safe-area-inset-bottom));
+        max-width: calc(100vw - 1rem);
+        padding: 0.35rem 0.55rem;
+        border-width: 1px;
+        border-radius: 0.65rem;
+        font-size: 0.78rem;
+      }
+
+      #endAmount {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 899px) and (orientation: landscape) {
+      .hero {
+        width: min(100%, 760px);
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+      }
+
+      .hero .brandMark {
+        grid-row: 1 / span 3;
+      }
+
+      .hero .startOptions,
+      .hero #btnStart {
+        grid-column: 1 / -1;
+      }
+
+      #answers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #jokers {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .answer,
+      .joker {
+        min-height: 2.4rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero .brandMark,
+      .endBox .brandMark {
+        width: 4.1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 0.82rem;
+      }
+
+      .statusRow {
+        font-size: 0.7rem;
+      }
+
+      .answer {
+        padding-inline: 0.65rem;
+        font-size: 0.92rem;
+      }
+
+      .joker {
+        font-size: 0.69rem;
+      }
+    }
   </style>
 </head>
 
@@ -1252,6 +1555,7 @@
       showScreen('startScreen');
 
       document.addEventListener('visibilitychange', onVisibilityChange);
+      window.addEventListener('resize', applyFont, { passive: true });
     }
 
     function $(id) {
@@ -1319,14 +1623,22 @@
     }
 
     function applyFont() {
-      document.documentElement.style.fontSize = settings.fontPx + 'px';
+      let effectivePx = settings.fontPx;
+
+      if (window.innerWidth < 600) {
+        effectivePx = Math.max(18, Math.min(30, Math.round(settings.fontPx * 0.625)));
+      } else if (window.innerWidth < 900) {
+        effectivePx = Math.max(20, Math.min(32, Math.round(settings.fontPx * 0.78)));
+      }
+
+      document.documentElement.style.fontSize = effectivePx + 'px';
     }
 
     function changeFont(delta) {
       settings.fontPx = Math.max(24, Math.min(52, settings.fontPx + delta));
       applyFont();
       saveSettings();
-      toast(settings.fontPx + ' px');
+      toast('Schriftgröße geändert');
       speak('Schriftgröße geändert.');
     }
 
