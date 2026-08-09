@@ -1867,6 +1867,133 @@
       ]
     ];
 
+    const EXTRA_QUESTION_LADDER = [
+      [
+        { question: 'Wie viele Monate hat ein Jahr?', options: ['10', '11', '12', '13'], answer: '12', emoji: '📅', fact: 'Ein Kalenderjahr besteht aus zwölf Monaten.' },
+        { question: 'Welches Tier macht typischerweise „Miau“?', options: ['Hund', 'Katze', 'Kuh', 'Ente'], answer: 'Katze', emoji: '🐱', fact: 'Das typische Lautsignal einer Katze wird als Miauen bezeichnet.' },
+        { question: 'Welche geometrische Form hat drei Seiten?', options: ['Quadrat', 'Kreis', 'Dreieck', 'Fünfeck'], answer: 'Dreieck', emoji: '🔺', fact: 'Ein Dreieck besitzt drei Seiten und drei Ecken.' },
+        { question: 'Welcher Wochentag folgt auf Montag?', options: ['Sonntag', 'Dienstag', 'Mittwoch', 'Freitag'], answer: 'Dienstag', emoji: '📆', fact: 'Auf Montag folgt Dienstag.' },
+        { question: 'Welche Farbe hat frischer Schnee normalerweise?', options: ['Blau', 'Grün', 'Weiß', 'Rot'], answer: 'Weiß', emoji: '❄️', fact: 'Frischer Schnee erscheint durch die Streuung des Lichts weiß.' },
+        { question: 'Wie viele Stunden hat ein Tag?', options: ['12', '18', '24', '30'], answer: '24', emoji: '🕒', fact: 'Ein vollständiger Tag wird in 24 Stunden eingeteilt.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Deutschlands?', options: ['Hamburg', 'München', 'Berlin', 'Köln'], answer: 'Berlin', emoji: '🏙️', fact: 'Berlin ist seit 1990 wieder die Hauptstadt des vereinten Deutschlands.' },
+        { question: 'Wie viele Beine hat ein Hund?', options: ['Zwei', 'Vier', 'Sechs', 'Acht'], answer: 'Vier', emoji: '🐕', fact: 'Hunde gehören zu den vierbeinigen Säugetieren.' },
+        { question: 'Wie schmeckt Meerwasser überwiegend?', options: ['Süß', 'Salzig', 'Bitter', 'Scharf'], answer: 'Salzig', emoji: '🌊', fact: 'Im Meerwasser sind große Mengen gelöster Salze enthalten.' },
+        { question: 'Welche Farbe entsteht aus Rot und Weiß?', options: ['Rosa', 'Grün', 'Braun', 'Violett'], answer: 'Rosa', emoji: '🎨', fact: 'Mischt man rote Farbe mit Weiß, entsteht Rosa.' },
+        { question: 'Wie viele Cent ergeben einen Euro?', options: ['10', '50', '100', '1000'], answer: '100', emoji: '💶', fact: 'Ein Euro ist in 100 Cent unterteilt.' },
+        { question: 'Auf welchem Planeten leben wir?', options: ['Mars', 'Venus', 'Erde', 'Jupiter'], answer: 'Erde', emoji: '🌍', fact: 'Die Erde ist der Heimatplanet der Menschheit.' }
+      ],
+      [
+        { question: 'Welches ist das größte heute lebende Tier?', options: ['Afrikanischer Elefant', 'Blauwal', 'Giraffe', 'Walhai'], answer: 'Blauwal', emoji: '🐋', fact: 'Der Blauwal ist das größte bekannte Tier der Erdgeschichte.' },
+        { question: 'Der wievielte Planet von der Sonne ist die Erde?', options: ['Der zweite', 'Der dritte', 'Der vierte', 'Der fünfte'], answer: 'Der dritte', emoji: '🌍', fact: 'Die Erde ist nach Merkur und Venus der dritte Planet von der Sonne.' },
+        { question: 'Welcher Fluss fließt durch Berlin?', options: ['Isar', 'Spree', 'Main', 'Elbe'], answer: 'Spree', emoji: '🏞️', fact: 'Die Spree durchquert das Berliner Stadtgebiet.' },
+        { question: 'In welchem Land steht der Eiffelturm?', options: ['Belgien', 'Italien', 'Frankreich', 'Spanien'], answer: 'Frankreich', emoji: '🗼', fact: 'Der Eiffelturm steht in Paris, der Hauptstadt Frankreichs.' },
+        { question: 'Welches dieser Metalle wird von einem gewöhnlichen Magneten angezogen?', options: ['Gold', 'Eisen', 'Silber', 'Kupfer'], answer: 'Eisen', emoji: '🧲', fact: 'Eisen ist ferromagnetisch und wird von Magneten stark angezogen.' },
+        { question: 'Wie lautet die chemische Formel von Wasser?', options: ['CO₂', 'H₂O', 'O₂', 'NaCl'], answer: 'H₂O', emoji: '💧', fact: 'Ein Wassermolekül besteht aus zwei Wasserstoff- und einem Sauerstoffatom.' }
+      ],
+      [
+        { question: 'Welches ist das größte Organ des menschlichen Körpers?', options: ['Leber', 'Lunge', 'Haut', 'Herz'], answer: 'Haut', emoji: '🩺', fact: 'Die Haut ist nach Fläche und Gewicht das größte Organ des Menschen.' },
+        { question: 'Wie heißt die Hauptstadt Spaniens?', options: ['Barcelona', 'Madrid', 'Sevilla', 'Valencia'], answer: 'Madrid', emoji: '🇪🇸', fact: 'Madrid ist die Hauptstadt und größte Stadt Spaniens.' },
+        { question: 'In welcher Stadt wurde Wolfgang Amadeus Mozart geboren?', options: ['Wien', 'Salzburg', 'Prag', 'München'], answer: 'Salzburg', emoji: '🎼', fact: 'Mozart wurde 1756 in Salzburg geboren.' },
+        { question: 'Wie heißt der Übergang von Wasserdampf zu flüssigem Wasser?', options: ['Verdunstung', 'Kondensation', 'Sublimation', 'Schmelzen'], answer: 'Kondensation', emoji: '💧', fact: 'Bei der Kondensation geht ein Stoff vom gasförmigen in den flüssigen Zustand über.' },
+        { question: 'Welches ist die kleinste Primzahl?', options: ['0', '1', '2', '3'], answer: '2', emoji: '🔢', fact: 'Die 2 ist die kleinste und zugleich einzige gerade Primzahl.' },
+        { question: 'Wie viele Ringe zeigt das olympische Symbol?', options: ['Vier', 'Fünf', 'Sechs', 'Sieben'], answer: 'Fünf', emoji: '🏅', fact: 'Das olympische Symbol besteht aus fünf ineinander verschlungenen Ringen.' }
+      ],
+      [
+        { question: 'Für welches Element steht das Symbol „O“?', options: ['Gold', 'Sauerstoff', 'Osmium', 'Silber'], answer: 'Sauerstoff', emoji: '🧪', fact: 'O ist das chemische Symbol für Sauerstoff.' },
+        { question: 'Wer schrieb „Romeo und Julia“?', options: ['William Shakespeare', 'Charles Dickens', 'Oscar Wilde', 'George Bernard Shaw'], answer: 'William Shakespeare', emoji: '🎭', fact: 'William Shakespeare verfasste die Tragödie im späten 16. Jahrhundert.' },
+        { question: 'Auf welchem Kontinent liegt Brasilien?', options: ['Afrika', 'Südamerika', 'Asien', 'Nordamerika'], answer: 'Südamerika', emoji: '🌎', fact: 'Brasilien nimmt einen großen Teil Südamerikas ein.' },
+        { question: 'Wie viel sind 15 Prozent von 200?', options: ['15', '20', '30', '45'], answer: '30', emoji: '📊', fact: '15 Prozent von 200 entsprechen 30.' },
+        { question: 'Welcher Monat steht am Anfang eines Kalenderjahres?', options: ['Januar', 'März', 'Juni', 'Dezember'], answer: 'Januar', emoji: '🗓️', fact: 'Der Januar ist der erste Monat des Jahres.' },
+        { question: 'In welchem Land liegt Amsterdam?', options: ['Belgien', 'Dänemark', 'Niederlande', 'Luxemburg'], answer: 'Niederlande', emoji: '🚲', fact: 'Amsterdam ist die Hauptstadt der Niederlande.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Norwegens?', options: ['Bergen', 'Oslo', 'Stockholm', 'Helsinki'], answer: 'Oslo', emoji: '🇳🇴', fact: 'Oslo ist die Hauptstadt und größte Stadt Norwegens.' },
+        { question: 'Wofür steht die Abkürzung DNA auf Deutsch?', options: ['Desoxyribonukleinsäure', 'Dynamische Nuklearanalyse', 'Doppelte Nervenachse', 'Digitale Netzarchitektur'], answer: 'Desoxyribonukleinsäure', emoji: '🧬', fact: 'DNA bezeichnet die Desoxyribonukleinsäure, den Träger der Erbinformation.' },
+        { question: 'Wer schrieb „Der kleine Prinz“?', options: ['Jules Verne', 'Antoine de Saint-Exupéry', 'Victor Hugo', 'Albert Camus'], answer: 'Antoine de Saint-Exupéry', emoji: '🌟', fact: 'Antoine de Saint-Exupéry veröffentlichte die Erzählung 1943.' },
+        { question: 'Welche Kraft zieht Gegenstände zur Erde?', options: ['Magnetismus', 'Gravitation', 'Reibung', 'Auftrieb'], answer: 'Gravitation', emoji: '🍎', fact: 'Die Gravitation bewirkt die gegenseitige Anziehung von Massen.' },
+        { question: 'Wie viel ist drei hoch vier?', options: ['12', '27', '64', '81'], answer: '81', emoji: '➗', fact: 'Drei hoch vier bedeutet 3 · 3 · 3 · 3 und ergibt 81.' },
+        { question: 'Wer malte „Der Schrei“?', options: ['Edvard Munch', 'Gustav Klimt', 'Paul Klee', 'Henri Matisse'], answer: 'Edvard Munch', emoji: '😱', fact: 'Edvard Munch schuf mehrere Fassungen des Motivs „Der Schrei“.' }
+      ],
+      [
+        { question: 'Wie heißt der größte Mond des Sonnensystems?', options: ['Titan', 'Ganymed', 'Europa', 'Triton'], answer: 'Ganymed', emoji: '🌕', fact: 'Ganymed umkreist Jupiter und ist größer als der Planet Merkur.' },
+        { question: 'Welche Blutgruppe gilt bei roten Blutkörperchen als Universalspender?', options: ['AB positiv', 'A negativ', '0 negativ', 'B positiv'], answer: '0 negativ', emoji: '🩸', fact: 'Erythrozyten der Blutgruppe 0 negativ können in Notfällen vielen Empfängern gegeben werden.' },
+        { question: 'In welchem Jahr begann die Französische Revolution?', options: ['1776', '1789', '1815', '1848'], answer: '1789', emoji: '🇫🇷', fact: 'Die Französische Revolution begann 1789.' },
+        { question: 'Wer entwickelte in Europa den Buchdruck mit beweglichen Metalllettern?', options: ['Johannes Gutenberg', 'Albrecht Dürer', 'Martin Luther', 'Nikolaus Kopernikus'], answer: 'Johannes Gutenberg', emoji: '🖨️', fact: 'Johannes Gutenberg entwickelte um 1450 ein Verfahren mit beweglichen Metalllettern.' },
+        { question: 'Auf welchem Kontinent liegen die Anden?', options: ['Asien', 'Europa', 'Südamerika', 'Afrika'], answer: 'Südamerika', emoji: '🏔️', fact: 'Die Anden erstrecken sich entlang der Westseite Südamerikas.' },
+        { question: 'In welcher Einheit wird die Frequenz gemessen?', options: ['Hertz', 'Newton', 'Joule', 'Tesla'], answer: 'Hertz', emoji: '〰️', fact: 'Ein Hertz entspricht einer Schwingung pro Sekunde.' }
+      ],
+      [
+        { question: 'Wie heißt die Hauptstadt Neuseelands?', options: ['Auckland', 'Wellington', 'Christchurch', 'Dunedin'], answer: 'Wellington', emoji: '🇳🇿', fact: 'Wellington liegt an der Südspitze der Nordinsel und ist Neuseelands Hauptstadt.' },
+        { question: 'Wer schrieb die Erzählung „Die Verwandlung“?', options: ['Franz Kafka', 'Thomas Mann', 'Hermann Hesse', 'Stefan Zweig'], answer: 'Franz Kafka', emoji: '📚', fact: 'Franz Kafkas „Die Verwandlung“ erschien 1915.' },
+        { question: 'Wie heißen die waagerechten Reihen im Periodensystem?', options: ['Gruppen', 'Perioden', 'Blöcke', 'Familien'], answer: 'Perioden', emoji: '🧪', fact: 'Die waagerechten Reihen des Periodensystems heißen Perioden.' },
+        { question: 'Um welchen Termin liegt auf der Nordhalbkugel der längste Tag?', options: ['21. März', '21. Juni', '23. September', '21. Dezember'], answer: '21. Juni', emoji: '☀️', fact: 'Die Sommersonnenwende der Nordhalbkugel liegt gewöhnlich um den 21. Juni.' },
+        { question: 'Wer komponierte den Zyklus „Die vier Jahreszeiten“?', options: ['Antonio Vivaldi', 'Georg Friedrich Händel', 'Johann Sebastian Bach', 'Joseph Haydn'], answer: 'Antonio Vivaldi', emoji: '🎻', fact: 'Antonio Vivaldi veröffentlichte die vier Violinkonzerte 1725.' },
+        { question: 'Wie lautet die chemische Formel von Kochsalz?', options: ['KCl', 'NaCl', 'CaCO₃', 'NaOH'], answer: 'NaCl', emoji: '🧂', fact: 'Kochsalz besteht überwiegend aus Natriumchlorid mit der Formel NaCl.' }
+      ],
+      [
+        { question: 'In welcher SI-Einheit wird Energie gemessen?', options: ['Watt', 'Joule', 'Pascal', 'Volt'], answer: 'Joule', emoji: '⚡', fact: 'Das Joule ist die SI-Einheit für Energie und Arbeit.' },
+        { question: 'Welche Meere verbindet der Suezkanal?', options: ['Mittelmeer und Rotes Meer', 'Schwarzes Meer und Ägäis', 'Nordsee und Ostsee', 'Atlantik und Pazifik'], answer: 'Mittelmeer und Rotes Meer', emoji: '🚢', fact: 'Der Suezkanal verbindet das Mittelmeer mit dem Roten Meer.' },
+        { question: 'In welchem Jahr wurde die Magna Carta besiegelt?', options: ['1066', '1215', '1492', '1689'], answer: '1215', emoji: '📜', fact: 'Die Magna Carta wurde 1215 in Runnymede besiegelt.' },
+        { question: 'Wer malte „Das Mädchen mit dem Perlenohrring“?', options: ['Rembrandt', 'Jan Vermeer', 'Peter Paul Rubens', 'Frans Hals'], answer: 'Jan Vermeer', emoji: '🖼️', fact: 'Das Gemälde wird dem niederländischen Maler Jan Vermeer zugeschrieben.' },
+        { question: 'Welcher Planet hat das kürzeste Jahr?', options: ['Merkur', 'Venus', 'Mars', 'Jupiter'], answer: 'Merkur', emoji: '☿️', fact: 'Merkur benötigt nur rund 88 Erdtage für einen Umlauf um die Sonne.' },
+        { question: 'Welche Amtssprache wird in Brasilien gesprochen?', options: ['Spanisch', 'Portugiesisch', 'Französisch', 'Italienisch'], answer: 'Portugiesisch', emoji: '🗣️', fact: 'Brasilien ist das größte portugiesischsprachige Land der Welt.' }
+      ],
+      [
+        { question: 'In welchem Jahr fand die Schlacht bei Hastings statt?', options: ['800', '1066', '1215', '1415'], answer: '1066', emoji: '⚔️', fact: 'Die normannische Eroberung Englands begann mit dem Sieg bei Hastings 1066.' },
+        { question: 'Welches ist das größte innere Organ des Menschen?', options: ['Herz', 'Leber', 'Lunge', 'Niere'], answer: 'Leber', emoji: '🩺', fact: 'Die Leber ist das größte innere Organ des menschlichen Körpers.' },
+        { question: 'Für welches Element steht das Symbol „K“?', options: ['Kalium', 'Kalzium', 'Kobalt', 'Kupfer'], answer: 'Kalium', emoji: '🧪', fact: 'K ist das Elementsymbol für Kalium und leitet sich von „kalium“ ab.' },
+        { question: 'Wer war die erste Bundeskanzlerin Deutschlands?', options: ['Angela Merkel', 'Ursula von der Leyen', 'Hannelore Kraft', 'Annegret Kramp-Karrenbauer'], answer: 'Angela Merkel', emoji: '🏛️', fact: 'Angela Merkel war von 2005 bis 2021 die erste Bundeskanzlerin Deutschlands.' },
+        { question: 'Wer schrieb den Roman „Der Name der Rose“?', options: ['Umberto Eco', 'Italo Calvino', 'Primo Levi', 'Alberto Moravia'], answer: 'Umberto Eco', emoji: '📚', fact: 'Umberto Ecos erster Roman erschien 1980.' },
+        { question: 'Für welche Dreiecke gilt der Satz des Pythagoras direkt?', options: ['Gleichseitige Dreiecke', 'Rechtwinklige Dreiecke', 'Stumpfwinklige Dreiecke', 'Alle Dreiecke'], answer: 'Rechtwinklige Dreiecke', emoji: '📐', fact: 'Der Satz a² + b² = c² beschreibt die Seiten eines rechtwinkligen Dreiecks.' }
+      ],
+      [
+        { question: 'In welchem Jahr begann der Dreißigjährige Krieg?', options: ['1517', '1618', '1648', '1683'], answer: '1618', emoji: '⚔️', fact: 'Der Dreißigjährige Krieg begann 1618 mit dem Prager Fenstersturz.' },
+        { question: 'Welche Ordnungszahl besitzt Kohlenstoff?', options: ['4', '6', '8', '12'], answer: '6', emoji: '🧪', fact: 'Kohlenstoff besitzt sechs Protonen und damit die Ordnungszahl 6.' },
+        { question: 'Wie heißt die Hauptstadt der Mongolei?', options: ['Astana', 'Ulaanbaatar', 'Bischkek', 'Duschanbe'], answer: 'Ulaanbaatar', emoji: '🏙️', fact: 'Ulaanbaatar ist die Hauptstadt und größte Stadt der Mongolei.' },
+        { question: 'Wer komponierte die Oper „Die Zauberflöte“?', options: ['Wolfgang Amadeus Mozart', 'Richard Wagner', 'Giuseppe Verdi', 'Giacomo Puccini'], answer: 'Wolfgang Amadeus Mozart', emoji: '🎼', fact: 'Mozarts „Zauberflöte“ wurde 1791 in Wien uraufgeführt.' },
+        { question: 'Welche ist die größte Insel der Erde, wenn Kontinente nicht zählen?', options: ['Neuguinea', 'Borneo', 'Grönland', 'Madagaskar'], answer: 'Grönland', emoji: '🗺️', fact: 'Grönland gilt als größte Insel der Erde; Australien wird als Kontinent eingeordnet.' },
+        { question: 'In welcher SI-Einheit wird Druck gemessen?', options: ['Pascal', 'Tesla', 'Coulomb', 'Weber'], answer: 'Pascal', emoji: '📏', fact: 'Ein Pascal entspricht einem Newton pro Quadratmeter.' }
+      ],
+      [
+        { question: 'Wer entdeckte 1896 die natürliche Radioaktivität?', options: ['Henri Becquerel', 'Ernest Rutherford', 'Niels Bohr', 'Max Planck'], answer: 'Henri Becquerel', emoji: '☢️', fact: 'Henri Becquerel entdeckte die Radioaktivität an Uransalzen.' },
+        { question: 'In welchem Jahr fand die Schlacht bei Waterloo statt?', options: ['1789', '1804', '1815', '1848'], answer: '1815', emoji: '⚔️', fact: 'Napoleon wurde 1815 bei Waterloo endgültig besiegt.' },
+        { question: 'Wie heißt der tiefste bekannte Meeresgraben?', options: ['Peru-Chile-Graben', 'Marianengraben', 'Java-Graben', 'Puerto-Rico-Graben'], answer: 'Marianengraben', emoji: '🌊', fact: 'Im Marianengraben liegt mit dem Challengertief der tiefste bekannte Punkt der Ozeane.' },
+        { question: 'Wer schrieb die „Kritik der reinen Vernunft“?', options: ['Immanuel Kant', 'Georg Wilhelm Friedrich Hegel', 'Arthur Schopenhauer', 'Friedrich Nietzsche'], answer: 'Immanuel Kant', emoji: '🧠', fact: 'Immanuel Kant veröffentlichte die erste Auflage 1781.' },
+        { question: 'Aus wie vielen Sauerstoffatomen besteht ein Ozonmolekül?', options: ['Einem', 'Zwei', 'Drei', 'Vier'], answer: 'Drei', emoji: '🌤️', fact: 'Ozon besitzt die chemische Formel O₃.' },
+        { question: 'Welcher Vulkan verschüttete Pompeji im Jahr 79?', options: ['Ätna', 'Vesuv', 'Stromboli', 'Vulcano'], answer: 'Vesuv', emoji: '🌋', fact: 'Ein Ausbruch des Vesuvs verschüttete Pompeji und Herculaneum im Jahr 79.' }
+      ],
+      [
+        { question: 'Welches Metall ist bei Raumtemperatur flüssig?', options: ['Quecksilber', 'Aluminium', 'Zinn', 'Blei'], answer: 'Quecksilber', emoji: '🌡️', fact: 'Quecksilber ist das einzige reine Metall, das bei gewöhnlicher Raumtemperatur flüssig ist.' },
+        { question: 'Welcher Vertrag teilte 1494 außereuropäische Gebiete zwischen Spanien und Portugal?', options: ['Vertrag von Tordesillas', 'Vertrag von Utrecht', 'Vertrag von Saragossa', 'Vertrag von Alcáçovas'], answer: 'Vertrag von Tordesillas', emoji: '🗺️', fact: 'Der Vertrag von Tordesillas legte 1494 eine Demarkationslinie im Atlantik fest.' },
+        { question: 'Wer malte „Der Garten der Lüste“?', options: ['Hieronymus Bosch', 'Pieter Bruegel der Ältere', 'Jan van Eyck', 'Albrecht Dürer'], answer: 'Hieronymus Bosch', emoji: '🖼️', fact: 'Das berühmte Triptychon wird Hieronymus Bosch zugeschrieben.' },
+        { question: 'Welche Zellstruktur ist der Hauptort der Proteinsynthese?', options: ['Ribosom', 'Lysosom', 'Zentriol', 'Peroxisom'], answer: 'Ribosom', emoji: '🔬', fact: 'Ribosomen übersetzen die Information der mRNA in Proteine.' },
+        { question: 'Wie hieß der erste künstliche Erdsatellit?', options: ['Explorer 1', 'Sputnik 1', 'Luna 1', 'Wostok 1'], answer: 'Sputnik 1', emoji: '🛰️', fact: 'Die Sowjetunion startete Sputnik 1 im Oktober 1957.' },
+        { question: 'Was zeigte Rutherfords Goldfolienexperiment?', options: ['Einen kleinen massereichen Atomkern', 'Die Existenz von Neutronen', 'Elektronenbahnen mit festen Energien', 'Die Teilbarkeit des Protons'], answer: 'Einen kleinen massereichen Atomkern', emoji: '⚛️', fact: 'Die starke Ablenkung weniger Alphateilchen deutete auf einen kleinen, positiv geladenen Atomkern hin.' }
+      ],
+      [
+        { question: 'Wer schrieb die „Göttliche Komödie“?', options: ['Dante Alighieri', 'Francesco Petrarca', 'Giovanni Boccaccio', 'Ludovico Ariosto'], answer: 'Dante Alighieri', emoji: '📚', fact: 'Dante verfasste das Werk im frühen 14. Jahrhundert.' },
+        { question: 'Welches Enzym trennt bei der DNA-Replikation die beiden Stränge?', options: ['Helikase', 'Ligase', 'Polymerase', 'Primase'], answer: 'Helikase', emoji: '🧬', fact: 'Die Helikase öffnet die DNA-Doppelhelix, indem sie die Stränge voneinander trennt.' },
+        { question: 'Welche SI-Basiseinheit misst die Lichtstärke?', options: ['Lumen', 'Lux', 'Candela', 'Watt'], answer: 'Candela', emoji: '💡', fact: 'Die Candela ist die SI-Basiseinheit der Lichtstärke.' },
+        { question: 'Welchen Planeten umkreist der Mond Triton?', options: ['Uranus', 'Neptun', 'Saturn', 'Jupiter'], answer: 'Neptun', emoji: '🔭', fact: 'Triton ist der größte Mond des Planeten Neptun.' },
+        { question: 'In welchem Jahr fiel Konstantinopel an die Osmanen?', options: ['1204', '1453', '1492', '1529'], answer: '1453', emoji: '🏛️', fact: 'Sultan Mehmed II. eroberte Konstantinopel 1453.' },
+        { question: 'In welchem Jahr begann das Konzil von Trient?', options: ['1415', '1517', '1545', '1648'], answer: '1545', emoji: '⛪', fact: 'Das Konzil von Trient begann 1545 und endete 1563.' }
+      ],
+      [
+        { question: 'Was besagt der Fundamentalsatz der Algebra?', options: ['Jedes nichtkonstante komplexe Polynom besitzt mindestens eine komplexe Nullstelle', 'Jede Primzahl ist ungerade', 'Jede stetige Funktion ist differenzierbar', 'Jede reelle Folge konvergiert'], answer: 'Jedes nichtkonstante komplexe Polynom besitzt mindestens eine komplexe Nullstelle', emoji: '🔢', fact: 'Über den komplexen Zahlen zerfällt jedes nichtkonstante Polynom vollständig in Linearfaktoren.' },
+        { question: 'Wer entwickelte die Pfadintegralformulierung der Quantenmechanik?', options: ['Richard Feynman', 'Paul Dirac', 'Wolfgang Pauli', 'Max Born'], answer: 'Richard Feynman', emoji: '⚛️', fact: 'Richard Feynman formulierte die Quantenmechanik über Summen möglicher Pfade.' },
+        { question: 'Wer entzifferte maßgeblich die mykenische Linear-B-Schrift?', options: ['Michael Ventris', 'Arthur Evans', 'Jean-François Champollion', 'Heinrich Schliemann'], answer: 'Michael Ventris', emoji: '🗿', fact: 'Michael Ventris zeigte 1952, dass Linear B eine frühe Form des Griechischen wiedergibt.' },
+        { question: 'Welches dieser RNA-Tripletts ist ein Stoppcodon?', options: ['AUG', 'UGA', 'UGG', 'UAC'], answer: 'UGA', emoji: '🧬', fact: 'UGA ist neben UAA und UAG eines der drei Stoppcodons des Standard-Genetischen Codes.' },
+        { question: 'Welchen Wert hat die Summe 1/1² + 1/2² + 1/3² + …?', options: ['π²/6', 'π/2', 'e − 1', '√2'], answer: 'π²/6', emoji: '∞️', fact: 'Leonhard Euler löste das Basler Problem und zeigte, dass die Summe π²/6 beträgt.' },
+        { question: 'Welcher Vertrag beendete 1774 den Russisch-Türkischen Krieg?', options: ['Frieden von Küçük Kaynarca', 'Frieden von Jassy', 'Vertrag von Adrianopel', 'Frieden von Sistowa'], answer: 'Frieden von Küçük Kaynarca', emoji: '📜', fact: 'Der Frieden von Küçük Kaynarca beendete 1774 den Krieg zwischen Russland und dem Osmanischen Reich.' }
+      ]
+    ];
+
+    EXTRA_QUESTION_LADDER.forEach(function (questions, level) {
+      QUESTION_LADDER[level].push.apply(QUESTION_LADDER[level], questions);
+    });
+
     const MONEY = [
       '100', '200', '300', '500', '1.000',
       '2.000', '4.000', '8.000', '16.000', '32.000',
