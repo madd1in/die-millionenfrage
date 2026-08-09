@@ -1,6 +1,6 @@
 # Die Millionenfrage
 
-Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 30 Fragenvarianten, drei Jokern, Sprachausgabe und dynamischer Hintergrundmusik.
+Ein barrierearmes, deutschsprachiges Quizshow-Spiel mit 15 Gewinnstufen, 30 Fragenvarianten, drei Jokern, optionaler Sprachausgabe und eigener MP3-Hintergrundmusik.
 
 Das Spiel läuft vollständig im Browser und benötigt keine Installation.
 
@@ -11,8 +11,12 @@ Die veröffentlichte Version ist über GitHub Pages erreichbar.
 ## Bedienung
 
 - Antworten: Schaltflächen oder Tasten `A` bis `D` beziehungsweise `1` bis `4`
+- Schwierigkeit: Leicht (75 Sekunden), Normal (60 Sekunden) oder Schwer (45 Sekunden)
+- Fragenpools: leichte, gemischte oder schwere Fragen passend zum gewählten Durchlauf
 - Frage vorlesen: Fragekarte antippen
+- Sprachausgabe: auf Start- und Spielbildschirm jederzeit ein- oder ausschaltbar
 - Joker: 50:50, Publikum und zehn Sekunden Zusatzzeit
 - Sicherheitsstufen: 1.000 € und 32.000 €
+- Musik: „Quiz Runway“ im Durchlauf und „Letzte Frage“ beim Finale, jeweils in zwei Varianten
 
 Das visuelle und akustische Design ist eine eigenständige Quizshow-Inszenierung.
